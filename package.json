@@ -19,6 +19,8 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "alpinejs": "^3.13.5"
+        "alpinejs": "^3.13.5",
+        "jquery": "^3.7.1",
+        "leaflet": "^1.9.4"
     }
 }
