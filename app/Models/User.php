@@ -70,6 +70,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the role of this user.
+     */
+    public function job(): HasOne
+    {
+        return $this->hasOne(Job::class, 'id', 'job_id');
+    }
+
+    /**
      * Get the organisation of this user.
      */
     public function organisation(): HasOne

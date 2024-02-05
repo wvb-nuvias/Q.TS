@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,12 +17,21 @@
         @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/sass/app.scss'])
 
         <!-- Styles -->
+        <link href="argon-dashboard-tailwind.min.css" rel="stylesheet" />
+
         @livewireStyles
     </head>
-    <body>
-        <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
+    <body class="m-0 font-sans text-base antialiased font-normal text-left leading-default dark:bg-slate-900 bg-gray-50 text-slate-500  dark:text-white">
+
+        <x-navbar.sidebar />
+
+        <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl ps ps--active-y">
+            <x-navbar.topbar />
+
             {{ $slot }}
-        </div>
+        </main>
+
+        @stack('modals')
 
         @livewireScripts
     </body>
