@@ -86,10 +86,22 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the role of this user.
+     * Get the settings of this user.
      */
     public function settings(): HasMany
     {
-        return $this->HasMany(UserSetting::class, 'id', 'user_id');
+        return $this->hasMany(UserSetting::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get a certain setting value for this user.
+     */
+    public function setting($key)
+    {
+        $setting=$this->settings()->where("key",$key)->first();
+        if ($setting) {
+            return $setting->val;
+        }
+        return null;
     }
 }
