@@ -1,6 +1,6 @@
 <div id="location-map" class="form-control block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal" style="height: 290px"></div>
 <script>
-    import L from "leaflet";
+    var L = window.L;
 
     var map = L.map('location-map');
 
