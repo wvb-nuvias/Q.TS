@@ -23,6 +23,8 @@ return new class extends Migration
             $table->float('cost', 8, 2)->nullable();
             $table->timestamp('subscriptionstart')->nullable();
             $table->timestamp('subscriptionend')->nullable();
+            $table->integer('organisation_id')->nullable();
+            $table->integer('reseller_id')->nullable();
         });
     }
 

@@ -17,4 +17,6 @@ class Incidents extends Component
     {
         return view('livewire.incidents');
     }
+
+
 }

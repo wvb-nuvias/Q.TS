@@ -7,12 +7,12 @@
             <x-summarybox icon="bell"                    color1="red-600"     color2="orange-600" title="alerts"            total="5"   previous="" />
         </div>
         <div class="flex flex-wrap mt-6 space-x-6">
-            <x-graph />
-            <x-summaryperbrand />
+            <livewire:graph-incidents-year-overview />
+            <livewire:summary-incidents-per-brand />
         </div>
         <div class="flex flex-wrap space-x-6">
-            <x-summaryincidents />
-            <x-summarysubscriptions />
+            <livewire:summary-incidents-last />
+            <livewire:summary-subscriptions-last />
         </div>
         <div class="flex flex-wrap mt-6 -mx-3">
 

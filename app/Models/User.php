@@ -78,6 +78,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the tenant of this user.
+     */
+    public function tenant(): HasOne
+    {
+        return $this->hasOne(Tenant::class, 'id', 'tenantid');
+    }
+
+    /**
      * Get the organisation of this user.
      */
     public function organisation(): HasOne
