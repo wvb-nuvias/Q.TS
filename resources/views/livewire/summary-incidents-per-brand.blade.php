@@ -1,9 +1,10 @@
 <x-panel title="Incidents per brand">
-    <div class="p-0 overflow-x-auto ps">
+    <div class="p-0 overflow-x-auto ps pb-2">
     <table class="items-center justify-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
         <thead class="align-bottom">
             <tr>
-                <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Brand</th>
+                <th class="font-bold text-left uppercase align-middle bg-transparent border-b shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Brand</th>
+                <th class="font-bold text-left uppercase align-middle bg-transparent border-b shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Nr</th>
                 <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Percentage</th>
             </tr>
         </thead>
@@ -17,6 +18,13 @@
                     </div>
                     <div class="my-auto">
                         <h6 class="mb-0 text-xs leading-normal dark:text-white">{{ $result["name"] }}</h6>
+                    </div>
+                </div>
+            </td>
+            <td class="align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                <div class="flex px-2">
+                    <div class="my-auto">
+                        <h6 class="mb-0 text-xs leading-normal dark:text-white">{{ $result["tot"] }}</h6>
                     </div>
                 </div>
             </td>

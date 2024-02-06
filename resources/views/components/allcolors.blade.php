@@ -27,5 +27,5 @@ to-indigo-600 to-indigo-700 to-indigo-800 to-indigo-900 from-pink-100 from-pink-
 from-pink-600 from-pink-700 from-pink-800 from-pink-900 to-pink-100 to-pink-200 to-pink-300 to-pink-400 to-pink-500
 to-pink-600 to-pink-700 to-pink-800 to-pink-900 from-amber-100 from-amber-200 from-amber-300 from-amber-400 from-amber-500
 from-amber-600 from-amber-700 from-amber-800 from-amber-900 to-amber-100 to-amber-200 to-amber-300 to-amber-400 to-amber-500
-to-amber-600 to-amber-700 to-amber-800 to-amber-900
+to-amber-600 to-amber-700 to-amber-800 to-amber-900 opacity-20 opacity-25 opacity-50 opacity-60 opacity-75
 "></a>

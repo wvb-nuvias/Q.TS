@@ -8,6 +8,7 @@ use Livewire\Component;
 class UserProfile extends Component
 {
     public User $user;
+    public $gravatarhash;
 
     protected function rules()
     {
@@ -39,6 +40,8 @@ class UserProfile extends Component
 
     public function render()
     {
+        $this->gravatarhash=hash( 'sha256', strtolower( trim( $this->user->email ) ) );
+
         return view('livewire.user-profile');
     }
 }
