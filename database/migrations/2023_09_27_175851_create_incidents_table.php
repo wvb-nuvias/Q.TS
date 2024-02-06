@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('tenantid');
             $table->timestamps();
             $table->integer('createdby')->nullable();
-            $table->integer('customer_id')->nullable();
+            $table->integer('organisation_id')->nullable();
             $table->integer('incident_type_id')->nullable();
             $table->integer('incident_status_id')->nullable();
             $table->integer('brand_id')->nullable();

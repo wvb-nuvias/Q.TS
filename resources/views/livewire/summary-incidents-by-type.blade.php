@@ -5,7 +5,7 @@
                 <div class="flex-none w-2/3 max-w-full px-3">
                     <div>
                         <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">{{$title}}</p>
-                        <h5 class="mb-2 font-bold dark:text-white">{{$total}}</h5>
+                        <h5 class="mb-2 font-bold dark:text-white">{{$count}}</h5>
                         <p class="mb-0 dark:text-white dark:opacity-60">
                         <span class="text-sm font-bold leading-normal text-emerald-500">+55%</span>
                         since last month

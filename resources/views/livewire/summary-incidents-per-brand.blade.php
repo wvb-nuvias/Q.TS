@@ -8,97 +8,30 @@
             </tr>
         </thead>
         <tbody class="border-t">
+        @foreach ($results as $result)
         <tr>
             <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                 <div class="flex px-2">
                     <div>
-                        <img src="../../assets/img/small-logos/logo-spotify.svg" class="inline-flex items-center justify-center mr-2 text-sm text-white transition-all duration-200 ease-in-out rounded-full h-9 w-9" alt="spotify">
+                        <img src="img/icon/vendor/{{ $result["icon"] }}" class="inline-flex items-center justify-center mr-2 text-sm text-white transition-all duration-200 ease-in-out h-6 w-6" alt="spotify">
                     </div>
                     <div class="my-auto">
-                        <h6 class="mb-0 text-xs leading-normal dark:text-white">Watchguard</h6>
+                        <h6 class="mb-0 text-xs leading-normal dark:text-white">{{ $result["name"] }}</h6>
                     </div>
                 </div>
             </td>
             <td class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                 <div class="flex items-center">
-                    <span class="mr-2 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">60%</span>
+                    <span class="mr-2 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">{{ number_format($result["percentage"], 2, '.', ','); }}%</span>
                     <div>
-                        <div class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                            <div class="flex flex-col justify-center w-3/5 h-auto overflow-hidden text-center text-white transition-all rounded duration-600 ease bg-gradient-to-tl from-blue-700 to-cyan-500 whitespace-nowrap" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="text-xs h-0.75 w-40 m-0 flex overflow-visible rounded-lg bg-gray-200" style="width: 200px">
+                            <div class="flex flex-col justify-center w-20 h-auto overflow-hidden text-center text-white transition-all rounded duration-600 ease bg-gradient-to-tl from-{{ $result["color1"] }} to-{{ $result["color2"] }} whitespace-nowrap" role="progressbar" aria-valuenow="{{ $result["percentage"] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $result["percentage"]*2 }}px"></div>
                         </div>
                     </div>
                 </div>
             </td>
         </tr>
-
-        <tr>
-            <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                <div class="flex px-2">
-                    <div>
-                        <img src="../../assets/img/small-logos/logo-invision.svg" class="inline-flex items-center justify-center mr-2 text-sm text-white transition-all duration-200 ease-in-out rounded-full h-9 w-9" alt="invision">
-                    </div>
-                    <div class="my-auto">
-                        <h6 class="mb-0 text-xs leading-normal dark:text-white">Trustwave</h6>
-                    </div>
-                </div>
-            </td>
-            <td class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                <div class="flex items-center">
-                    <span class="mr-2 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">100%</span>
-                    <div>
-                        <div class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                            <div class="flex flex-col justify-center w-full h-auto overflow-hidden text-center text-white transition-all rounded duration-600 ease bg-gradient-to-tl from-emerald-500 to-teal-400 whitespace-nowrap" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                <div class="flex px-2">
-                    <div>
-                        <img src="../../assets/img/small-logos/logo-jira.svg" class="inline-flex items-center justify-center mr-2 text-sm text-white transition-all duration-200 ease-in-out rounded-full h-9 w-9" alt="jira">
-                    </div>
-                    <div class="my-auto">
-                        <h6 class="mb-0 text-xs leading-normal dark:text-white">Fortigate</h6>
-                    </div>
-                </div>
-            </td>
-            <td class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                <div class="flex items-center">
-                    <span class="mr-2 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">30%</span>
-                    <div>
-                        <div class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                            <div class="flex flex-col justify-center h-auto overflow-hidden text-center text-white transition-all rounded duration-600 ease bg-gradient-to-tl from-red-600 to-orange-600 w-3/10 whitespace-nowrap" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="30"></div>
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
-
-        <tr>
-            <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                <div class="flex px-2">
-                    <div>
-                        <img src="../../assets/img/small-logos/logo-slack.svg" class="inline-flex items-center justify-center mr-2 text-sm text-white transition-all duration-200 ease-in-out rounded-full h-9 w-9" alt="slack">
-                    </div>
-                    <div class="my-auto">
-                        <h6 class="mb-0 text-xs leading-normal dark:text-white">TP-Link</h6>
-                    </div>
-                </div>
-            </td>
-
-            <td class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                <div class="flex items-center">
-                    <span class="mr-2 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">0%</span>
-                    <div>
-                        <div class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                            <div class="flex flex-col justify-center w-0 h-auto overflow-hidden text-center text-white transition-all rounded duration-600 ease bg-gradient-to-tl from-emerald-500 to-teal-400 whitespace-nowrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
+        @endforeach
         </tbody>
     </table>
     </div>

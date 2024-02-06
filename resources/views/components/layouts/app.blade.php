@@ -29,7 +29,7 @@
 
             {{ $slot }}
 
-            <div class="ps__rail-y" style="top: 0px; height: 200px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+            <div class="ps__rail-y" style="top: 0px; height: 100px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
         </main>
 
         @stack('modals')

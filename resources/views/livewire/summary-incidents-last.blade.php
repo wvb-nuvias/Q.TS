@@ -1,3 +1,3 @@
 <x-panel title="Last Incidents">
-    <div style="height: 200px"></div>
+    <div style="height: 300px"></div>
 </x-panel>
