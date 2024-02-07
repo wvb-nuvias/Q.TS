@@ -20,7 +20,7 @@
         <link href="argon-dashboard-tailwind.min.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
         @livewireStyles
     </head>
@@ -29,6 +29,7 @@
 
         <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl ps ps--active-y">
             <x-navbar.topbar />
+            <x-navbar.sidebar2 />
 
             {{ $slot }}
 
@@ -37,6 +38,8 @@
 
         @stack('modals')
 
+        <script src="js/plugin.js"></script>
+        <script src="js/sidebar2.js"></script>
         @livewireScripts
     </body>
 </html>
