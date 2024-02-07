@@ -29,7 +29,7 @@
 
         <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl ps ps--active-y">
             <x-navbar.topbar />
-            <x-navbar.sidebar2 />
+            <livewire:side-bar-settings />
 
             {{ $slot }}
 
