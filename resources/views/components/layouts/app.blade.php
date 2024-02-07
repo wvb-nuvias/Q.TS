@@ -39,7 +39,6 @@
         @stack('modals')
 
         <script src="js/plugin.js"></script>
-        <script src="js/sidebar2.js"></script>
         @livewireScripts
     </body>
 </html>
