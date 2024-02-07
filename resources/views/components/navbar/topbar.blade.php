@@ -37,10 +37,15 @@
 
 
     <li class="flex items-center">
-    <a href="../../pages/authentication/signin/illustration.html" class="block px-0 py-2 text-sm font-semibold text-white transition-all ease-nav-brand">
-    <i class="fa fa-user sm:mr-1" aria-hidden="true"></i>
-    <span class="hidden sm:inline">Sign In</span>
-    </a>
+        <!-- Authentication -->
+        <form method="POST" action="{{ route('logout') }}" x-data>
+            @csrf
+
+            <x-dropdown-link href="{{ route('logout') }}" class="block px-0 py-2 text-sm font-semibold text-white transition-all ease-nav-brand"
+                     @click.prevent="$root.submit();">
+                {{ __('Sign Out') }}
+            </x-dropdown-link>
+        </form>
     </li>
     <li class="flex items-center pl-4 xl:hidden">
     <a sidenav-trigger="" class="block p-0 text-sm text-white transition-all ease-nav-brand" href="javascript:;" aria-expanded="false">
