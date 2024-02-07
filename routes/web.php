@@ -33,8 +33,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-//    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-
     Route::get('dashboard', Dashboard::class)->name('dashboard');
 
     Route::get('incidents', Incidents::class)->name('incidents');
@@ -47,5 +45,4 @@ Route::middleware([
     Route::get('tenant-management', TenantManagement::class)->middleware('auth')->name('tenant-management');
     Route::get('role-management', RoleManagement::class)->middleware('auth')->name('role-management');
     Route::get('product-management', ProductManagement::class)->middleware('auth')->name('product-management');
-
 });
