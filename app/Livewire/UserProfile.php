@@ -13,10 +13,10 @@ class UserProfile extends Component
     protected function rules()
     {
         return [
+            'user.firstname' => 'required',
             'user.name' => 'required',
             'user.email' => 'required|email|unique:users,email,'.$this->user->id,
-            'user.phone' => 'max:14',
-            'user.about' => 'max:150'
+            'user.phone' => 'max:14'
         ];
     }
 

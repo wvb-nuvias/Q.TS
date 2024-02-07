@@ -13,7 +13,7 @@
                 </div>
                 <div class="w-8/12 max-w-full px-3 my-auto flex-0 sm:w-auto">
                     <div class="h-full">
-                        <h5 class="mb-1 font-bold dark:text-white">{{ $user->name }}</h5>
+                        <h5 class="mb-1 font-bold dark:text-white">{{ $user->fullname() }}</h5>
                         <p class="mb-0 text-sm font-semibold leading-normal">{{ $user->job->name }} - {{ $user->role->name }}</p>
                     </div>
                 </div>
@@ -30,13 +30,13 @@
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <label class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" for="First Name">First Name</label>
                             <div class="relative flex flex-wrap items-stretch w-full rounded-lg">
-                                <input type="text" name="First Name" placeholder="Alec" class="focus:shadow-primary-outline dark:bg-slate-850 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
+                                <input type="text" name="First Name" wire:model="user.firstname" placeholder="Alec" class="focus:shadow-primary-outline dark:bg-slate-850 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
                             </div>
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <label class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" for="Last Name">Last Name</label>
                             <div class="relative flex flex-wrap items-stretch w-full rounded-lg">
-                                <input type="text" name="Last Name" placeholder="Thompson" class="focus:shadow-primary-outline dark:bg-slate-850 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
+                                <input type="text" name="Last Name" wire:model="user.name" placeholder="Thompson" class="focus:shadow-primary-outline dark:bg-slate-850 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
                             </div>
                         </div>
                     </div>
@@ -74,8 +74,8 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap -mx-3 pt-3">
-                        <button type="submit" aria-controls="address" next-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto text-xs font-bold text-right text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 bg-gradient-to-tl from-zinc-800 to-zinc-700 leading-pro tracking-tight-rem bg-150 bg-x-25">Next</button>
+                    <div class="flex flex-wrap pt-3">
+                        <button type="submit" aria-controls="address" next-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto text-xs font-bold text-right text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 bg-gradient-to-tl from-zinc-800 to-zinc-700 leading-pro tracking-tight-rem bg-150 bg-x-25">Save Changes</button>
                     </div>
                 </form>
             </div>
