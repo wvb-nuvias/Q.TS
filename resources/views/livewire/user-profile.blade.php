@@ -1,7 +1,7 @@
 <div>
     <div class="w-full px-6 py-6 mx-auto">
         <div class="h-80 rounded-xl" style="background-position: -100px -300px; background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80');">
-            <div class="opacity-50 h-80 w-full bg-gradient-to-tl from-green-500 to-blue-500 rounded-xl"></div>
+            <div class="opacity-50 h-80 w-full bg-gradient-to-tl from-{{$user->setting('themecolor1')}} to-{{$user->setting('themecolor2')}} rounded-xl"></div>
         </div>
         <div class="-mt-9 w-11/12 mx-auto">
         <x-panel title="">

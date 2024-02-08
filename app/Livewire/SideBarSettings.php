@@ -20,29 +20,41 @@ class SideBarSettings extends Component
         return view('livewire.side-bar-settings');
     }
 
-    public function savetheme($gg) {
+    public function savetheme($theme) {
         $themesetting = UserSetting::where('user_id', $this->user->id)
                         ->where('tenantid',$this->user->tenantid)
                         ->where('key','theme')
                         ->first();
         if ($themesetting) {
-            $themesetting->val = $gg;
+            $themesetting->val = $theme;
             $themesetting->save();
         }
     }
 
-    public function setThemeColor($color)
+    public function setcolor1($color)
     {
-        $this->user->themecolor=$color;
-        $this->user->save();
+        $themesetting = UserSetting::where('user_id', $this->user->id)
+                        ->where('tenantid',$this->user->tenantid)
+                        ->where('key','themecolor1')
+                        ->first();
+        if ($themesetting) {
+            $themesetting->val = $color;
+            $themesetting->save();
+        }
 
         return redirect(request()->header('Referer'));
     }
 
-    public function setSideBarBackground($theme)
+    public function setcolor2($color)
     {
-        $this->user->themesidebar=$theme;
-        $this->user->save();
+        $themesetting = UserSetting::where('user_id', $this->user->id)
+                        ->where('tenantid',$this->user->tenantid)
+                        ->where('key','themecolor2')
+                        ->first();
+        if ($themesetting) {
+            $themesetting->val = $color;
+            $themesetting->save();
+        }
 
         return redirect(request()->header('Referer'));
     }
