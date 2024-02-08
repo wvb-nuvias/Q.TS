@@ -20,42 +20,33 @@ class SideBarSettings extends Component
         return view('livewire.side-bar-settings');
     }
 
-    public function savetheme($theme) {
+    public function savesetting($key,$value) {
         $themesetting = UserSetting::where('user_id', $this->user->id)
                         ->where('tenantid',$this->user->tenantid)
-                        ->where('key','theme')
+                        ->where('key',$key)
                         ->first();
         if ($themesetting) {
-            $themesetting->val = $theme;
+            $themesetting->val = $value;
             $themesetting->save();
         }
+
+        //TODO before uncommenting this, need to disable the javascript executed to change to darkmode? and then remove the redirect from setcolor functions
+        //return redirect(request()->header('Referer'));
+
+        //TODO after that consider using savesetting function directly in blade sidebar-settings
     }
 
-    public function setcolor1($color)
-    {
-        $themesetting = UserSetting::where('user_id', $this->user->id)
-                        ->where('tenantid',$this->user->tenantid)
-                        ->where('key','themecolor1')
-                        ->first();
-        if ($themesetting) {
-            $themesetting->val = $color;
-            $themesetting->save();
-        }
+    public function savetheme($theme) {
+        $this->savesetting("theme",$theme);
+    }
 
+    public function setcolor1($color) {
+        $this->savesetting("themecolor1",$color);
         return redirect(request()->header('Referer'));
     }
 
-    public function setcolor2($color)
-    {
-        $themesetting = UserSetting::where('user_id', $this->user->id)
-                        ->where('tenantid',$this->user->tenantid)
-                        ->where('key','themecolor2')
-                        ->first();
-        if ($themesetting) {
-            $themesetting->val = $color;
-            $themesetting->save();
-        }
-
+    public function setcolor2($color) {
+        $this->savesetting("themecolor2",$color);
         return redirect(request()->header('Referer'));
     }
 }
