@@ -22,4 +22,8 @@ export default {
     darkMode: 'class',
 
     plugins: [forms, typography],
+
+    presets: [
+        require("./vendor/power-components/livewire-powergrid/tailwind.config.js"),
+    ],
 };

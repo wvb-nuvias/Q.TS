@@ -9,6 +9,7 @@ use App\Livewire\Subscriptions;
 use App\Livewire\Incidents;
 use App\Livewire\Devices;
 use App\Livewire\RoleManagement;
+use App\Livewire\TypeManagement;
 use App\Livewire\TenantManagement;
 use App\Livewire\ProductManagement;
 
@@ -41,8 +42,10 @@ Route::middleware([
 
     Route::get('user-profile', UserProfile::class)->middleware('auth')->name('user-profile');
     Route::get('user-management', UserManagement::class)->middleware('auth')->name('user-management');
-
-    Route::get('tenant-management', TenantManagement::class)->middleware('auth')->name('tenant-management');
+    Route::get('type-management', TypeManagement::class)->middleware('auth')->name('type-management');
     Route::get('role-management', RoleManagement::class)->middleware('auth')->name('role-management');
     Route::get('product-management', ProductManagement::class)->middleware('auth')->name('product-management');
+
+    Route::get('tenant-management', TenantManagement::class)->middleware('auth')->name('tenant-management');
+
 });

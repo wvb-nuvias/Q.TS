@@ -25,10 +25,10 @@
         @livewireStyles
     </head>
     <body class="m-0 font-sans text-base antialiased font-normal text-left leading-default dark:bg-slate-900 bg-gray-50 text-slate-500  dark:text-white">
-        <x-navbar.sidebar />
+        <livewire:side-bar />
 
         <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl ps ps--active-y">
-            <x-navbar.topbar />
+            <livewire:top-bar />
             <livewire:side-bar-settings />
 
             {{ $slot }}
@@ -38,7 +38,6 @@
 
         @stack('modals')
 
-        <script src="js/plugin.js"></script>
         @livewireScripts
     </body>
 </html>
