@@ -30,23 +30,8 @@ class SideBarSettings extends Component
             $themesetting->save();
         }
 
-        //TODO before uncommenting this, need to disable the javascript executed to change to darkmode? and then remove the redirect from setcolor functions
-        //return redirect(request()->header('Referer'));
-
-        //TODO after that consider using savesetting function directly in blade sidebar-settings
-    }
-
-    public function savetheme($theme) {
-        $this->savesetting("theme",$theme);
-    }
-
-    public function setcolor1($color) {
-        $this->savesetting("themecolor1",$color);
-        return redirect(request()->header('Referer'));
-    }
-
-    public function setcolor2($color) {
-        $this->savesetting("themecolor2",$color);
-        return redirect(request()->header('Referer'));
+        if ($key!="theme") {
+            return redirect(request()->header('Referer'));
+        }
     }
 }
