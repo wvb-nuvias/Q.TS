@@ -27,5 +27,16 @@ to-indigo-600 to-indigo-700 to-indigo-800 to-indigo-900 from-pink-100 from-pink-
 from-pink-600 from-pink-700 from-pink-800 from-pink-900 to-pink-100 to-pink-200 to-pink-300 to-pink-400 to-pink-500
 to-pink-600 to-pink-700 to-pink-800 to-pink-900 from-amber-100 from-amber-200 from-amber-300 from-amber-400 from-amber-500
 from-amber-600 from-amber-700 from-amber-800 from-amber-900 to-amber-100 to-amber-200 to-amber-300 to-amber-400 to-amber-500
-to-amber-600 to-amber-700 to-amber-800 to-amber-900 opacity-20 opacity-25 opacity-50 opacity-60 opacity-75
+to-amber-600 to-amber-700 to-amber-800 to-amber-900
+
+from-gray-100 from-gray-200 from-gray-300 from-gray-400 from-gray-500
+from-gray-600 from-gray-700 from-gray-800 from-gray-900 to-gray-100 to-gray-200 to-gray-300 to-gray-400 to-gray-500
+to-gray-600 to-gray-700 to-gray-800 to-gray-900
+from-zinc-100 from-zinc-200 from-zinc-300 from-zinc-400 from-zinc-500
+from-zinc-600 from-zinc-700 from-zinc-800 from-zinc-900 to-zinc-100 to-zinc-200 to-zinc-300 to-zinc-400 to-zinc-500
+to-zinc-600 to-zinc-700 to-zinc-800 to-zinc-900
+from-yellow-100 from-yellow-200 from-yellow-300 from-yellow-400 from-yellow-500
+from-yellow-600 from-yellow-700 from-yellow-800 from-yellow-900 to-yellow-100 to-yellow-200 to-yellow-300 to-yellow-400 to-yellow-500
+to-yellow-600 to-yellow-700 to-yellow-800 to-yellow-900
+opacity-20 opacity-25 opacity-50 opacity-60 opacity-75
 "></a>
