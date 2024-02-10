@@ -24,7 +24,10 @@
         </x-panel>
         </div>
         <x-panel title="Basic Info">
-            <div class="flex-auto pt-0">
+            <x-panel.subtitle extracss="-mt-4">
+                These are your profile details
+            </x-panel.subtitle>
+            <div class="flex-auto pt-4">
                 <form wire:submit='update'>
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">

@@ -3,13 +3,10 @@
         <div class="flex-auto p-4">
             <div class="flex flex-row -mx-3">
                 <div class="flex-none w-2/3 max-w-full px-3">
-                    <div>
-                        <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">Alerts</p>
+                    <div class="pl-2 pr-2">
+                        <x-panel.title title="Alerts" />
                         <h5 class="mb-2 font-bold dark:text-white">{{$total}}</h5>
-                        <p class="mb-0 dark:text-white dark:opacity-60">
-                        <span class="text-sm font-bold leading-normal text-emerald-500">+55%</span>
-                        since last month
-                        </p>
+                        <x-panel.summary updown="+55" updownwhy="since last month" />
                     </div>
                 </div>
                 <div class="px-3 text-right basis-1/3">

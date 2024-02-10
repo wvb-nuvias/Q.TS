@@ -9,7 +9,7 @@ use App\Models\User;
 class SummaryIncidentsByType extends Component
 {
     public $start, $end, $status;
-    public $title, $count, $color1, $color2,$icon;
+    public $title, $count, $color1, $color2, $icon, $updown, $updownwhy;
     public User $user;
 
     public function mount()

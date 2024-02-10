@@ -1,10 +1,10 @@
 <div>
     <div class="w-full px-6 py-6 mx-auto">
         <div class="flex flex-wrap -mx-3">
-            <livewire:summary-incidents-by-type :status="1" :start="'2024-02-01'" :end="'2024-02-28'" />
-            <livewire:summary-incidents-by-type :status="6" :start="'2024-02-01'" :end="'2024-02-28'" />
-            <livewire:summary-incidents-by-type :status="4" :start="'2024-02-01'" :end="'2024-02-28'" />
-            <livewire:summary-alerts />
+            <livewire:summary-incidents-by-type :status="1" :start="'2024-02-01'" :end="'2024-02-28'" updown="+10" :updownwhy="'since last month'" />
+            <livewire:summary-incidents-by-type :status="6" :start="'2024-02-01'" :end="'2024-02-28'" updown="-5"  :updownwhy="'since last month'" />
+            <livewire:summary-incidents-by-type :status="4" :start="'2024-02-01'" :end="'2024-02-28'" updown="+40" :updownwhy="'since last month'" />
+            <livewire:summary-alerts :updown="-10" :updownwhy="'since last month'" />
         </div>
         <div class="flex flex-wrap mt-6 space-x-6">
             <livewire:graph-incidents-year-overview />
