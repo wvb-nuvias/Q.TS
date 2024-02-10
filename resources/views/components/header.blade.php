@@ -1,3 +1,8 @@
-<div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80');">
-    <span class="mask  bg-gradient-primary  opacity-6"></span>
+<div class="h-60 rounded-xl" style="background-size: cover; background-image: url('{{ $url }}');">
+    <div class="opacity-50 h-60 w-full bg-gradient-to-tl from-{{$themecolor1}} to-{{$themecolor2}} rounded-xl"></div>
+</div>
+<div class="-mt-9 w-11/12 mx-auto">
+    <x-panel title="">
+        {{ $slot }}
+    </x-panel>
 </div>

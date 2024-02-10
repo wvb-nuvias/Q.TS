@@ -1,9 +1,7 @@
 <div>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-
-            </div>
-        </div>
+    <div class="w-full px-6 py-6 mx-auto">
+        <x-header themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" url="img/header/header4.jpg">
+            <x-panel.title title="Devices" />
+        </x-header>
     </div>
 </div>

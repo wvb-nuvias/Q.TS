@@ -1,10 +1,6 @@
 <div>
     <div class="w-full px-6 py-6 mx-auto">
-        <div class="h-80 rounded-xl" style="background-position: -100px -300px; background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80');">
-            <div class="opacity-50 h-80 w-full bg-gradient-to-tl from-{{$user->setting('themecolor1')}} to-{{$user->setting('themecolor2')}} rounded-xl"></div>
-        </div>
-        <div class="-mt-9 w-11/12 mx-auto">
-        <x-panel title="">
+        <x-header themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" url="img/header/header6.jpg">
             <div class="flex flex-wrap items-center justify-center -mx-3 pt-6">
                 <div class="w-4/12 max-w-full px-3 flex-0 sm:w-auto">
                     <div class="relative inline-flex items-center justify-center text-base text-white transition-all duration-200 ease-in-out w-19 h-19 rounded-xl">
@@ -21,8 +17,7 @@
 
                 </div>
             </div>
-        </x-panel>
-        </div>
+        </x-header>
         <x-panel title="Basic Info">
             <x-panel.subtitle extracss="-mt-4">
                 These are your profile details
