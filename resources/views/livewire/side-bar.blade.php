@@ -11,36 +11,30 @@
         </div>
 
         <ul class="navbar-nav">
-            <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent">
+            <x-navbar.sep />
 
-            <li class="w-full mt-4">
-                <h6 class="pl-4 ml-2 text-sm font-bold leading-tight uppercase opacity-60 dark:text-white mb-3 mt-3">PAGES</h6>
-            </li>
+            <x-navbar.title title="Pages" />
 
-            <x-navbar.navitem route="dashboard"             icon="chart-pie"        name="Dashboard" />
-            <x-navbar.navitem route="incidents"             icon="ambulance"        name="Incidents" />
-            <x-navbar.navitem route="subscriptions"         icon="file-contract"    name="Subscriptions" />
-            <x-navbar.navitem route="devices"               icon="server"           name="Devices" />
+            <x-navbar.item route="dashboard"             icon="chart-pie"        name="Dashboard" />
+            <x-navbar.item route="incidents"             icon="ambulance"        name="Incidents" />
+            <x-navbar.item route="subscriptions"         icon="file-contract"    name="Subscriptions" />
+            <x-navbar.item route="devices"               icon="server"           name="Devices" />
 
-            <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent">
+            <x-navbar.sep />
 
-            <li class="w-full mt-4">
-                <h6 class="pl-4 ml-2 text-sm font-bold leading-tight uppercase opacity-60 dark:text-white mb-3 mt-3">Administration</h6>
-            </li>
+            <x-navbar.title title="Administration" />
 
-            <x-navbar.navitem route="user-profile"          icon="user"             name="Pofile" />
-            <x-navbar.navitem route="user-management"       icon="list"             name="User Management" />
-            <x-navbar.navitem route="role-management"       icon="user-tag"         name="Role Management" />
-            <x-navbar.navitem route="type-management"       icon="quote-right"      name="Type Management" />
-            <x-navbar.navitem route="product-management"    icon="cash-register"    name="Product Management" />
+            <x-navbar.item route="user-profile"          icon="user"             name="Pofile" />
+            <x-navbar.item route="user-management"       icon="list"             name="User Management" />
+            <x-navbar.item route="role-management"       icon="user-tag"         name="Role Management" />
+            <x-navbar.item route="type-management"       icon="quote-right"      name="Type Management" />
+            <x-navbar.item route="product-management"    icon="cash-register"    name="Product Management" />
 
-            <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent">
+            <x-navbar.sep />
 
-            <li class="w-full mt-4">
-                <h6 class="pl-4 ml-2 text-sm font-bold leading-tight uppercase opacity-60 dark:text-white mb-3 mt-3">TENANT Administration</h6>
-            </li>
+            <x-navbar.title title="Tenant Administration" />
 
-            <x-navbar.navitem route="tenant-management"     icon="building-user"    name="Tenant Management" />
+            <x-navbar.item route="tenant-management"     icon="building-user"    name="Tenant Management" />
         </ul>
     </aside>
 </div>
