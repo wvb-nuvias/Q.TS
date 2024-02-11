@@ -35,4 +35,12 @@ class Subscription extends Model
     {
         return $this->HasOne(SubscriptionType::class);
     }
+
+    /**
+     * Get the device linked to this subscription.
+     */
+    public function device()
+    {
+        //TODO link the device to the contract using serial number
+    }
 }

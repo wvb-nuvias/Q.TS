@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 use App\Models\Brand;
-use App\Models\Customer;
+use App\Models\Organisation;
 use App\Models\IncidentDetail;
 use App\Models\IncidentStatus;
 use App\Models\IncidentType;
@@ -51,11 +51,11 @@ class Incident extends Model
     }
 
     /**
-     * Get the customer for this incident.
+     * Get the organisation for this incident.
      */
-    public function customer(): HasOne
+    public function organisation(): HasOne
     {
-        return $this->HasOne(Customer::class);
+        return $this->HasOne(Organisation::class);
     }
 
     /**
