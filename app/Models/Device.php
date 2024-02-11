@@ -51,7 +51,7 @@ class Device extends Model
         'brand_id',
         'hardware',
         'serial',
-        'addressid',
+        'address_id',
         'image',
         'icon',
         'notes',
