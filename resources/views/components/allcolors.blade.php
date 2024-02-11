@@ -38,5 +38,8 @@ to-zinc-600 to-zinc-700 to-zinc-800 to-zinc-900
 from-yellow-100 from-yellow-200 from-yellow-300 from-yellow-400 from-yellow-500
 from-yellow-600 from-yellow-700 from-yellow-800 from-yellow-900 to-yellow-100 to-yellow-200 to-yellow-300 to-yellow-400 to-yellow-500
 to-yellow-600 to-yellow-700 to-yellow-800 to-yellow-900
-opacity-20 opacity-25 opacity-50 opacity-60 opacity-75
+from-slate-100 from-slate-200 from-slate-300 from-slate-400 from-slate-500
+from-slate-600 from-slate-700 from-slate-800 from-slate-900 to-slate-100 to-slate-200 to-slate-300 to-slate-400 to-slate-500
+to-slate-600 to-slate-700 to-slate-800 to-slate-900
+opacity-20 opacity-25 opacity-50 opacity-60 opacity-75 opacity-85 opacity-100
 "></a>

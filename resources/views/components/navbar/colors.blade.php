@@ -5,7 +5,7 @@
 @endif
 
 <i class="my-2 text-left pl-6 {{$extracss}}" sidenav-colors>
-    <x-navbar.coloritem color="zinc" setting="{{$setting}}" />
+    <x-navbar.coloritem color="gray" setting="{{$setting}}" />
     <x-navbar.coloritem color="yellow" setting="{{$setting}}" />
     <x-navbar.coloritem color="amber" setting="{{$setting}}" />
     <x-navbar.coloritem color="orange" setting="{{$setting}}" />

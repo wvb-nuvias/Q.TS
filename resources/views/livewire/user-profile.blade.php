@@ -23,7 +23,7 @@
                 These are your profile details
             </x-panel.subtitle>
             <div class="flex-auto pt-4">
-                <form wire:submit='update'>
+
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <label class="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" for="First Name">First Name</label>
@@ -56,12 +56,13 @@
                         <div class="w-6/12 max-w-full px-3 flex-0">
 
                         </div>
-                        <div class="w-6/12 max-w-full px-3 flex-0">
+                        <div class="w-5/12 max-w-full px-3 flex-0">
                             <label class="mt-6 mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" for="location">Location</label>
                             <div class="relative flex flex-wrap items-stretch w-full rounded-lg">
                                 <input value="{{ $user->organisation->address->tostring() }}" type="text" name="location" placeholder="here comes the address" class="focus:shadow-primary-outline dark:bg-slate-850 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
                             </div>
                         </div>
+                        <x-theme.button extracss="h-10 self-end">Change</x-theme.button>
                     </div>
                     <div class="flex flex-wrap -mx-3 pt-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
@@ -72,10 +73,9 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap pt-3">
-                        <button type="submit" aria-controls="address" next-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto text-xs font-bold text-right text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 bg-gradient-to-tl from-zinc-800 to-zinc-700 leading-pro tracking-tight-rem bg-150 bg-x-25">Save Changes</button>
+                    <div class="flex flex-wrap pt-3 justify-end">
+                        <x-theme.button wire="update">Save Changes</x-theme.button>
                     </div>
-                </form>
             </div>
         </x-panel>
     </div>

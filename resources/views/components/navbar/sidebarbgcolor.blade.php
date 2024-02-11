@@ -1,5 +1,5 @@
 <i class="flex pl-6 pr-6 space-x-2">
-    <button wire:click="savesetting('sidepanelbgcolor','slate-850')" class="inline-block px-6 py-3 mb-0 ml-auto text-xs font-bold text-right text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 bg-gradient-to-tl from-zinc-800 to-zinc-700 leading-pro tracking-tight-rem bg-150 bg-x-25">Dark</button>
-    <button wire:click="savesetting('sidepanelbgcolor','white')" class="inline-block px-6 py-3 mb-0 ml-auto text-xs font-bold text-right text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 bg-gradient-to-tl from-zinc-800 to-zinc-700 leading-pro tracking-tight-rem bg-150 bg-x-25">Light</button>
-    <button wire:click="savesetting('sidepanelbgcolor','transparent')" class="inline-block px-6 py-3 mb-0 ml-auto text-xs font-bold text-right text-white uppercase align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 bg-gradient-to-tl from-zinc-800 to-zinc-700 leading-pro tracking-tight-rem bg-150 bg-x-25">Transparent</button>
+    <x-theme.button wire="savesetting('sidepanelbgcolor','slate-850')">Dark</x-theme.button>
+    <x-theme.button wire="savesetting('sidepanelbgcolor','white')">Light</x-theme.button>
+    <x-theme.button wire="savesetting('sidepanelbgcolor','transparent')">Transparent</x-theme.button>
 </i>
