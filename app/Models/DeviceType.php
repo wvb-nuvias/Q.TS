@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class DeviceType extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['tenantid', 'name'];
 }
