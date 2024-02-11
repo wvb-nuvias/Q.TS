@@ -19,6 +19,7 @@
             <x-navbar.item route="incidents"             icon="ambulance"        name="Incidents" />
             <x-navbar.item route="subscriptions"         icon="file-contract"    name="Subscriptions" />
             <x-navbar.item route="devices"               icon="server"           name="Devices" />
+            <x-navbar.item route="alerts"                icon="bell"             name="Alerts" />
 
             <x-navbar.sep />
 

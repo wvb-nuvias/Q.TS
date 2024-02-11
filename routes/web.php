@@ -8,6 +8,7 @@ use App\Livewire\UserProfile;
 use App\Livewire\Subscriptions;
 use App\Livewire\Incidents;
 use App\Livewire\Devices;
+use App\Livewire\Alerts;
 use App\Livewire\RoleManagement;
 use App\Livewire\TypeManagement;
 use App\Livewire\TenantManagement;
@@ -39,6 +40,7 @@ Route::middleware([
     Route::get('incidents', Incidents::class)->name('incidents');
     Route::get('subscriptions', Subscriptions::class)->name('subscriptions');
     Route::get('devices', Devices::class)->name('devices');
+    Route::get('alerts', Alerts::class)->name('alerts');
 
     Route::get('user-profile', UserProfile::class)->middleware('auth')->name('user-profile');
     Route::get('user-management', UserManagement::class)->middleware('auth')->name('user-management');

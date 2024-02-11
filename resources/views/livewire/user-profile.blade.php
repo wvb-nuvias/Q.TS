@@ -1,22 +1,7 @@
 <div>
     <div class="w-full px-6 py-6 mx-auto">
         <x-header themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" url="img/header/header6.jpg">
-            <div class="flex flex-wrap items-center justify-center -mx-3 pt-6">
-                <div class="w-4/12 max-w-full px-3 flex-0 sm:w-auto">
-                    <div class="relative inline-flex items-center justify-center text-base text-white transition-all duration-200 ease-in-out w-19 h-19 rounded-xl">
-                        <img class="w-full shadow-sm rounded-xl" src="https://gravatar.com/avatar/{{$gravatarhash}}" alt="{{ $user->name }}">
-                    </div>
-                </div>
-                <div class="w-8/12 max-w-full px-3 my-auto flex-0 sm:w-auto">
-                    <div class="h-full">
-                        <h5 class="mb-1 font-bold dark:text-white">{{ $user->fullname() }}</h5>
-                        <p class="mb-0 text-sm font-semibold leading-normal">{{ $user->job->name }} - {{ $user->role->name }}</p>
-                    </div>
-                </div>
-                <div class="flex max-w-full px-3 mt-4 sm:flex-0 shrink-0 sm:mt-0 sm:ml-auto sm:w-auto">
-
-                </div>
-            </div>
+            <x-theme.headericon url="https://gravatar.com/avatar/{{$gravatarhash}}" title="{{ $user->fullname() }}" subtitle="{{ $user->job->name }} - {{ $user->role->name }}" />
         </x-header>
         <x-panel title="Basic Info">
             <x-panel.subtitle extracss="-mt-4">
