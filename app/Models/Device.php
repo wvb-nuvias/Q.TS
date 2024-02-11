@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property int|null $devicetype_id
  * @property int|null $brand_id
  * @property string|null $hardware
- * @property string|null $serial *
+ * @property string|null $serial
  * @property int|null $address_id
  * @property string|null $image
  * @property string|null $icon
@@ -88,5 +88,21 @@ class Device extends Model
     public function brand(): HasOne
     {
         return $this->HasOne(Brand::class);
+    }
+
+    /**
+     * Get the subscription for this device.
+     */
+    public function subscription()
+    {
+        return Subscription::where("serial",$this->serial)->first();
+    }
+
+    /**
+     * Get the settings for this device.
+     */
+    public function settings()
+    {
+        return DeviceSetting::where("device_id",$this->id)->first();
     }
 }

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('devicetype_id');
             $table->integer('brand_id');
             $table->string('hardware',250)->nullable();
-            $table->string('serial',250)->nullable();
+            $table->string('serial',50)->nullable();
             $table->integer('addressid');
             $table->string('image',250)->nullable();
             $table->string('icon',250)->nullable();

@@ -23,6 +23,7 @@ use App\Models\SubscriptionsType;
  * @property float|null $cost
  * @property string|null $subscriptionstart
  * @property string|null $subscriptionend
+ * @property string|null $serial
 */
 class Subscription extends Model
 {
@@ -41,6 +42,6 @@ class Subscription extends Model
      */
     public function device()
     {
-        //TODO link the device to the contract using serial number
+        return Device::where("serial",$this->serial)->first();
     }
 }
