@@ -81,4 +81,12 @@ class Device extends Model
     {
         return $this->hasMany(DeviceGroup::class);
     }
+
+    /**
+     * Get the brand for this device.
+     */
+    public function brand(): HasOne
+    {
+        return $this->HasOne(Brand::class);
+    }
 }
