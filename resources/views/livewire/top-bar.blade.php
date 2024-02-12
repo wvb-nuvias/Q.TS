@@ -1,5 +1,5 @@
 <div>
-    <nav navbar-main="" class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-scroll="false">
+    <nav navbar-main class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-scroll="false">
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
             <nav>
                 <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
@@ -16,7 +16,7 @@
                 <h6 class="mb-0 font-bold dark:text-white capitalize">{{Route::currentRouteName()}}</h6>
             </nav>
             <div class="flex items-center">
-                <a mini-sidenav-burger="" href="javascript:;" class="hidden p-0 text-sm dark:text-white transition-all ease-nav-brand xl:block" aria-expanded="false">
+                <a mini-sidenav-burger href="javascript:;" class="hidden p-0 text-sm dark:text-white transition-all ease-nav-brand xl:block" aria-expanded="false">
                     <div class="w-4.5 overflow-hidden">
                         <i class="ease mb-0.75 relative block h-0.5 rounded-sm bg-black dark:bg-white transition-all translate-x-[5px]"></i>
                         <i class="ease mb-0.75 relative block h-0.5 rounded-sm bg-black dark:bg-white transition-all"></i>
@@ -61,10 +61,10 @@
                     </li>
                     <li class="relative flex items-center pr-2">
                         <p class="hidden transform-dropdown-show"></p>
-                        <a dropdown-trigger="" href="javascript:;" class="block p-0 text-sm dark:text-white transition-all ease-nav-brand" aria-expanded="false">
+                        <a dropdown-trigger href="javascript:;" class="block p-0 text-sm dark:text-white transition-all ease-nav-brand" aria-expanded="false">
                             <i class="cursor-pointer fa fa-bell" aria-hidden="true"></i>
                         </a>
-                        <ul dropdown-menu="" class="text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease lg:shadow-3xl duration-250 min-w-44 before:sm:right-7 before:text-5.5 dark:bg-slate-850 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer">
+                        <ul dropdown-menu class="text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease lg:shadow-3xl duration-250 min-w-44 before:sm:right-7 before:text-5.5 dark:bg-slate-850 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer">
                             <li class="relative mb-2">
                                 <a class="group ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 dark:hover:bg-gray-200/80 lg:transition-colors" href="javascript:;">
                                     <div class="flex py-1">
