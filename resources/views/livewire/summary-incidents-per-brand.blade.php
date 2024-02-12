@@ -2,7 +2,7 @@
     <x-panel.subtitle extracss="-mt-4">
         this month
     </x-panel.subtitle>
-    <x-theme.settings />
+    <x-theme.settings wire="settings()" />
     <div class="p-0 overflow-x-auto ps pb-2 pt-4">
         <table class="items-center justify-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
             <thead class="align-bottom">

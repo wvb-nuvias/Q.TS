@@ -13,6 +13,7 @@ class SummaryIncidentsPerBrand extends Component
     public $title, $count, $color1, $color2,$icon;
     public User $user;
     public $results;
+    public $showview=true;
 
     public function mount()
     {
@@ -68,6 +69,27 @@ class SummaryIncidentsPerBrand extends Component
 
         $this->results = $tmp;
 
-        return view('livewire.summary-incidents-per-brand');
+        if ($this->showview==false)
+        {
+            return view('livewire.blank');
+        }
+        else
+        {
+            return view('livewire.summary-incidents-per-brand');
+        }
+
+    }
+
+    public function settings()
+    {
+        if ($this->showview)
+        {
+            $this->showview=false;
+        }
+        else
+        {
+            $this->showview=true;
+        }
+
     }
 }
