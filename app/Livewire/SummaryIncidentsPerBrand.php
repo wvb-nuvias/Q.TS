@@ -71,7 +71,7 @@ class SummaryIncidentsPerBrand extends Component
 
         if ($this->showview==false)
         {
-            return view('livewire.blank');
+            return view('livewire.summary-incidents-per-brand-settings');
         }
         else
         {
@@ -88,8 +88,8 @@ class SummaryIncidentsPerBrand extends Component
         }
         else
         {
+            session()->flash('success', 'Profile successfully updated.');
             $this->showview=true;
         }
-
     }
 }
