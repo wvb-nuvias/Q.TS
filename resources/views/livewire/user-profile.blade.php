@@ -70,31 +70,22 @@
             <x-panel.subtitle extracss="-mt-4">
                 Add additional security to your account using two factor authentication.
             </x-panel.subtitle>
-            <div class="flex-auto pt-4">
-                <div class="flex flex-wrap -mx-3">
-                    <!-- TODO add two factor form -->
-                </div>
-            </div>
+
+            @livewire('profile.two-factor-authentication-form')
         </x-panel>
         <x-panel title="Browser Settings">
             <x-panel.subtitle extracss="-mt-4">
                 Manage and log out your active sessions on other browsers and devices.
             </x-panel.subtitle>
-            <div class="flex-auto pt-4">
-                <div class="flex flex-wrap -mx-3">
-                    <!-- TODO add active sessions form -->
-                </div>
-            </div>
+
+            @livewire('profile.logout-other-browser-sessions-form')
         </x-panel>
         <x-panel title="Delete Account">
             <x-panel.subtitle extracss="-mt-4">
                 Permanently delete your account.
             </x-panel.subtitle>
-            <div class="flex-auto pt-4">
-                <div class="flex flex-wrap -mx-3">
-                    <!-- TODO add delete account form -->
-                </div>
-            </div>
+
+            @livewire('profile.delete-user-form')
         </x-panel>
     </div>
 </div>
