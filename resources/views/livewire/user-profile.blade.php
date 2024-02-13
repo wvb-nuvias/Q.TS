@@ -1,5 +1,6 @@
 <div>
     <div class="w-full px-6 py-6 mx-auto">
+        @include('components.flash-messages')
         <x-header themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" url="img/header/header6.jpg">
             <x-theme.headericon url="https://gravatar.com/avatar/{{$gravatarhash}}" title="{{ $user->fullname() }}" subtitle="{{ $user->job->name }} - {{ $user->role->name }}" />
         </x-header>
@@ -49,7 +50,7 @@
                         </div>
                         <x-theme.button extracss="h-10 self-end">Change</x-theme.button>
                     </div>
-                    <div class="flex flex-wrap -mx-3 pt-3">
+                    <div class="flex flex-wrap pt-3 -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
 
                         </div>
@@ -58,10 +59,12 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap pt-3 justify-end">
+                    <div class="flex flex-wrap justify-end pt-3">
                         <x-theme.button wire="update">Save Changes</x-theme.button>
                     </div>
             </div>
         </x-panel>
     </div>
 </div>
+
+

@@ -1,6 +1,6 @@
-@if (session()->has('success'))
-    <div class="alert alert-success text-light container" role="alert">
-        <div class="row">
+
+    <div class="container mb-6 bg-green-400 border border-green-600 rounded-md alert alert-success text-light" role="alert">
+        <div class="flex flex-row">
             <div class="col col-lg-1"><i class="fa fa-thumbs-up fa-2xl h1 text-light"></i></div>
             <div class="col">
                 <p class="h4 text-light"><strong>Success</strong></p><br>
@@ -8,11 +8,12 @@
             </div>
         </div>
     </div>
+@if (session()->has('success'))
 @endif
 
 @if (session()->has('info'))
-<div class="alert alert-info text-light container" role="alert">
-    <div class="row">
+<div class="container mb-6 bg-blue-400 border border-blue-600 rounded-md alert alert-info text-light" role="alert">
+    <div class="flex flex-row">
         <div class="col col-lg-1"><i class="fa fa-circle-info fa-2xl h1 text-light"></i></div>
         <div class="col">
             <p class="h4 text-light"><strong>Info</strong></p><br>
@@ -23,8 +24,8 @@
 @endif
 
 @if (session()->has('warning'))
-<div class="alert alert-warning text-light container" role="alert">
-    <div class="row">
+<div class="container mb-6 bg-orange-400 border border-orange-600 rounded-md alert alert-warning text-light" role="alert">
+    <div class="flex flex-row">
         <div class="col col-lg-1"><i class="fa fa-circle-exclamation fa-2xl h1 text-light"></i></div>
         <div class="col">
             <p class="h4 text-light"><strong>Warning</strong></p><br>
@@ -35,8 +36,8 @@
 @endif
 
 @if (session()->has('error'))
-<div class="alert alert-danger text-light container" role="alert">
-    <div class="row">
+<div class="container mb-6 bg-red-400 border border-red-600 rounded-md alert alert-danger text-light" role="alert">
+    <div class="flex flex-row">
         <div class="col col-lg-1"><i class="fa fa-triangle-exclamation fa-2xl h1 text-light"></i></div>
         <div class="col">
             <p class="h4 text-light"><strong>Error</strong></p><br>
@@ -45,3 +46,13 @@
     </div>
 </div>
 @endif
+
+@script
+<script>
+    $wire.on('alert_remove',()=> {
+        setTimeout(function() {
+            $(".alert").fadeOut('fast');
+        }, 4000);
+    });
+</script>
+@endscript
