@@ -1,14 +1,13 @@
-
-    <div class="container mb-6 bg-green-400 border border-green-600 rounded-md alert alert-success text-light" role="alert">
-        <div class="flex flex-row">
-            <div class="col col-lg-1"><i class="fa fa-thumbs-up fa-2xl h1 text-light"></i></div>
-            <div class="col">
-                <p class="h4 text-light"><strong>Success</strong></p><br>
-                <p class="h6 text-light">{{ session('success') }} </p>
+@if (session()->has('success'))
+    <div class="container mb-6 bg-green-400 border border-green-600 shadow-xl opacity-75 rounded-2xl alert alert-success text-light" role="alert">
+        <div class="flex flex-wrap">
+            <div class="flex flex-col mr-6"><i class="mt-3 text-6xl fa fa-thumbs-up"></i></div>
+            <div class="flex flex-col pt-3">
+                <p class="text-3xl text-light"><strong>Success</strong></p><br>
+                <p class="text-2xl text-light">{{ session('success') }} </p>
             </div>
         </div>
     </div>
-@if (session()->has('success'))
 @endif
 
 @if (session()->has('info'))
