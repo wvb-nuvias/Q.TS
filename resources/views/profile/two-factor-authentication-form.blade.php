@@ -1,21 +1,22 @@
 <x-action-section>
     <x-slot name="content">
-        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+        <div class="w-6/12 max-w-full px-3 flex-0">
             @if ($this->enabled)
                 @if ($showingConfirmation)
-                    {{ __('Finish enabling two factor authentication.') }}
+                    {{ __('Finish enabling two factor authentication.') }}<br><br>
                 @else
-                    {{ __('You have enabled two factor authentication.') }}
+                    {{ __('You have enabled two factor authentication.') }}<br><br>
                 @endif
             @else
-                {{ __('You have not enabled two factor authentication.') }}
+                {{ __('You have not enabled two factor authentication.') }}<br><br>
             @endif
-        </h3>
 
-        <div class="mt-3 max-w-xl text-sm text-gray-600 dark:text-gray-400">
-            <p>
+            <p class="dark:opacity-60">
                 {{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}
             </p>
+        </div>
+
+        <div class="w-6/12 max-w-full px-3 flex-0">
         </div>
 
         @if ($this->enabled)
@@ -68,14 +69,16 @@
             @endif
         @endif
 
-        <div class="mt-5">
-            @if (! $this->enabled)
-                <x-confirms-password wire:then="enableTwoFactorAuthentication">
-                    <x-button type="button" wire:loading.attr="disabled">
-                        {{ __('Enable') }}
-                    </x-button>
-                </x-confirms-password>
-            @else
+        @if (! $this->enabled)
+        <div class="flex flex-wrap justify-end mx-3 w-full">
+            <x-confirms-password wire:then="enableTwoFactorAuthentication">
+                <x-button type="button" wire:loading.attr="disabled">
+                    {{ __('Enable') }}
+                </x-button>
+            </x-confirms-password>
+        </div>
+        @else
+            <div class="mt-5">
                 @if ($showingRecoveryCodes)
                     <x-confirms-password wire:then="regenerateRecoveryCodes">
                         <x-secondary-button class="me-3">
@@ -109,8 +112,7 @@
                         </x-danger-button>
                     </x-confirms-password>
                 @endif
-
-            @endif
-        </div>
+            </div>
+        @endif
     </x-slot>
 </x-action-section>

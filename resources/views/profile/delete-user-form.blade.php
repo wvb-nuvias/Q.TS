@@ -5,6 +5,10 @@
         </div>
 
         <div class="w-6/12 max-w-full px-3 flex-0">
+
+        </div>
+
+        <div class="flex flex-wrap justify-end pt-3 mt-5 mx-3 w-full">
             <x-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
                 {{ __('Delete Account') }}
             </x-danger-button>

@@ -43,7 +43,7 @@
             </div>
         @endif
 
-        <div class="flex flex-wrap justify-end pt-3 mt-5 mx-3">
+        <div class="flex flex-wrap justify-end pt-3 mt-5 mx-3 w-full">
             <x-button wire:click="confirmLogout" wire:loading.attr="disabled">
                 {{ __('Log Out Other Browser Sessions') }}
             </x-button>
