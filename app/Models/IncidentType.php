@@ -17,6 +17,7 @@ use App\Models\Incident;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $name
+ * @property string|null $icon
 */
 class IncidentType extends Model
 {
@@ -25,7 +26,7 @@ class IncidentType extends Model
     /**
      * @var array
      */
-    protected $fillable = ['created_at', 'updated_at', 'name'];
+    protected $fillable = ['created_at', 'updated_at', 'name', 'icon'];
 
     /**
      * Get the incidents that have this incidenttype.
