@@ -16,13 +16,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $name
  * @property string|null $icon
 */
-class IncidentStatus extends Model
+class IncidentSeverity extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
-    protected $fillable = ['created_at', 'updated_at', 'name', 'icon'];
-
+    protected $fillable = ['tenantid', 'name', 'icon'];
 }
