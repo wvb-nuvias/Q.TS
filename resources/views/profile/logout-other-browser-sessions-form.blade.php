@@ -1,11 +1,11 @@
 <x-action-section>
     <x-slot name="content">
-        <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
+        <div class="w-6/12 max-w-full px-3 flex-0 dark:opacity-60">
             {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.') }}
         </div>
 
         @if (count($this->sessions) > 0)
-            <div class="mt-5 space-y-6">
+            <div class="w-6/12 max-w-full px-3 flex-0 mt-5 space-y-6">
                 <!-- Other Browser Sessions -->
                 @foreach ($this->sessions as $session)
                     <div class="flex items-center">
@@ -43,7 +43,7 @@
             </div>
         @endif
 
-        <div class="flex items-center mt-5">
+        <div class="flex flex-wrap justify-end pt-3 mt-5 mx-3">
             <x-button wire:click="confirmLogout" wire:loading.attr="disabled">
                 {{ __('Log Out Other Browser Sessions') }}
             </x-button>
