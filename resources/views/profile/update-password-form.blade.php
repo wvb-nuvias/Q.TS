@@ -1,12 +1,4 @@
 <x-form-section submit="updatePassword">
-    <x-slot name="title">
-
-    </x-slot>
-
-    <x-slot name="description">
-
-    </x-slot>
-
     <x-slot name="form">
         <div class="col-span-6 sm:col-span-4">
             <x-label for="current_password" value="{{ __('Current Password') }}" />
@@ -32,8 +24,6 @@
             {{ __('Saved.') }}
         </x-action-message>
 
-        <x-button>
-            {{ __('Save') }}
-        </x-button>
+        <x-theme.button submit="true">Save</x-theme.button>
     </x-slot>
 </x-form-section>

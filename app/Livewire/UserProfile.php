@@ -29,13 +29,12 @@ class UserProfile extends Component
         $this->validateOnly($propertyName);
     }
 
-    public function update()
+    public function updateprofile()
     {
         $this->validate();
         $this->user->save();
 
-        session()->flash('success', 'Profile successfully updated.');
-        $this->dispatch('alert_remove');
+        $this->success();
     }
 
     public function render()
@@ -43,5 +42,11 @@ class UserProfile extends Component
         $this->gravatarhash=hash( 'sha256', strtolower( trim( $this->user->email ) ) );
 
         return view('livewire.user-profile');
+    }
+
+    public function success()
+    {
+        session()->flash('success', 'Profile successfully updated.');
+        $this->dispatch('alert_remove');
     }
 }
