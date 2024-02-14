@@ -15,10 +15,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $name
  * @property string|null $icon
+ * @property string|null $color
 */
 class IncidentSeverity extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tenantid', 'name', 'icon'];
+    protected $fillable = ['tenantid', 'name', 'icon', 'color'];
 }
