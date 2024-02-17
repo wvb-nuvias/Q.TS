@@ -108,7 +108,8 @@ class User extends Authenticatable
     public function setting($key)
     {
         $setting=$this->settings()->where("key",$key)->first();
-        if ($setting) {
+        if ($setting)
+        {
             return $setting->val;
         }
         return null;
@@ -119,5 +120,48 @@ class User extends Authenticatable
      */
     public function fullname() {
         return $this->firstname." ".$this->name;
+    }
+
+    /**
+     * Checks a certain right for this user. returns true/false
+     */
+    public function hasright($right)
+    {
+        $right=$this->role()->rights()->where('code',$right)->first();
+
+        if ($right)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Gets the rights array for this user. returns array
+     */
+    public function rights()
+    {
+        $rights=$this->role()->rights()->get()->toArray();
+        if ($rights)
+        {
+            return $rights;
+        }
+        return null;
+    }
+
+    /**
+     * Gets the rights array for this user. returns array
+     */
+    public function grouprights($group)
+    {
+        $rights=$this->role()->rights()
+            ->where('group',$group)
+            ->get()
+            ->toArray();
+        if ($rights)
+        {
+            return $rights;
+        }
+        return null;
     }
 }

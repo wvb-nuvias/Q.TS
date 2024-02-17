@@ -1,0 +1,69 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            //todo add default tenant admin
+            DB::table('users')->insert([
+                [
+                    'name' => 'tenantadmin',
+                    'email' => 'tenantadmin@qcontinuum.be',
+                    'password' => '$2y$12$x.eSXRNqpLME2.USV5NyJuks04kGAdU1y6rn.V0hAWXIF1Cw4JtIS',
+                    'job_id' => 1,
+                    'role_id' => 1,
+                    'tenantid' => 1,
+                    'organisation_id' => 1,
+                    'firstname' => 'sys',
+                    'phone' => ''
+                ],
+            ]);
+            //todo add admin user
+            DB::table('users')->insert([
+                [
+                    'name' => 'admin',
+                    'email' => 'admin@qcontinuum.be',
+                    'password' => '$2y$12$in63qoOFSO6u5tTVXLUg/upUP7rJfoLNdcDEJ7llMLPI3fkQx/gx6',
+                    'job_id' => 2,
+                    'role_id' => 2,
+                    'tenantid' => 1,
+                    'organisation_id' => 1,
+                    'firstname' => 'sys',
+                    'phone' => ''
+                ],
+            ]);
+            //todo add default user
+            DB::table('users')->insert([
+                [
+                    'name' => 'engineer',
+                    'email' => 'engineer@qcontinuum.be',
+                    'password' => '$2y$12$.HuFdmMbVVCqjV9Uzx1ifOAqzfjple2MJjti0ggrMju7QcgLy97eK',
+                    'job_id' => 3,
+                    'role_id' => 3,
+                    'tenantid' => 1,
+                    'organisation_id' => 1,
+                    'firstname' => 'sys',
+                    'phone' => ''
+                ],
+            ]);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+
+        });
+    }
+};

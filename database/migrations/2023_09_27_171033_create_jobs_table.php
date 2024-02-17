@@ -20,6 +20,7 @@ return new class extends Migration
 
         DB::table('jobs')->insert([
             ['tenantid' => 1, 'name' => 'CEO / Co-Founder'],
+            ['tenantid' => 1, 'name' => 'Team Leader'],
             ['tenantid' => 1, 'name' => 'Security Engineer'],
             ['tenantid' => 1, 'name' => 'Presales Engineer'],
             ['tenantid' => 1, 'name' => 'Sales Person'],
