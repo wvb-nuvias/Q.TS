@@ -144,6 +144,8 @@ return new class extends Migration
             ['tenantid' => 1, 'role_id' => 1, 'right_id' => 120], //DELETE_ALERTRULE
             ['tenantid' => 1, 'role_id' => 1, 'right_id' => 121], //IMPORT_ALERTRULE
             ['tenantid' => 1, 'role_id' => 1, 'right_id' => 122], //EXPORT_ALERTRULE
+            ['tenantid' => 1, 'role_id' => 1, 'right_id' => 123], //VIEW_TYPES
+            ['tenantid' => 1, 'role_id' => 1, 'right_id' => 124], //VIEW_ROLES
 
             //Administrator
 
@@ -263,6 +265,8 @@ return new class extends Migration
             ['tenantid' => 1, 'role_id' => 2, 'right_id' => 120], //DELETE_ALERTRULE
             ['tenantid' => 1, 'role_id' => 2, 'right_id' => 121], //IMPORT_ALERTRULE
             ['tenantid' => 1, 'role_id' => 2, 'right_id' => 122], //EXPORT_ALERTRULE
+            ['tenantid' => 1, 'role_id' => 2, 'right_id' => 123], //VIEW_TYPES
+            ['tenantid' => 1, 'role_id' => 2, 'right_id' => 124], //VIEW_ROLES
 
             //Operator
 
@@ -279,6 +283,7 @@ return new class extends Migration
             ['tenantid' => 1, 'role_id' => 3, 'right_id' => 16], //DELETE_INC
             ['tenantid' => 1, 'role_id' => 3, 'right_id' => 17], //IMPORT_INC
             ['tenantid' => 1, 'role_id' => 3, 'right_id' => 18], //EXPORT_INC
+            ['tenantid' => 1, 'role_id' => 3, 'right_id' => 69], //VIEW_SUB
             ['tenantid' => 1, 'role_id' => 3, 'right_id' => 80], //VIEW_BRAND
             ['tenantid' => 1, 'role_id' => 3, 'right_id' => 97], //VIEW_ALERT
             ['tenantid' => 1, 'role_id' => 3, 'right_id' => 98], //ACK_ALERT

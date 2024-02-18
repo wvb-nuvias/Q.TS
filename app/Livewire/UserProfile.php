@@ -9,6 +9,7 @@ class UserProfile extends Component
 {
     public User $user;
     public $gravatarhash;
+    public $rights;
 
     protected function rules()
     {
@@ -22,6 +23,7 @@ class UserProfile extends Component
 
     public function mount() {
         $this->user = auth()->user();
+        $this->rights = $this->user->rights();
     }
 
     public function updated($propertyName)

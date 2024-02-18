@@ -41,6 +41,7 @@ class SummaryIncidentsPerBrand extends Component
             }
         }
 
+        $tmp=[];
         $start=$this->start.' 00:00:00';
         $end=$this->end.' 00:00:00';
 

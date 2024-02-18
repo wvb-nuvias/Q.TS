@@ -16,26 +16,54 @@
             <x-navbar.title title="Pages" />
 
             <x-navbar.item route="dashboard"             icon="chart-pie"        name="Dashboard" />
+
+            @if (in_array("VIEW_INC", $rights))
             <x-navbar.item route="incidents"             icon="ambulance"        name="Incidents" />
+            @endif
+
+            @if (in_array("VIEW_SUB", $rights))
             <x-navbar.item route="subscriptions"         icon="file-contract"    name="Subscriptions" />
+            @endif
+
+            @if (in_array("VIEW_DEVICE", $rights))
             <x-navbar.item route="devices"               icon="server"           name="Devices" />
+            @endif
+
+            @if (in_array("VIEW_ALERT", $rights))
             <x-navbar.item route="alerts"                icon="bell"             name="Alerts" />
+            @endif
 
             <x-navbar.sep />
 
             <x-navbar.title title="Administration" />
 
+            @if (in_array("VIEW_PROFILE", $rights))
             <x-navbar.item route="user-profile"          icon="user"             name="Pofile" />
+            @endif
+
+            @if (in_array("VIEW_USER", $rights))
             <x-navbar.item route="user-management"       icon="list"             name="User Management" />
+            @endif
+
+            @if (in_array("VIEW_ROLES", $rights))
             <x-navbar.item route="role-management"       icon="user-tag"         name="Role Management" />
+            @endif
+
+            @if (in_array("VIEW_TYPES", $rights))
             <x-navbar.item route="type-management"       icon="quote-right"      name="Type Management" />
+            @endif
+
+            @if (in_array("VIEW_PROD", $rights))
             <x-navbar.item route="product-management"    icon="cash-register"    name="Product Management" />
+            @endif
 
             <x-navbar.sep />
 
+            @if (in_array("VIEW_TENANT", $rights))
             <x-navbar.title title="Tenant Administration" />
 
             <x-navbar.item route="tenant-management"     icon="building-user"    name="Tenant Management" />
+            @endif
         </ul>
     </aside>
 </div>

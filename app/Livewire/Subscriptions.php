@@ -8,9 +8,11 @@ use App\Models\User;
 class Subscriptions extends Component
 {
     public User $user;
+    public $rights;
 
     public function mount() {
         $this->user = auth()->user();
+        $this->rights = $this->user->rights();
     }
 
     public function render()

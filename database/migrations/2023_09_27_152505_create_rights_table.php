@@ -144,7 +144,8 @@ return new class extends Migration
             ['tenantid' => 1, 'name' => 'Delete Alert Rule',    'code' => 'DELETE_ALERTRULE','group' => 'Alert Rule'],
             ['tenantid' => 1, 'name' => 'Import Alert Rule',    'code' => 'IMPORT_ALERTRULE','group' => 'Alert Rule'],
             ['tenantid' => 1, 'name' => 'Export Alert Rule',    'code' => 'EXPORT_ALERTRULE','group' => 'Alert Rule'],
-
+            ['tenantid' => 1, 'name' => 'View Types',           'code' => 'VIEW_TYPES',         'group' => 'System'],
+            ['tenantid' => 1, 'name' => 'View Roles',           'code' => 'VIEW_ROLES',         'group' => 'System'],
 
 
 

@@ -141,7 +141,9 @@ class User extends Authenticatable
      */
     public function rights()
     {
-        $rights=$this->role()->rights()->get()->toArray();
+        $role=Role::where('id',$this->role_id)->first();
+        $rights=$role->rights()->pluck('code')->toArray();
+
         if ($rights)
         {
             return $rights;

@@ -17,7 +17,7 @@ return new class extends Migration
                 [
                     'name' => 'tenantadmin',
                     'email' => 'tenantadmin@qcontinuum.be',
-                    'password' => '$2y$12$x.eSXRNqpLME2.USV5NyJuks04kGAdU1y6rn.V0hAWXIF1Cw4JtIS',
+                    'password' => '$2y$12$vob0oU.DO.cIUjrVf9VO4uz1nR..YF5LZ.FoLb1lV8HqwcchGxy3S',
                     'job_id' => 1,
                     'role_id' => 1,
                     'tenantid' => 1,
