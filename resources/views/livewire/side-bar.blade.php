@@ -36,12 +36,20 @@
             @if (in_array("VIEW_INC", $rights) || in_array("VIEW_SUB", $rights) || in_array("VIEW_DEVICE", $rights) || in_array("VIEW_ALERT", $rights))
                 <x-navbar.title title="Pages" />
 
-                @if (in_array("VIEW_INC", $rights))
-                <x-navbar.item route="incidents"             icon="ambulance"        name="Incidents" />
+                @if (in_array("VIEW_ORG", $rights))
+                <x-navbar.item route="organisations"         icon="building"    name="Organisations" />
+                @endif
+
+                @if (in_array("VIEW_CONTACT", $rights))
+                <x-navbar.item route="contacts"         icon="building-user"    name="Contacts" />
                 @endif
 
                 @if (in_array("VIEW_SUB", $rights))
                 <x-navbar.item route="subscriptions"         icon="file-contract"    name="Subscriptions" />
+                @endif
+
+                @if (in_array("VIEW_INC", $rights))
+                <x-navbar.item route="incidents"             icon="ambulance"        name="Incidents" />
                 @endif
 
                 @if (in_array("VIEW_DEVICE", $rights))
