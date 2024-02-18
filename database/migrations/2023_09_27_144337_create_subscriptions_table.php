@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('subscription_type_id')->nullable();
             $table->string('code',20)->nullable();
+            $table->integer('product_id')->nullable();
             $table->string('name',100)->nullable();
             $table->text('description')->nullable();
             $table->integer('invoicetype')->nullable();
@@ -25,6 +26,8 @@ return new class extends Migration
             $table->timestamp('subscriptionend')->nullable();
             $table->integer('organisation_id')->nullable();
             $table->integer('reseller_id')->nullable();
+            $table->string('serial',50)->nullable();
+            $table->integer('brand_id')->nullable();
         });
     }
 

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('role_user')->insert([
+        DB::table('brands')->insert([
             ['tenantid' => 1, 'name' => 'Watchguard', 'icon' => 'watchguard.png', 'logo' => 'watchguard.png', 'color1' => 'red-200', 'color2' => 'red-600'],
             ['tenantid' => 1, 'name' => 'Fortinet', 'icon' => 'fortinet.png', 'logo' => 'fortinet.png', 'color1' => 'orange-200', 'color2' => 'orange-600'],
             ['tenantid' => 1, 'name' => 'Trustwave', 'icon' => 'trustwave.png', 'logo' => 'trustwave.png', 'color1' => 'blue-200', 'color2' => 'blue-600'],
