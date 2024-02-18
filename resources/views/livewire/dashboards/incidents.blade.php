@@ -14,7 +14,9 @@
             <livewire:summary-incidents-last />
         </div>
         <div class="flex flex-wrap ">
+            @if ($user->hasright('VIEW_LOG'))
             <livewire:log-panel source="Incidents" />
+            @endif
         </div>
         <div class="flex flex-wrap ">
 
