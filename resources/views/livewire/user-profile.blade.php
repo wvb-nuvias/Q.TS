@@ -5,11 +5,11 @@
             <!-- TODO click on header icon , forward to gravatar.com -->
             <x-theme.headericon url="https://gravatar.com/avatar/{{$gravatarhash}}" title="{{ $user->fullname() }}" subtitle="{{ $user->job->name }} - {{ $user->role->name }}" />
         </x-header>
-        <x-panel title="Basic Info">
+        <x-panel title="Basic Info" extracss="mt-6">
             <x-panel.subtitle extracss="-mt-4">
                 These are your profile details
             </x-panel.subtitle>
-            <div class="flex-auto pt-4">
+            <div class="flex-auto pt-4 space-y-6">
                 <div class="flex flex-wrap -mx-3">
                     <div class="w-6/12 max-w-full px-3 flex-0">
                         <x-label for="First Name" value="{{ __('First Name') }}" />
@@ -59,28 +59,28 @@
                 </div>
             </div>
         </x-panel>
-        <x-panel title="Update Password">
+        <x-panel title="Update Password" extracss="mt-6">
             <x-panel.subtitle extracss="-mt-4">
                 Ensure your account is using a long, random password to stay secure.
             </x-panel.subtitle>
 
             @livewire('profile.update-password-form')
         </x-panel>
-        <x-panel title="Two Factor Authentication">
+        <x-panel title="Two Factor Authentication" extracss="mt-6">
             <x-panel.subtitle extracss="-mt-4">
                 Add additional security to your account using two factor authentication.
             </x-panel.subtitle>
 
             @livewire('profile.two-factor-authentication-form')
         </x-panel>
-        <x-panel title="Browser Settings">
+        <x-panel title="Browser Settings" extracss="mt-6">
             <x-panel.subtitle extracss="-mt-4">
                 Manage and log out your active sessions on other browsers and devices.
             </x-panel.subtitle>
 
             @livewire('profile.logout-other-browser-sessions-form')
         </x-panel>
-        <x-panel title="Delete Account">
+        <x-panel title="Delete Account" extracss="mt-6">
             <x-panel.subtitle extracss="-mt-4">
                 Permanently delete your account.
             </x-panel.subtitle>
