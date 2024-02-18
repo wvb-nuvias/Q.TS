@@ -17,6 +17,13 @@ class Devices extends Component
 
     public function render()
     {
-        return view('livewire.devices');
+        if ($this->user->hasright('VIEW_DEVICE'))
+        {
+            return view('livewire.devices');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 }

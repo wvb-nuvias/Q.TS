@@ -54,11 +54,16 @@
                             </div>
                         </a>
                     </li>
+                    @if (auth()->user()->hasright("ACCESS_SETTING"))
                     <li class="flex items-center px-4">
                         <a href="javascript:;" class="p-0 text-sm dark:text-white transition-all ease-nav-brand">
                             <i fixed-plugin-button-nav="" class="cursor-pointer fa fa-cog" aria-hidden="true"></i>
                         </a>
                     </li>
+                    @else
+                    <li class="flex items-center px-4"></li>
+                    @endif
+                    @if (auth()->user()->hasright("VIEW_ALERT"))
                     <li class="relative flex items-center pr-2">
                         <p class="hidden transform-dropdown-show"></p>
                         <a dropdown-trigger href="javascript:;" class="block p-0 text-sm dark:text-white transition-all ease-nav-brand" aria-expanded="false">
@@ -131,6 +136,7 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
                 </ul>
             </div>
         </div>

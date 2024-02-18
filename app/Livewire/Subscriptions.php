@@ -17,6 +17,13 @@ class Subscriptions extends Component
 
     public function render()
     {
-        return view('livewire.subscriptions');
+        if ($this->user->hasright('VIEW_SUB'))
+        {
+            return view('livewire.subscriptions');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 }

@@ -17,7 +17,14 @@ class Incidents extends Component
 
     public function render()
     {
-        return view('livewire.incidents');
+        if ($this->user->hasright('VIEW_INC'))
+        {
+            return view('livewire.incidents');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 
 

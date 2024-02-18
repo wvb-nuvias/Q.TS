@@ -17,6 +17,13 @@ class ProductManagement extends Component
 
     public function render()
     {
-        return view('livewire.product-management');
+        if ($this->user->hasright('VIEW_PROD'))
+        {
+            return view('livewire.product-management');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 }

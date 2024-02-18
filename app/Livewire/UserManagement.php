@@ -17,6 +17,13 @@ class UserManagement extends Component
 
     public function render()
     {
-        return view('livewire.user-management');
+        if ($this->user->hasright('VIEW_USER'))
+        {
+            return view('livewire.user-management');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 }

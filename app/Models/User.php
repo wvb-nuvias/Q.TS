@@ -127,7 +127,8 @@ class User extends Authenticatable
      */
     public function hasright($right)
     {
-        $right=$this->role()->rights()->where('code',$right)->first();
+        $role=Role::where('id',$this->role_id)->first();
+        $right=$role->rights()->where('code',$right)->first();
 
         if ($right)
         {
@@ -148,7 +149,7 @@ class User extends Authenticatable
         {
             return $rights;
         }
-        return null;
+        return array();
     }
 
     /**
@@ -156,14 +157,15 @@ class User extends Authenticatable
      */
     public function grouprights($group)
     {
-        $rights=$this->role()->rights()
+        $role=Role::where('id',$this->role_id)->first();
+        $rights=$role->rights()
             ->where('group',$group)
-            ->get()
+            ->pluck('code')
             ->toArray();
         if ($rights)
         {
             return $rights;
         }
-        return null;
+        return array();
     }
 }

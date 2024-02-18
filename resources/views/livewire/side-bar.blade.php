@@ -4,9 +4,8 @@
         <div class="h-20">
 
         <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fa fa-times text-slate-400 dark:text-white xl:hidden" aria-hidden="true" sidenav-close-btn=""></i>
-        <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700 dark:text-white" href=" https://demos.creative-tim.com/argon-dashboard-pro-tailwind/pages/dashboards/default.html " target="_blank">
-            <img src="img/icon/favicon-32.png" />
-            <span class="ml-1 font-semibold transition-all duration-200 ease-in-out">{{ config('app.name') }}</span>
+        <a href=" https://demos.creative-tim.com/argon-dashboard-pro-tailwind/pages/dashboards/default.html " target="_blank">
+            <x-application-logo size="small" />
         </a>
         </div>
 

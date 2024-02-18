@@ -17,6 +17,13 @@ class TypeManagement extends Component
 
     public function render()
     {
-        return view('livewire.type-management');
+        if ($this->user->hasright('VIEW_TYPES'))
+        {
+            return view('livewire.type-management');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 }

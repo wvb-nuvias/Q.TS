@@ -17,6 +17,13 @@ class TenantManagement extends Component
 
     public function render()
     {
-        return view('livewire.tenant-management');
+        if ($this->user->hasright('VIEW_TENANT'))
+        {
+            return view('livewire.tenant-management');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 }

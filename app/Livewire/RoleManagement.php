@@ -17,6 +17,13 @@ class RoleManagement extends Component
 
     public function render()
     {
-        return view('livewire.role-management');
+        if ($this->user->hasright('VIEW_ROLES'))
+        {
+            return view('livewire.role-management');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 }

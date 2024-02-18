@@ -27,20 +27,25 @@
         @livewireStyles
     </head>
     <body class="m-0 font-sans text-base antialiased font-normal text-left leading-default dark:bg-slate-900 bg-gray-50 text-slate-500 dark:text-white">
-        <livewire:side-bar />
+        @if (auth()->user()->hasright("ACCESS"))
+            <livewire:side-bar />
 
-        <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl ps ps--active-y">
-            <livewire:top-bar />
-            <livewire:side-bar-settings />
+            <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl ps ps--active-y">
+                <livewire:top-bar />
+                @if (auth()->user()->hasright("ACCESS_SETTING"))
+                <livewire:side-bar-settings />
+                @endif
 
-            {{ $slot }}
+                {{ $slot }}
 
-            <x-footer />
-            <div class="ps__rail-y" style="top: 0px; height: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
-        </main>
+                <x-footer />
+                <div class="ps__rail-y" style="top: 0px; height: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+            </main>
 
-        @stack('modals')
-
+            @stack('modals')
+        @else
+            <x-errors.403 />
+        @endif
         @livewireScripts
     </body>
 </html>

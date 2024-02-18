@@ -17,6 +17,13 @@ class Alerts extends Component
 
     public function render()
     {
-        return view('livewire.alerts');
+        if ($this->user->hasright('VIEW_ALERT'))
+        {
+            return view('livewire.alerts');
+        }
+        else
+        {
+            return view('errors.403');
+        }
     }
 }
