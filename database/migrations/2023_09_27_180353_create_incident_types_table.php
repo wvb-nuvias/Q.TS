@@ -14,17 +14,19 @@ return new class extends Migration
         Schema::create('incident_types', function (Blueprint $table) {
             $table->id();
             $table->integer('tenantid');
-            $table->timestamps();
             $table->string('name',100)->nullable();
+            $table->string('icon',255)->nullable();
+            $table->string('color',100)->nullable();
+            $table->timestamps();
         });
 
         DB::table('incident_types')->insert([
-            ['tenantid' => 1, 'name' => 'Incident'],
-            ['tenantid' => 1, 'name' => 'Question'],
-            ['tenantid' => 1, 'name' => 'Presales'],
-            ['tenantid' => 1, 'name' => 'Todo'],
-            ['tenantid' => 1, 'name' => 'Installation'],
-            ['tenantid' => 1, 'name' => 'On Site'],
+            ['tenantid' => 1, 'name' => 'Incident', 'icon' => 'truck-medical', 'color' => 'green'],
+            ['tenantid' => 1, 'name' => 'Question', 'icon' => 'circle-question', 'color' => 'blue'],
+            ['tenantid' => 1, 'name' => 'Presales', 'icon' => 'paperclip', 'color' => 'purple'],
+            ['tenantid' => 1, 'name' => 'Todo', 'icon' => 'circle-check', 'color' => 'orange'],
+            ['tenantid' => 1, 'name' => 'Installation', 'icon' => 'business-time', 'color' => 'amber'],
+            ['tenantid' => 1, 'name' => 'On Site', 'icon' => 'shoe-prints', 'color' => 'red'],
         ]);
     }
 

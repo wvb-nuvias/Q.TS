@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('incidents', function (Blueprint $table) {
             $table->id();
             $table->integer('tenantid');
-            $table->timestamps();
+            $table->integer('incidentnr')->nullable();
             $table->integer('createdby')->nullable();
             $table->integer('organisation_id')->nullable();
             $table->integer('incident_type_id')->nullable();
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('title',200)->nullable();
             $table->text('description')->nullable();
             $table->integer('timespent')->nullable();
+            $table->timestamps();
         });
     }
 

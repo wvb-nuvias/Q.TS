@@ -14,17 +14,19 @@ return new class extends Migration
         Schema::create('incident_statuses', function (Blueprint $table) {
             $table->id();
             $table->integer('tenantid');
-            $table->timestamps();
             $table->string('name',100)->nullable();
+            $table->string('icon',255)->nullable();
+            $table->string('color',100)->nullable();
+            $table->timestamps();
         });
 
         DB::table('incident_statuses')->insert([
-            ['tenantid' => 1, 'name' => 'New'],
-            ['tenantid' => 1, 'name' => 'Progress'],
-            ['tenantid' => 1, 'name' => 'On Hold'],
-            ['tenantid' => 1, 'name' => 'Waiting for Customer'],
-            ['tenantid' => 1, 'name' => 'Waiting for Supplier'],
-            ['tenantid' => 1, 'name' => 'Closed'],
+            ['tenantid' => 1, 'name' => 'New', 'icon' => 'bolt', 'color' => 'green'],
+            ['tenantid' => 1, 'name' => 'Progress', 'icon' => 'play', 'color' => 'emerald'],
+            ['tenantid' => 1, 'name' => 'On Hold', 'icon' => 'pause', 'color' => 'yellow'],
+            ['tenantid' => 1, 'name' => 'Waiting for Customer', 'icon' => 'shop-lock', 'color' => 'amber'],
+            ['tenantid' => 1, 'name' => 'Waiting for Supplier', 'icon' => 'building-lock', 'color' => 'orange'],
+            ['tenantid' => 1, 'name' => 'Closed', 'icon' => 'lock', 'color' => 'red'],
         ]);
     }
 
