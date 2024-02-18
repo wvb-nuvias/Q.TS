@@ -57,6 +57,16 @@ class SummaryIncidentsByType extends Component
             $this->color1="emerald-500";
             $this->color2="teal-400";
             $this->icon="file-circle-exclamation";
+        } elseif ($this->status==5) {
+            $this->count=$incidents->whereBetween('updated_at', [$start,$end])
+            ->where('incident_status_id',$this->status)
+            ->get()
+            ->count();
+
+            $this->title="Waiting Supplier";
+            $this->color1="purple-500";
+            $this->color2="teal-400";
+            $this->icon="file-circle-plus";
         } elseif ($this->status<=4) {
             $this->count=$incidents->whereBetween('updated_at', [$start,$end])
             ->where('incident_status_id',1)

@@ -38,5 +38,5 @@
         </ul>
     </div>
 
-    <script src="js/plugin.js"></script>
+    <script src="/js/plugin.js"></script>
 </div>

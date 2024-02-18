@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\Dashboard;
+use App\Livewire\Dashboards\Alerts as Dashboard_Alerts;
+use App\Livewire\Dashboards\Incidents as Dashboard_Incidents;
+use App\Livewire\Dashboards\Devices as Dashboard_Devices;
+use App\Livewire\Dashboards\Subscriptions as Dashboard_Subscriptions;
 use App\Livewire\UserManagement;
 use App\Livewire\UserProfile;
 use App\Livewire\Subscriptions;
@@ -36,6 +40,10 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('dashboard', Dashboard::class)->name('dashboard');
+    Route::get('dashboards/alerts', Dashboard_Alerts::class)->name('dashboard_alerts');
+    Route::get('dashboards/devices', Dashboard_Devices::class)->name('dashboard_devices');
+    Route::get('dashboards/incidents', Dashboard_Incidents::class)->name('dashboard_incidents');
+    Route::get('dashboards/subscriptions', Dashboard_Subscriptions::class)->name('dashboard_subscriptions');
 
     Route::get('incidents', Incidents::class)->name('incidents');
     Route::get('subscriptions', Subscriptions::class)->name('subscriptions');
