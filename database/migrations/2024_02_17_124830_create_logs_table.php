@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->integer('user_id');
             $table->string('group',150)->nullable();
             $table->string('source',150)->nullable();
-            $table->string('logtype',50)->nullable();
+            $table->string('log_type',50)->nullable();
             $table->string('message',250)->nullable();
             $table->timestamps();
         });

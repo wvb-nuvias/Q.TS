@@ -13,18 +13,17 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->integer('subscription_type_id')->nullable();
             $table->string('code',20)->nullable();
             $table->integer('product_id')->nullable();
             $table->string('name',100)->nullable();
             $table->text('description')->nullable();
-            $table->integer('invoicetype')->nullable();
             $table->float('cost', 8, 2)->nullable();
-            $table->timestamp('subscriptionstart')->nullable();
-            $table->timestamp('subscriptionend')->nullable();
-            $table->integer('organisation_id')->nullable();
+            $table->timestamp('date_start')->nullable();
+            $table->timestamp('date_end')->nullable();
+            $table->integer('customer_id')->nullable();
             $table->integer('reseller_id')->nullable();
             $table->string('serial',50)->nullable();
             $table->integer('brand_id')->nullable();

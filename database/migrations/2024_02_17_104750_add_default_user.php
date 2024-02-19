@@ -20,8 +20,8 @@ return new class extends Migration
                     'password' => '$2y$12$vob0oU.DO.cIUjrVf9VO4uz1nR..YF5LZ.FoLb1lV8HqwcchGxy3S',
                     'job_id' => 1,
                     'role_id' => 1,
-                    'tenantid' => 1,
-                    'organisation_id' => 1,
+                    'tenant_id' => 1,
+                    'organization_id' => 1,
                     'firstname' => 'sys',
                     'phone' => ''
                 ],
@@ -34,8 +34,8 @@ return new class extends Migration
                     'password' => '$2y$12$in63qoOFSO6u5tTVXLUg/upUP7rJfoLNdcDEJ7llMLPI3fkQx/gx6',
                     'job_id' => 2,
                     'role_id' => 2,
-                    'tenantid' => 1,
-                    'organisation_id' => 1,
+                    'tenant_id' => 1,
+                    'organization_id' => 1,
                     'firstname' => 'sys',
                     'phone' => ''
                 ],
@@ -48,8 +48,8 @@ return new class extends Migration
                     'password' => '$2y$12$.HuFdmMbVVCqjV9Uzx1ifOAqzfjple2MJjti0ggrMju7QcgLy97eK',
                     'job_id' => 3,
                     'role_id' => 3,
-                    'tenantid' => 1,
-                    'organisation_id' => 1,
+                    'tenant_id' => 1,
+                    'organization_id' => 1,
                     'firstname' => 'sys',
                     'phone' => ''
                 ],

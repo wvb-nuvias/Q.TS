@@ -22,7 +22,7 @@ class SideBarSettings extends Component
 
     public function savesetting($key,$value) {
         $themesetting = UserSetting::where('user_id', $this->user->id)
-                        ->where('tenantid',$this->user->tenantid)
+                        ->where('tenant_id',$this->user->tenant_id)
                         ->where('key',$key)
                         ->first();
         if ($themesetting) {

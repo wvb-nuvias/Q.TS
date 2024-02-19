@@ -39,7 +39,7 @@ class Subscriptions extends Component
     #[On('brand-selector-changed')]
     public function updateBrandSelected($selected)
     {
-        $sel=UserSetting::where("tenantid",$this->user->tenantid)
+        $sel=UserSetting::where("tenant_id",$this->user->tenant_id)
                         ->where("user_id",$this->user->id)
                         ->where("key","selectedbrand")
                         ->first();
@@ -51,7 +51,7 @@ class Subscriptions extends Component
         } else {
             UserSetting::create(
                 [
-                    "tenantid"      => $this->user->tenantid,
+                    "tenant_id"      => $this->user->tenant_id,
                     "user_id"       => $this->user->id,
                     "key"           => "selectedbrand",
                     "val"           => implode(",",$selected)

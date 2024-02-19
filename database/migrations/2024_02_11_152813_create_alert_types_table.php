@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('alert_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->string('name',250)->nullable();
             $table->timestamps();
         });
 
         //add the premade roles
         DB::table('alert_types')->insert([
-            ['tenantid' => 1, 'name' => 'ICMP Unreachable'],
-            ['tenantid' => 1, 'name' => 'SNMP Unreachable'],
-            ['tenantid' => 1, 'name' => 'Cluster Failover'],
-            ['tenantid' => 1, 'name' => 'Other Failover'],
+            ['tenant_id' => 1, 'name' => 'ICMP Unreachable'],
+            ['tenant_id' => 1, 'name' => 'SNMP Unreachable'],
+            ['tenant_id' => 1, 'name' => 'Cluster Failover'],
+            ['tenant_id' => 1, 'name' => 'Other Failover'],
         ]);
     }
 

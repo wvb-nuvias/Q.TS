@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('address_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->integer('hidden');
             $table->timestamps();
             $table->string('name',100)->nullable();
         });
 
         DB::table('address_types')->insert([
-            ['tenantid' => 1, 'hidden' => 1, 'name' => 'Creator'],
-            ['tenantid' => 1, 'hidden' => 0, 'name' => 'Home'],
-            ['tenantid' => 1, 'hidden' => 0, 'name' => 'Work'],
+            ['tenant_id' => 1, 'hidden' => 1, 'name' => 'Creator'],
+            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Home'],
+            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Work'],
         ]);
     }
 

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('emails', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->integer('email_type_id')->nullable();
             $table->string('address',100)->nullable();

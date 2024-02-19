@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('incident_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->string('name',100)->nullable();
             $table->string('icon',255)->nullable();
             $table->string('color',100)->nullable();
@@ -21,12 +21,12 @@ return new class extends Migration
         });
 
         DB::table('incident_types')->insert([
-            ['tenantid' => 1, 'name' => 'Incident', 'icon' => 'truck-medical', 'color' => 'green'],
-            ['tenantid' => 1, 'name' => 'Question', 'icon' => 'circle-question', 'color' => 'blue'],
-            ['tenantid' => 1, 'name' => 'Presales', 'icon' => 'paperclip', 'color' => 'purple'],
-            ['tenantid' => 1, 'name' => 'Todo', 'icon' => 'circle-check', 'color' => 'orange'],
-            ['tenantid' => 1, 'name' => 'Installation', 'icon' => 'business-time', 'color' => 'amber'],
-            ['tenantid' => 1, 'name' => 'On Site', 'icon' => 'shoe-prints', 'color' => 'red'],
+            ['tenant_id' => 1, 'name' => 'Incident', 'icon' => 'truck-medical', 'color' => 'green'],
+            ['tenant_id' => 1, 'name' => 'Question', 'icon' => 'circle-question', 'color' => 'blue'],
+            ['tenant_id' => 1, 'name' => 'Pre Sales', 'icon' => 'paperclip', 'color' => 'purple'],
+            ['tenant_id' => 1, 'name' => 'Todo', 'icon' => 'circle-check', 'color' => 'orange'],
+            ['tenant_id' => 1, 'name' => 'Installation', 'icon' => 'business-time', 'color' => 'amber'],
+            ['tenant_id' => 1, 'name' => 'On Site', 'icon' => 'shoe-prints', 'color' => 'red'],
         ]);
     }
 

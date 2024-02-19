@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('subscription_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->string('name',100)->nullable();
         });
 
         DB::table('subscription_types')->insert([
-            ['tenantid' => 1, 'name' => 'Monthly'],
-            ['tenantid' => 1, 'name' => 'Yearly'],
-            ['tenantid' => 1, 'name' => '3 Months'],
+            ['tenant_id' => 1, 'name' => 'Monthly'],
+            ['tenant_id' => 1, 'name' => 'Yearly'],
+            ['tenant_id' => 1, 'name' => '3 Months'],
         ]);
     }
 

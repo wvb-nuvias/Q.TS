@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('alert_statuses', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->string('name',250)->nullable();
             $table->timestamps();
         });
 
         //add the premade roles
         DB::table('alert_statuses')->insert([
-            ['tenantid' => 1, 'name' => 'Raised'],
-            ['tenantid' => 1, 'name' => 'Acknowledged'],
-            ['tenantid' => 1, 'name' => 'Fixed without manual interruption'],
-            ['tenantid' => 1, 'name' => 'Fixed with manual interruption'],
+            ['tenant_id' => 1, 'name' => 'Raised'],
+            ['tenant_id' => 1, 'name' => 'Acknowledged'],
+            ['tenant_id' => 1, 'name' => 'Fixed without manual interruption'],
+            ['tenant_id' => 1, 'name' => 'Fixed with manual interruption'],
         ]);
     }
 

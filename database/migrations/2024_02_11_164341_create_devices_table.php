@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->string('hostname',250)->nullable();
             $table->string('ip',15)->nullable();
             $table->string('sysname',250)->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('syscontact',250)->nullable();
             $table->string('sysos',50)->nullable();
             $table->string('sysversion',50)->nullable();
-            $table->integer('devicetype_id');
+            $table->integer('device_type_id');
             $table->integer('brand_id');
             $table->string('hardware',250)->nullable();
             $table->string('serial',50)->nullable();

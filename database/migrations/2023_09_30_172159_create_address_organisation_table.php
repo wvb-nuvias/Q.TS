@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('address_organisation', function (Blueprint $table) {
+        Schema::create('address_organization', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
-            $table->integer('organisation_id')->nullable();
+            $table->integer('organization_id')->nullable();
             $table->integer('address_id')->nullable();
         });
 
-        DB::table('address_organisation')->insert([
-            ['tenantid' => 1, 'organisation_id' => 1, 'address_id' => 1],
+        DB::table('address_organization')->insert([
+            ['tenant_id' => 1, 'organization_id' => 1, 'address_id' => 1],
         ]);
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('address_organisation');
+        Schema::dropIfExists('address_organization');
     }
 };

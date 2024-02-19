@@ -20,17 +20,17 @@ class SummarySubscriptionsByBrand extends Component
 
     public function render()
     {
-        $tenantid = $this->user->tenantid;
-        $organisationid = $this->user->organisation_id;
+        $tenant_id = $this->user->tenant_id;
+        $organizationid = $this->user->organization_id;
 
-        $subscriptions=Subscription::where('tenantid',$tenantid);
+        $subscriptions=Subscription::where('tenant_id',$tenant_id);
 
-        if ($organisationid!=1) {
-            if ($this->user->organisation->organisation_type_id==4) {
-                $tmp=$subscriptions->where('reseller_id',$organisationid);
+        if ($organizationid!=1) {
+            if ($this->user->organization->organization_type_id==4) {
+                $tmp=$subscriptions->where('reseller_id',$organizationid);
                 $incidents=$tmp;
             } else {
-                $tmp=$subscriptions->where('organisation_id',$organisationid);
+                $tmp=$subscriptions->where('organization_id',$organizationid);
                 $incidents=$tmp;
             }
         }

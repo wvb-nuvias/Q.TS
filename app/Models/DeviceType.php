@@ -9,5 +9,5 @@ class DeviceType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tenantid', 'name'];
+    protected $fillable = ['tenant_id', 'name'];
 }

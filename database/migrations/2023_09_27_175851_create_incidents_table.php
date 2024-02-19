@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('incidents', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
-            $table->integer('incidentnr')->nullable();
-            $table->integer('createdby')->nullable();
-            $table->integer('organisation_id')->nullable();
+            $table->integer('tenant_id');
+            $table->integer('incident_nr')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('customer_id')->nullable();
             $table->integer('incident_type_id')->nullable();
             $table->integer('incident_status_id')->nullable();
             $table->integer('brand_id')->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('subscription_id')->nullable();
             $table->string('title',200)->nullable();
             $table->text('description')->nullable();
-            $table->integer('timespent')->nullable();
+            $table->integer('time_spent')->nullable();
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 use App\Models\Brand;
-use App\Models\Organisation;
+use App\Models\organization;
 use App\Models\IncidentDetail;
 use App\Models\IncidentStatus;
 use App\Models\IncidentType;
@@ -51,11 +51,11 @@ class Incident extends Model
     }
 
     /**
-     * Get the organisation for this incident.
+     * Get the organization for this incident.
      */
-    public function organisation(): HasOne
+    public function organization(): HasOne
     {
-        return $this->HasOne(Organisation::class);
+        return $this->HasOne(organization::class);
     }
 
     /**

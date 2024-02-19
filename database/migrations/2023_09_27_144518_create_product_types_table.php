@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('product_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->string('name',100)->nullable();
             $table->integer('brand_id')->nullable();
         });
 
         DB::table('product_types')->insert([
-            ['tenantid' => 1, 'name' => 'Service'],
-            ['tenantid' => 1, 'name' => 'Development'],
-            ['tenantid' => 1, 'name' => 'Device'],
+            ['tenant_id' => 1, 'name' => 'Service'],
+            ['tenant_id' => 1, 'name' => 'Development'],
+            ['tenant_id' => 1, 'name' => 'Device'],
         ]);
     }
 

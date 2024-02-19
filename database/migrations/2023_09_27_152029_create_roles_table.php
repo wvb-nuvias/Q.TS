@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->integer('hidden');
             $table->timestamps();
             $table->string('name',100)->nullable();
@@ -21,9 +21,9 @@ return new class extends Migration
 
         //add the premade roles
         DB::table('roles')->insert([
-            ['tenantid' => 1, 'hidden' => 1, 'name' => 'Tenant Administrator'],
-            ['tenantid' => 1, 'hidden' => 0, 'name' => 'Administrator'],
-            ['tenantid' => 1, 'hidden' => 0, 'name' => 'Operator'],
+            ['tenant_id' => 1, 'hidden' => 1, 'name' => 'Tenant Administrator'],
+            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Administrator'],
+            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Operator'],
         ]);
     }
 

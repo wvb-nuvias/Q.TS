@@ -37,7 +37,7 @@
                 <x-navbar.title title="Pages" />
 
                 @if (in_array("VIEW_ORG", $rights))
-                <x-navbar.item route="organisations"         icon="building"    name="Organisations" />
+                <x-navbar.item route="organizations"         icon="building"    name="Organizations" />
                 @endif
 
                 @if (in_array("VIEW_CONTACT", $rights))

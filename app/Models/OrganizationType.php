@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-use App\Models\Organisation;
+use App\Models\Organization;
 
-class OrganisationType extends Model
+class OrganizationType extends Model
 {
     use HasFactory;
 
@@ -18,10 +18,10 @@ class OrganisationType extends Model
     protected $fillable = ['created_at', 'updated_at', 'name'];
 
     /**
-     * Get the organisations that have this organisationtype.
+     * Get the organizations that have this organizationtype.
      */
-    public function organisations(): BelongsTo
+    public function organizations(): BelongsTo
     {
-        return $this->belongsTo(Organisation::class);
+        return $this->belongsTo(Organization::class);
     }
 }

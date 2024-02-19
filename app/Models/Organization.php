@@ -9,33 +9,33 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 use App\Models\Address;
 use App\Models\User;
-use App\Models\OrganisationType;
+use App\Models\OrganizationType;
 use App\Models\Email;
 use App\Models\Phone;
 
 /**
- * Table: organisations
+ * Table: organizations
 *
 * === Columns ===
  * @property int $id
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property int|null $number
- * @property int|null $organisation_type_id
+ * @property int|null $organization_type_id
  * @property string|null $name
  * @property int|null $managedby
 */
-class Organisation extends Model
+class Organization extends Model
 {
     use HasFactory;
 
     /**
      * @var array
      */
-    protected $fillable = ['created_at', 'updated_at', 'number', 'organisation_type_id', 'name', 'managedby'];
+    protected $fillable = ['created_at', 'updated_at', 'number', 'organization_type_id', 'name', 'managedby'];
 
     /**
-     * Get the addresses for the organisation.
+     * Get the addresses for the organization.
      */
     public function address(): HasOne
     {
@@ -43,7 +43,7 @@ class Organisation extends Model
     }
 
     /**
-     * Get the users for the organisation.
+     * Get the users for the organization.
      */
     public function users(): HasMany
     {
@@ -51,15 +51,15 @@ class Organisation extends Model
     }
 
     /**
-     * Get the organisationtype for this organisation.
+     * Get the organization type for this organization.
      */
-    public function organisationtype(): HasOne
+    public function organization_type(): HasOne
     {
-        return $this->HasOne(OrganisationType::class);
+        return $this->HasOne(OrganizationType::class);
     }
 
     /**
-     * Get the emails for the organisation.
+     * Get the emails for the organization.
      */
     public function emails(): HasMany
     {
@@ -67,7 +67,7 @@ class Organisation extends Model
     }
 
     /**
-     * Get the phones for the organisation.
+     * Get the phones for the organization.
      */
     public function phones(): HasMany
     {

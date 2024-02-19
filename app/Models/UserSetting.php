@@ -15,7 +15,7 @@ class UserSetting extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'tenantid',
+        'tenant_id',
         'user_id',
         'key',
         'val',

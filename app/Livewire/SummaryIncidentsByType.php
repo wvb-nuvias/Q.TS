@@ -19,17 +19,17 @@ class SummaryIncidentsByType extends Component
 
     public function render()
     {
-        $tenantid = $this->user->tenantid;
-        $organisationid = $this->user->organisation_id;
+        $tenant_id = $this->user->tenant_id;
+        $organizationid = $this->user->organization_id;
 
-        $incidents=Incident::where('tenantid',$tenantid);
+        $incidents=Incident::where('tenant_id',$tenant_id);
 
-        if ($organisationid!=1) {
-            if ($this->user->organisation->organisation_type_id==4) {
+        if ($organizationid!=1) {
+            if ($this->user->organization->organization_type_id==4) {
                 //reseller
 
             } else {
-                $tmp=$incidents->where('organisation_id',$organisationid);
+                $tmp=$incidents->where('organization_id',$organizationid);
                 $incidents=$tmp;
             }
         }

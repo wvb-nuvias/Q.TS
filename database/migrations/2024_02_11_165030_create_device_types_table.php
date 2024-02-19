@@ -13,19 +13,18 @@ return new class extends Migration
     {
         Schema::create('device_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->string('name',250)->nullable();
             $table->timestamps();
         });
 
-        //add the premade roles
         DB::table('device_types')->insert([
-            ['tenantid' => 1, 'name' => 'Switch'],
-            ['tenantid' => 1, 'name' => 'Firewall'],
-            ['tenantid' => 1, 'name' => 'Computer'],
-            ['tenantid' => 1, 'name' => 'Server'],
-            ['tenantid' => 1, 'name' => 'Printer'],
-            ['tenantid' => 1, 'name' => 'IOT Device'],
+            ['tenant_id' => 1, 'name' => 'Switch'],
+            ['tenant_id' => 1, 'name' => 'Firewall'],
+            ['tenant_id' => 1, 'name' => 'Computer'],
+            ['tenant_id' => 1, 'name' => 'Server'],
+            ['tenant_id' => 1, 'name' => 'Printer'],
+            ['tenant_id' => 1, 'name' => 'IOT Device'],
         ]);
     }
 

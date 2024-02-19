@@ -9,5 +9,5 @@ class DeviceGroup extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tenantid', 'name', 'rule'];
+    protected $fillable = ['tenant_id', 'name', 'rule'];
 }

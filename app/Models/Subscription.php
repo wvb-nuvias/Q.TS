@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-use App\Models\SubscriptionsType;
+use App\Models\SubscriptionType;
 
 /**
  * Table: subscriptions
 *
 * === Columns ===
  * @property int $id
- * @property int|null $tenantid
+ * @property int|null $tenant_id
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property int|null $subscription_type_id
@@ -21,11 +21,10 @@ use App\Models\SubscriptionsType;
  * @property int|null $product_id
  * @property string|null $name
  * @property string|null $description
- * @property int|null $invoicetype
  * @property float|null $cost
- * @property string|null $subscriptionstart
- * @property string|null $subscriptionend
- * @property int|null $organisation_id
+ * @property string|null $start_date
+ * @property string|null $end_date
+ * @property int|null $organization_id
  * @property int|null $reseller_id
  * @property string|null $serial
  * @property int|null $brand_id

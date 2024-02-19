@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->integer('address_type_id')->nullable();
             $table->integer('ordinal')->nullable();
             $table->string('street',150)->nullable();
             $table->string('number',10)->nullable();
-            $table->string('appartement',10)->nullable();
+            $table->string('apartment',10)->nullable();
             $table->string('postal',10)->nullable();
             $table->string('city',150)->nullable();
             $table->string('region',150)->nullable();
@@ -30,12 +30,12 @@ return new class extends Migration
 
         DB::table('addresses')->insert([
             [
-             'tenantid' => 1,
+             'tenant_id' => 1,
              'address_type_id' => 1,
              'ordinal' => 1,
              'street' => 'Hoogboomsteenweg',
              'number' => '12',
-             'appartement' => '1003',
+             'apartment' => '1003',
              'postal' => '2930',
              'city' => 'Brasschaat',
              'region' => 'Antwerp',

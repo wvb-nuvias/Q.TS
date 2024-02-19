@@ -40,7 +40,7 @@
                     </div>
                     <div class="w-5/12 max-w-full px-3 flex-0">
                         <x-label for="location" value="{{ __('Location') }}" />
-                        <x-input id="location" type="text" class="mt-1 block w-full" value="{{ $user->organisation->address->tostring() }}" />
+                        <x-input id="location" type="text" class="mt-1 block w-full" value="{{ $user->organization->address->tostring() }}" />
                         <x-input-error for="location" class="mt-2" />
                     </div>
                     <x-theme.button extracss="h-10 self-end">Change</x-theme.button>
@@ -50,7 +50,7 @@
 
                     </div>
                     <div class="w-6/12 max-w-full px-3 flex-0">
-                        <x-map :address="$user->organisation->address"/>
+                        <x-map :address="$user->organization->address"/>
                     </div>
                 </div>
 

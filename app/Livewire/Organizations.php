@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
-use App\Models\Organisation;
-use App\Models\OrganisationType;
+use App\Models\Organization;
+use App\Models\OrganizationType;
 
-class Organisations extends Component
+class Organizations extends Component
 {
     public User $user;
     public $rights;
@@ -21,7 +21,7 @@ class Organisations extends Component
     {
         if ($this->user->hasright('VIEW_ORG'))
         {
-            return view('livewire.organisations');
+            return view('livewire.organizations');
         }
         else
         {

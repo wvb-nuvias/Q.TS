@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->integer('user_id')->nullable();
             $table->integer('role_id')->nullable();
@@ -21,8 +21,8 @@ return new class extends Migration
 
         //assign role 1 to Q
         DB::table('role_user')->insert([
-            ['tenantid' => 1, 'user_id' => 1, 'role_id' => 1],
-            ['tenantid' => 1, 'user_id' => 2, 'role_id' => 3],
+            ['tenant_id' => 1, 'user_id' => 1, 'role_id' => 1],
+            ['tenant_id' => 1, 'user_id' => 2, 'role_id' => 3],
         ]);
     }
 

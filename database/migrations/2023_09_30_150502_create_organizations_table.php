@@ -11,20 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organisations', function (Blueprint $table) {
+        Schema::create('organizations', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->integer('number')->nullable();
             $table->integer('address_id')->nullable();
-            $table->integer('organisation_type_id')->nullable();
+            $table->integer('organization_type_id')->nullable();
             $table->string('name',100)->nullable();
-            $table->integer('managedby')->nullable();
+            $table->integer('managed_by')->nullable();
         });
 
-        //add q continuum as organisation?
-        DB::table('organisations')->insert([
-            ['tenantid' => 1, 'number' => 1, 'organisation_type_id' => 1, 'name' => 'the Q Continuum', 'managedby' => 1, 'address_id' => 1],
+        DB::table('organizations')->insert([
+            ['tenant_id' => 1, 'number' => 1, 'organization_type_id' => 1, 'name' => 'the Q Continuum', 'managed_by' => 1, 'address_id' => 1],
         ]);
     }
 
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organisations');
+        Schema::dropIfExists('organizations');
     }
 };

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('alert_rules', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
-            $table->integer('devicegroup_id');
+            $table->integer('tenant_id');
+            $table->integer('device_group_id');
             $table->string('content',250)->nullable();
             $table->timestamps();
         });

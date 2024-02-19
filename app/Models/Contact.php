@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use App\Models\Address;
 use App\Models\ContactType;
-use App\Models\Customer;
 use App\Models\Email;
 use App\Models\Job;
 use App\Models\Phone;
+use App\Models\Organization;
 
 /**
  * Table: contacts
@@ -48,7 +48,7 @@ class Contact extends Model
     /**
      * Get the contacttype for this contact.
      */
-    public function contacttype(): HasOne
+    public function contact_type(): HasOne
     {
         return $this->HasOne(ContactType::class);
     }
@@ -56,9 +56,9 @@ class Contact extends Model
     /**
      * Get the customer for this contact.
      */
-    public function customer(): BelongsTo
+    public function organization(): BelongsTo
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Organization::class);
     }
 
     /**

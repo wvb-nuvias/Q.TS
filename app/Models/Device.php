@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  *
  * === Columns ===
  * @property int $id
- * @property int|null $tenantid
+ * @property int|null $tenant_id
  * @property string|null $hostname
  * @property string|null $ip
  * @property string|null $sysname
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string|null $syscontact
  * @property string|null $sysos
  * @property string|null $sysversion
- * @property int|null $devicetype_id
+ * @property int|null $device_type_id
  * @property int|null $brand_id
  * @property string|null $hardware
  * @property string|null $serial
@@ -39,7 +39,7 @@ class Device extends Model
 
     /** @var array */
     protected $fillable = [
-        'tenantid',
+        'tenant_id',
         'hostname',
         'ip',
         'sysname',
@@ -47,7 +47,7 @@ class Device extends Model
         'syscontact',
         'sysos',
         'sysversion',
-        'devicetype_id',
+        'device_type_id',
         'brand_id',
         'hardware',
         'serial',

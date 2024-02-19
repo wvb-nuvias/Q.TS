@@ -34,7 +34,7 @@ class Address extends Model
     /**
      * @var array
      */
-    protected $fillable = ['created_at', 'updated_at', 'address_type_id', 'ordinal', 'street', 'number', 'appartement', 'postal', 'city', 'region', 'country','lat','lng'];
+    protected $fillable = ['created_at', 'updated_at', 'address_type_id', 'ordinal', 'street', 'number', 'apartment', 'postal', 'city', 'region', 'country','lat','lng'];
 
     /**
      * Get the addresstype for this address.

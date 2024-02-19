@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_settings', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->integer('user_id');
             $table->string('key',30);
             $table->string('val',20);
@@ -21,18 +21,18 @@ return new class extends Migration
         });
 
         DB::table('user_settings')->insert([
-            ['tenantid' => 1, 'user_id' => 1, 'key' => 'theme', 'val' => 'dark'],
-            ['tenantid' => 1, 'user_id' => 1, 'key' => 'themecolor1', 'val' => 'green-500'],
-            ['tenantid' => 1, 'user_id' => 1, 'key' => 'themecolor2', 'val' => 'blue-500'],
-            ['tenantid' => 1, 'user_id' => 1, 'key' => 'sidepanelbgcolor', 'val' => 'slate-850'],
-            ['tenantid' => 1, 'user_id' => 2, 'key' => 'theme', 'val' => 'light'],
-            ['tenantid' => 1, 'user_id' => 2, 'key' => 'themecolor1', 'val' => 'green-500'],
-            ['tenantid' => 1, 'user_id' => 2, 'key' => 'themecolor2', 'val' => 'blue-500'],
-            ['tenantid' => 1, 'user_id' => 2, 'key' => 'sidepanelbgcolor', 'val' => 'slate-850'],
-            ['tenantid' => 1, 'user_id' => 3, 'key' => 'theme', 'val' => 'light'],
-            ['tenantid' => 1, 'user_id' => 3, 'key' => 'themecolor1', 'val' => 'green-500'],
-            ['tenantid' => 1, 'user_id' => 3, 'key' => 'themecolor2', 'val' => 'blue-500'],
-            ['tenantid' => 1, 'user_id' => 3, 'key' => 'sidepanelbgcolor', 'val' => 'slate-850'],
+            ['tenant_id' => 1, 'user_id' => 1, 'key' => 'theme', 'val' => 'dark'],
+            ['tenant_id' => 1, 'user_id' => 1, 'key' => 'themecolor1', 'val' => 'green-500'],
+            ['tenant_id' => 1, 'user_id' => 1, 'key' => 'themecolor2', 'val' => 'blue-500'],
+            ['tenant_id' => 1, 'user_id' => 1, 'key' => 'sidepanelbgcolor', 'val' => 'slate-850'],
+            ['tenant_id' => 1, 'user_id' => 2, 'key' => 'theme', 'val' => 'light'],
+            ['tenant_id' => 1, 'user_id' => 2, 'key' => 'themecolor1', 'val' => 'green-500'],
+            ['tenant_id' => 1, 'user_id' => 2, 'key' => 'themecolor2', 'val' => 'blue-500'],
+            ['tenant_id' => 1, 'user_id' => 2, 'key' => 'sidepanelbgcolor', 'val' => 'slate-850'],
+            ['tenant_id' => 1, 'user_id' => 3, 'key' => 'theme', 'val' => 'light'],
+            ['tenant_id' => 1, 'user_id' => 3, 'key' => 'themecolor1', 'val' => 'green-500'],
+            ['tenant_id' => 1, 'user_id' => 3, 'key' => 'themecolor2', 'val' => 'blue-500'],
+            ['tenant_id' => 1, 'user_id' => 3, 'key' => 'sidepanelbgcolor', 'val' => 'slate-850'],
         ]);
     }
 

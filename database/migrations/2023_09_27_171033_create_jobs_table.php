@@ -13,19 +13,19 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->string('name',100)->nullable();
         });
 
         DB::table('jobs')->insert([
-            ['tenantid' => 1, 'name' => 'CEO / Co-Founder'],
-            ['tenantid' => 1, 'name' => 'Team Leader'],
-            ['tenantid' => 1, 'name' => 'Security Engineer'],
-            ['tenantid' => 1, 'name' => 'Presales Engineer'],
-            ['tenantid' => 1, 'name' => 'Sales Person'],
-            ['tenantid' => 1, 'name' => 'IT Person'],
-            ['tenantid' => 1, 'name' => '3rd Party IT'],
+            ['tenant_id' => 1, 'name' => 'CEO / Co-Founder'],
+            ['tenant_id' => 1, 'name' => 'Team Leader'],
+            ['tenant_id' => 1, 'name' => 'Security Engineer'],
+            ['tenant_id' => 1, 'name' => 'Pre Sales Engineer'],
+            ['tenant_id' => 1, 'name' => 'Sales Person'],
+            ['tenant_id' => 1, 'name' => 'IT Person'],
+            ['tenant_id' => 1, 'name' => '3rd Party IT'],
         ]);
     }
 

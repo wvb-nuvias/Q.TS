@@ -14,7 +14,7 @@ class DeviceSetting extends Model
     ];
 
     protected $fillable = [
-        'tenantid',
+        'tenant_id',
         'device_id',
         'readonlyuser',
         'readonlypass',

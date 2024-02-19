@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('device_group_device', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->timestamps();
             $table->integer('device_id');
-            $table->integer('devicegroup_id');
+            $table->integer('device_group_id');
         });
     }
 

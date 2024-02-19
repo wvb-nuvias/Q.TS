@@ -11,19 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organisation_types', function (Blueprint $table) {
+        Schema::create('organization_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenantid');
+            $table->integer('tenant_id');
             $table->integer('hidden');
             $table->timestamps();
             $table->string('name',100)->nullable();
         });
 
-        DB::table('organisation_types')->insert([
-            ['tenantid' => 1, 'hidden' => 1, 'name' => 'Master'],
-            ['tenantid' => 1, 'hidden' => 0, 'name' => 'Normal'],
-            ['tenantid' => 1, 'hidden' => 0, 'name' => 'Prospect'],
-            ['tenantid' => 1, 'hidden' => 0, 'name' => 'Reseller'],
+        DB::table('organization_types')->insert([
+            ['tenant_id' => 1, 'hidden' => 1, 'name' => 'Master'],
+            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Normal'],
+            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Prospect'],
+            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Reseller'],
         ]);
     }
 

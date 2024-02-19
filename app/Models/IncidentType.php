@@ -14,7 +14,7 @@ use App\Models\Incident;
 *
 * === Columns ===
  * @property int $id
- * @property int $tenantid
+ * @property int $tenant_id
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $name
