@@ -7,21 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Table: attachments
-*
-* === Columns ===
+ *
+ * === Columns ===
  * @property int $id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property int $tenant_id
  * @property int|null $incident_id
  * @property int|null $subscription_id
  * @property string|null $attachment
-*/
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ */
 class Attachment extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
-    protected $fillable = ['created_at', 'updated_at', 'incident_id', 'subscription_id', 'attachment'];
+    /** @var array */
+    protected $fillable = ['tenant_id', 'incident_id', 'subscription_id', 'attachment'];
 }

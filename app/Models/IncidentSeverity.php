@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Table: incident_statuses
-*
-* === Columns ===
+ *
+ * === Columns ===
  * @property int $id
  * @property int $tenant_id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
  * @property string|null $name
  * @property string|null $icon
  * @property string|null $color
-*/
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ */
 class IncidentSeverity extends Model
 {
     use HasFactory;

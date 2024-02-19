@@ -4,38 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
-use App\Models\Address;
-use App\Models\ContactType;
-use App\Models\Email;
-use App\Models\Job;
-use App\Models\Phone;
-use App\Models\Organization;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Table: contacts
-*
-* === Columns ===
+ *
+ * === Columns ===
  * @property int $id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property int|null $tenant_id
  * @property int|null $customer_id
  * @property int|null $contact_type_id
  * @property int|null $job_id
  * @property string|null $lastname
  * @property string|null $firstname
-*/
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ */
 class Contact extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
-    protected $fillable = ['created_at', 'updated_at', 'customer_id', 'contact_type_id', 'job_id', 'lastname', 'firstname'];
+    /** @var array */
+    protected $fillable = ['tenant_id', 'customer_id', 'contact_type_id', 'job_id', 'lastname', 'firstname'];
 
     /**
      * Get the addresses for the contact.

@@ -4,35 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
-use App\Models\Address;
-use App\Models\User;
-use App\Models\OrganizationType;
-use App\Models\Email;
-use App\Models\Phone;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Table: organizations
-*
-* === Columns ===
+ *
+ * === Columns ===
  * @property int $id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property int|null $tenant_id
  * @property int|null $number
  * @property int|null $organization_type_id
  * @property string|null $name
- * @property int|null $managedby
-*/
+ * @property int|null $managed_by
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ */
 class Organization extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
-    protected $fillable = ['created_at', 'updated_at', 'number', 'organization_type_id', 'name', 'managedby'];
+    /** @var array */
+    protected $fillable = ['tenant_id', 'number', 'address_id', 'organization_type_id', 'name', 'managed_by'];
 
     /**
      * Get the addresses for the organization.

@@ -4,25 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
-use App\Models\Brand;
-use App\Models\organization;
-use App\Models\IncidentDetail;
-use App\Models\IncidentStatus;
-use App\Models\IncidentType;
-use App\Models\Product;
-use App\Models\Subscription;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Table: incidents
-*
-* === Columns ===
+ *
+ * === Columns ===
  * @property int $id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property int|null $createdby
+ * @property int|null $tenant_id
+ * @property int|null $incident_nr
+ * @property int|null $created_by
  * @property int|null $customer_id
  * @property int|null $incident_type_id
  * @property int|null $incident_status_id
@@ -31,16 +23,29 @@ use App\Models\Subscription;
  * @property int|null $subscription_id
  * @property string|null $title
  * @property string|null $description
- * @property int|null $timespent
-*/
+ * @property int|null $time_spent
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ */
 class Incident extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
-    protected $fillable = ['created_at', 'updated_at', 'createdby', 'customer_id', 'incident_type_id', 'incident_status_id', 'brand_id', 'product_id', 'subscription_id', 'title', 'description', 'timespent'];
+    /** @var array */
+    protected $fillable = [
+        'tenant_id',
+        'incident_nr',
+        'created_by',
+        'customer_id',
+        'incident_type_id',
+        'incident_status_id',
+        'brand_id',
+        'product_id',
+        'subscription_id',
+        'title',
+        'description',
+        'time_spent',
+    ];
 
     /**
      * Get the brand for this incident.

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id');
-            $table->timestamps();
             $table->integer('subscription_type_id')->nullable();
             $table->string('code',20)->nullable();
             $table->integer('product_id')->nullable();
@@ -27,6 +26,7 @@ return new class extends Migration
             $table->integer('reseller_id')->nullable();
             $table->string('serial',50)->nullable();
             $table->integer('brand_id')->nullable();
+            $table->timestamps();
         });
     }
 

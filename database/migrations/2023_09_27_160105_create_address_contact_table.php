@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('address_contact', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id');
-            $table->timestamps();
             $table->integer('contact_id')->nullable();
             $table->integer('address_id')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id');
-            $table->timestamps();
             $table->integer('customer_id')->nullable();
             $table->integer('contact_type_id')->nullable();
             $table->integer('job_id')->nullable();
             $table->string('lastname',100)->nullable();
             $table->string('firstname',100)->nullable();
+            $table->timestamps();
         });
     }
 

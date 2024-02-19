@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id');
-            $table->timestamps();
             $table->integer('number')->nullable();
             $table->integer('address_id')->nullable();
             $table->integer('organization_type_id')->nullable();
             $table->string('name',100)->nullable();
             $table->integer('managed_by')->nullable();
+            $table->timestamps();
         });
 
         DB::table('organizations')->insert([

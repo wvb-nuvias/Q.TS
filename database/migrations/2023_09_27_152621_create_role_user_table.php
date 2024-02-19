@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('role_user', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id');
-            $table->timestamps();
             $table->integer('user_id')->nullable();
             $table->integer('role_id')->nullable();
+            $table->timestamps();
         });
 
         //assign role 1 to Q

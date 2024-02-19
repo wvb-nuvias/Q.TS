@@ -4,36 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
-use App\Models\EmailType;
-use App\Models\Contact;
-use App\Models\Customer;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Table: emails
-*
-* === Columns ===
+ *
+ * === Columns ===
  * @property int $id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property int|null $tenant_id
  * @property int|null $email_type_id
  * @property string|null $address
-*/
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ */
 class Email extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
-    protected $fillable = ['created_at', 'updated_at', 'email_type_id', 'address'];
+    /** @var array */
+    protected $fillable = ['tenant_id', 'email_type_id', 'address'];
 
     /**
-     * Get the emailtype for this contact.
+     * Get the email_type for this contact.
      */
-    public function emailtype(): HasOne
+    public function email_type(): HasOne
     {
         return $this->HasOne(EmailType::class);
     }
@@ -47,10 +42,10 @@ class Email extends Model
     }
 
     /**
-     * Get the customer who has this email.
+     * Get the organization who has this email.
      */
-    public function customer(): BelongsTo
+    public function organization(): BelongsTo
     {
-        return $this->BelongsTo(Customer::class);
+        return $this->BelongsTo(Organization::class);
     }
 }

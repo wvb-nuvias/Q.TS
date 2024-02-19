@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id');
-            $table->timestamps();
             $table->integer('address_type_id')->nullable();
             $table->integer('ordinal')->nullable();
             $table->string('street',150)->nullable();
@@ -26,6 +25,7 @@ return new class extends Migration
             $table->string('country',150)->nullable();
             $table->float('lat',8,4)->nullable();
             $table->float('lng',8,4)->nullable();
+            $table->timestamps();
         });
 
         DB::table('addresses')->insert([

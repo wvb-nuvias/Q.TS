@@ -6,35 +6,45 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-use App\Models\AddressType;
-
 /**
  * Table: addresses
-*
-* === Columns ===
+ *
+ * === Columns ===
  * @property int $id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property int $tenant_id
  * @property int|null $address_type_id
  * @property int|null $ordinal
  * @property string|null $street
  * @property string|null $number
- * @property string|null $appartement
+ * @property string|null $apartment
  * @property string|null $postal
  * @property string|null $city
  * @property string|null $region
  * @property string|null $country
  * @property int|null $lat
  * @property int|null $lng
-*/
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ */
 class Address extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
-    protected $fillable = ['created_at', 'updated_at', 'address_type_id', 'ordinal', 'street', 'number', 'apartment', 'postal', 'city', 'region', 'country','lat','lng'];
+    /** @var array */
+    protected $fillable = [
+        'tenant_id',
+        'address_type_id',
+        'ordinal',
+        'street',
+        'number',
+        'apartment',
+        'postal',
+        'city',
+        'region',
+        'country',
+        'lat',
+        'lng',
+    ];
 
     /**
      * Get the addresstype for this address.
@@ -44,7 +54,8 @@ class Address extends Model
         return $this->hasOne(AddressType::class);
     }
 
-    public function tostring() {
+    public function tostring()
+    {
         $tmp=$this->street." ".$this->number;
         if ($this->appartement!=null) {
             $tmp.="/".$this->appartement;
@@ -58,7 +69,8 @@ class Address extends Model
         return $tmp;
     }
 
-    public function updatelatlng() {
+    public function updatelatlng()
+    {
         $baseurl=config('mapquest.url')."?key=".config('mapquest.key')."&location=";
         $locationurlsafe=str_replace(" ","%20",$this->tostring());
         $url=$baseurl.$locationurlsafe;

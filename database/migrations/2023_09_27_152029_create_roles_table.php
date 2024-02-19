@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('tenant_id');
             $table->integer('hidden');
-            $table->timestamps();
             $table->string('name',100)->nullable();
+            $table->timestamps();
         });
 
         //add the premade roles
