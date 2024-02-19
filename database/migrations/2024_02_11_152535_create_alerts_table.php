@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
-            $table->integer('alert_rule_id');
-            $table->integer('alert_status_id');
+            $table->integer('tenant_id')->nullable();
+            $table->integer('alert_rule_id')->nullable();
+            $table->integer('alert_status_id')->nullable();
             $table->string('message',250)->nullable();
             $table->timestamps();
         });

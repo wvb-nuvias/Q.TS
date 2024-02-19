@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('address_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
-            $table->integer('hidden');
+            $table->integer('tenant_id')->nullable();
+            $table->integer('hidden')->nullable();
             $table->string('name',100)->nullable();
             $table->timestamps();
         });

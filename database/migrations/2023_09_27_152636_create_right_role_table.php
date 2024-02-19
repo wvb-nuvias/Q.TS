@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('right_role', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
+            $table->integer('tenant_id')->nullable();
             $table->integer('role_id')->nullable();
             $table->integer('right_id')->nullable();
             $table->timestamps();

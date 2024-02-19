@@ -4,32 +4,32 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-
-use App\Models\Right;
-use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Table: roles
-*
-* === Columns ===
+ *
+ * === Columns ===
  * @property int $id
+ * @property int|null $tenant_id
+ * @property int|null $hidden
+ * @property string|null $name
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
- * @property string|null $name
-*/
+ */
 class Role extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['tenant_id', 'hidden', 'name'];
 
     /**
      * Get the rights for the role.
      */
     public function rights(): BelongsToMany
     {
-
         return $this->belongsToMany(Right::class);
     }
 

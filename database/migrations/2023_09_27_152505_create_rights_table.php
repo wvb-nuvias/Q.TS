@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('rights', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
+            $table->integer('tenant_id')->nullable();
             $table->string('name',100)->nullable();
             $table->string('code',100)->nullable();
             $table->string('group',100)->nullable();

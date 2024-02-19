@@ -15,10 +15,11 @@ use App\Models\Product;
 *
 * === Columns ===
  * @property int $id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property int|null $tenant_id
  * @property string|null $name
  * @property int|null $brand_id
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
 */
 class ProductType extends Model
 {
@@ -30,7 +31,7 @@ class ProductType extends Model
     protected $fillable = ['created_at', 'updated_at', 'name'];
 
     /**
-     * Get the brand for this producttype.
+     * Get the brand for this product_type.
      */
     public function brand(): HasOne
     {
@@ -38,7 +39,7 @@ class ProductType extends Model
     }
 
     /**
-     * Get the products that have this producttype.
+     * Get the products that have this product_type.
      */
     public function products(): BelongsTo
     {

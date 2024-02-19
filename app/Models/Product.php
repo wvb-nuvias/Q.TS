@@ -15,8 +15,7 @@ use App\Models\UnitType;
 *
 * === Columns ===
  * @property int $id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property int|null $tenant_id
  * @property int|null $product_type_id
  * @property string|null $code
  * @property string|null $name
@@ -25,6 +24,8 @@ use App\Models\UnitType;
  * @property int|null $units
  * @property float|null $cost
  * @property int $brand_id
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
 */
 class Product extends Model
 {

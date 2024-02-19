@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
+            $table->integer('tenant_id')->nullable();
             $table->string('name',100)->nullable();
             $table->string('icon',100)->nullable();
             $table->string('logo',100)->nullable();

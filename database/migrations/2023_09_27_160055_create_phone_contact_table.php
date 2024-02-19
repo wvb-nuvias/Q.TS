@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('phone_contact', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
+            $table->integer('tenant_id')->nullable();
             $table->integer('contact_id')->nullable();
             $table->integer('phone_id')->nullable();
             $table->timestamps();

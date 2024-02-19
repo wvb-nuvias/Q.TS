@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('device_settings', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
-            $table->integer('device_id');
+            $table->integer('tenant_id')->nullable();
+            $table->integer('device_id')->nullable();
             $table->string('readonlyuser',50)->nullable();
             $table->string('readonlypass', 160)->nullable();
             $table->string('readwriteuser',50)->nullable();

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('device_group_device', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');            
-            $table->integer('device_id');
-            $table->integer('device_group_id');
+            $table->integer('tenant_id')->nullable();
+            $table->integer('device_id')->nullable();
+            $table->integer('device_group_id')->nullable();
             $table->timestamps();
         });
     }

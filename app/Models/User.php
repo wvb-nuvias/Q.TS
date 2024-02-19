@@ -2,16 +2,39 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Table: users
+ *
+ * === Columns ===
+ * @property int $id
+ * @property int|null $tenant_id
+ * @property string|null $name
+ * @property string|null $email
+ * @property string|null $email_verified_at
+ * @property string|null $password
+ * @property string|null $two_factor_secret
+ * @property string|null $two_factor_recovery_codes
+ * @property string|null $two_factor_confirmed_at
+ * @property int|null $current_team_id
+ * @property string|null $profile_photo_path
+ * @property int|null $job_id
+ * @property int|null $role_id
+ * @property int|null $organization_id
+ * @property string|null $firstname
+ * @property string|null $phone
+ * @property string|null $remember_token
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ */
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -26,10 +49,22 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'firstname',
+        'tenant_id',
         'name',
         'email',
+        'email_verified_at',
         'password',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
+        'two_factor_confirmed_at',
+        'current_team_id',
+        'profile_photo_path',
+        'job_id',
+        'role_id',
+        'organization_id',
+        'firstname',
+        'phone',
+        'remember_token',
     ];
 
     /**
@@ -37,30 +72,21 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
-    ];
+    protected $hidden = ['password', 'remember_token', 'two_factor_recovery_codes', 'two_factor_secret'];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $casts = ['email_verified_at' => 'datetime'];
 
     /**
      * The accessors to append to the model's array form.
      *
      * @var array<int, string>
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+    protected $appends = ['profile_photo_url'];
 
     /**
      * Get the role of this user.
@@ -118,7 +144,8 @@ class User extends Authenticatable
     /**
      * Get the full name for this user.
      */
-    public function fullname() {
+    public function fullname()
+    {
         return $this->firstname." ".$this->name;
     }
 

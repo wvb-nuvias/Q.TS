@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
+            $table->integer('tenant_id')->nullable();
             $table->integer('subscription_type_id')->nullable();
             $table->string('code',20)->nullable();
             $table->integer('product_id')->nullable();

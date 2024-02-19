@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
-            $table->integer('user_id');
+            $table->integer('tenant_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->string('group',150)->nullable();
             $table->string('source',150)->nullable();
             $table->string('log_type',50)->nullable();

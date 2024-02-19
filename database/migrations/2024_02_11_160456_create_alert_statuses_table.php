@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('alert_statuses', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
+            $table->integer('tenant_id')->nullable();
             $table->string('name',250)->nullable();
             $table->timestamps();
         });

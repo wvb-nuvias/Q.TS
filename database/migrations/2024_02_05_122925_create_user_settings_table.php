@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_settings', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id');
-            $table->integer('user_id');
-            $table->string('key',30);
-            $table->string('val',20);
+            $table->integer('tenant_id')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->string('key',30)->nullable();
+            $table->string('val',20)->nullable();
             $table->timestamps();
         });
 
