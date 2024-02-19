@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -19,7 +20,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        //add the premade roles
+        //add the pre made roles
         DB::table('roles')->insert([
             ['tenant_id' => 1, 'hidden' => 1, 'name' => 'Tenant Administrator'],
             ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Administrator'],
