@@ -16,6 +16,9 @@
             <x-panel.subtitle extracss="-mt-4">
                 These are all the incidents based on selected filters
             </x-panel.subtitle>
+            <div class="pt-6">
+                <livewire:incidents-table/>
+            </div>
         </x-panel>
     </div>
 </div>
