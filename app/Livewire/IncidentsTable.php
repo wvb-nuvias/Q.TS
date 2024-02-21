@@ -119,6 +119,8 @@ final class IncidentsTable extends PowerGridComponent
 
     public function columns(): array
     {
+        //TODO if tenantadmin, also add column tenant (with name)
+
         return [
             Column::make('Info', 'info'),
 
