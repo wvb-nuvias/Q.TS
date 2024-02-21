@@ -62,6 +62,7 @@ final class IncidentsTable extends PowerGridComponent
         //TODO if tenantadmin, see all (with tenant filter, all or certain tenant only)
         //TODO if partner, show partners and his customers (via active subscriptions)
         //TODO if end customer, show only those
+        //TODO add type filter and impact filter
 
         return Incident::where('incidents.tenant_id',$this->user->tenant_id)
             ->whereIn('brand_id',$this->selectedbrand)
