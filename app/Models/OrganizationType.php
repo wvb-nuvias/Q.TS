@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $id
  * @property int|null $tenant_id
  * @property int|null $hidden
- * @property string|null $name
+ * @property string|null $organization_type_name
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -22,7 +22,7 @@ class OrganizationType extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'hidden', 'name'];
+    protected $fillable = ['tenant_id', 'hidden', 'organization_type_name'];
 
     /**
      * Get the organizations that have this organizationtype.

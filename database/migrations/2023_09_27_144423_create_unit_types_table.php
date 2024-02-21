@@ -15,13 +15,13 @@ return new class extends Migration
         Schema::create('unit_types', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id')->nullable();
-            $table->string('name',100)->nullable();
+            $table->string('unit_type_name',100)->nullable();
             $table->timestamps();
         });
 
         DB::table('unit_types')->insert([
-            ['tenant_id' => 1, 'name' => 'Per Hour'],
-            ['tenant_id' => 1, 'name' => 'Per Device'],
+            ['tenant_id' => 1, 'unit_type_name' => 'Per Hour'],
+            ['tenant_id' => 1, 'unit_type_name' => 'Per Device'],
         ]);
     }
 

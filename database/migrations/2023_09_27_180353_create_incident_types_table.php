@@ -15,19 +15,19 @@ return new class extends Migration
         Schema::create('incident_types', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id')->nullable();
-            $table->string('name',100)->nullable();
-            $table->string('icon',255)->nullable();
-            $table->string('color',100)->nullable();
+            $table->string('incident_type_name',100)->nullable();
+            $table->string('incident_type_icon',255)->nullable();
+            $table->string('incident_type_color',100)->nullable();
             $table->timestamps();
         });
 
         DB::table('incident_types')->insert([
-            ['tenant_id' => 1, 'name' => 'Incident', 'icon' => 'truck-medical', 'color' => 'green'],
-            ['tenant_id' => 1, 'name' => 'Question', 'icon' => 'circle-question', 'color' => 'blue'],
-            ['tenant_id' => 1, 'name' => 'Pre Sales', 'icon' => 'paperclip', 'color' => 'purple'],
-            ['tenant_id' => 1, 'name' => 'Todo', 'icon' => 'circle-check', 'color' => 'orange'],
-            ['tenant_id' => 1, 'name' => 'Installation', 'icon' => 'business-time', 'color' => 'amber'],
-            ['tenant_id' => 1, 'name' => 'On Site', 'icon' => 'shoe-prints', 'color' => 'red'],
+            ['tenant_id' => 1, 'incident_type_name' => 'Incident', 'incident_type_icon' => 'truck-medical', 'incident_type_color' => 'green'],
+            ['tenant_id' => 1, 'incident_type_name' => 'Question', 'incident_type_icon' => 'circle-question', 'incident_type_color' => 'blue'],
+            ['tenant_id' => 1, 'incident_type_name' => 'Pre Sales', 'incident_type_icon' => 'paperclip', 'incident_type_color' => 'purple'],
+            ['tenant_id' => 1, 'incident_type_name' => 'Todo', 'incident_type_icon' => 'circle-check', 'incident_type_color' => 'orange'],
+            ['tenant_id' => 1, 'incident_type_name' => 'Installation', 'incident_type_icon' => 'business-time', 'incident_type_color' => 'amber'],
+            ['tenant_id' => 1, 'incident_type_name' => 'On Site', 'incident_type_icon' => 'shoe-prints', 'incident_type_color' => 'red'],
         ]);
     }
 

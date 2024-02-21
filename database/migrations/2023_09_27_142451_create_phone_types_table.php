@@ -15,15 +15,15 @@ return new class extends Migration
         Schema::create('phone_types', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id')->nullable();
-            $table->string('name',100)->nullable();
+            $table->string('phone_type_name',100)->nullable();
             $table->timestamps();
         });
 
         DB::table('phone_types')->insert([
-            ['tenant_id' => 1, 'name' => 'Home'],
-            ['tenant_id' => 1, 'name' => 'Work'],
-            ['tenant_id' => 1, 'name' => 'Mobile Home'],
-            ['tenant_id' => 1, 'name' => 'Mobile Work'],
+            ['tenant_id' => 1, 'phone_type_name' => 'Home'],
+            ['tenant_id' => 1, 'phone_type_name' => 'Work'],
+            ['tenant_id' => 1, 'phone_type_name' => 'Mobile Home'],
+            ['tenant_id' => 1, 'phone_type_name' => 'Mobile Work'],
         ]);
     }
 

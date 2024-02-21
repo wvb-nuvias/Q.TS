@@ -16,14 +16,14 @@ return new class extends Migration
             $table->id();
             $table->integer('tenant_id')->nullable();
             $table->integer('hidden')->nullable();
-            $table->string('name',100)->nullable();
+            $table->string('address_type_name',100)->nullable();
             $table->timestamps();
         });
 
         DB::table('address_types')->insert([
-            ['tenant_id' => 1, 'hidden' => 1, 'name' => 'Creator'],
-            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Home'],
-            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Work'],
+            ['tenant_id' => 1, 'hidden' => 1, 'address_type_name' => 'Creator'],
+            ['tenant_id' => 1, 'hidden' => 0, 'address_type_name' => 'Home'],
+            ['tenant_id' => 1, 'hidden' => 0, 'address_type_name' => 'Work'],
         ]);
     }
 

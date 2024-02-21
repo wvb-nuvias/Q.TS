@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('customer_id')->nullable();
             $table->integer('incident_type_id')->nullable();
             $table->integer('incident_status_id')->nullable();
+            $table->integer('incident_severity_id')->nullable();
             $table->integer('brand_id')->nullable();
             $table->integer('product_id')->nullable();
             $table->integer('subscription_id')->nullable();

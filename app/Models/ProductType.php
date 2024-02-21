@@ -16,7 +16,7 @@ use App\Models\Product;
 * === Columns ===
  * @property int $id
  * @property int|null $tenant_id
- * @property string|null $name
+ * @property string|null $product_type_name
  * @property int|null $brand_id
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
@@ -28,7 +28,7 @@ class ProductType extends Model
     /**
      * @var array
      */
-    protected $fillable = ['created_at', 'updated_at', 'name'];
+    protected $fillable = ['created_at', 'updated_at', 'product_type_name'];
 
     /**
      * Get the brand for this product_type.

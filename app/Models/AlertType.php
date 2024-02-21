@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * === Columns ===
  * @property int $id
  * @property int $tenant_id
- * @property string|null $name
+ * @property string|null $alert_type_name
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -19,5 +19,5 @@ class AlertType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tenant_id', 'name'];
+    protected $fillable = ['tenant_id', 'alert_type_name'];
 }

@@ -46,10 +46,10 @@ class SummarySubscriptionsByBrand extends Component
                             ->count();
         if ($brand)
         {
-            $this->title=$brand->name;
-            $this->color1=$brand->color1;
-            $this->color2=$brand->color1;
-            $this->icon="/img/icon/vendor/".$brand->icon;
+            $this->title=$brand->brand_name;
+            $this->color1=$brand->brand_color1;
+            $this->color2=$brand->brand_color1;
+            $this->icon="/img/icon/vendor/".$brand->brand_icon;
 
         }
 

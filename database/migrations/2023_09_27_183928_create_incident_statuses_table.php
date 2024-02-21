@@ -15,19 +15,19 @@ return new class extends Migration
         Schema::create('incident_statuses', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id')->nullable();
-            $table->string('name',100)->nullable();
-            $table->string('icon',255)->nullable();
-            $table->string('color',100)->nullable();
+            $table->string('incident_status_name',100)->nullable();
+            $table->string('incident_status_icon',255)->nullable();
+            $table->string('incident_status_color',100)->nullable();
             $table->timestamps();
         });
 
         DB::table('incident_statuses')->insert([
-            ['tenant_id' => 1, 'name' => 'New', 'icon' => 'bolt', 'color' => 'green'],
-            ['tenant_id' => 1, 'name' => 'Progress', 'icon' => 'play', 'color' => 'emerald'],
-            ['tenant_id' => 1, 'name' => 'On Hold', 'icon' => 'pause', 'color' => 'yellow'],
-            ['tenant_id' => 1, 'name' => 'Waiting for Customer', 'icon' => 'shop-lock', 'color' => 'amber'],
-            ['tenant_id' => 1, 'name' => 'Waiting for Supplier', 'icon' => 'building-lock', 'color' => 'orange'],
-            ['tenant_id' => 1, 'name' => 'Closed', 'icon' => 'lock', 'color' => 'red'],
+            ['tenant_id' => 1, 'incident_status_name' => 'New', 'incident_status_icon' => 'bolt', 'incident_status_color' => 'green'],
+            ['tenant_id' => 1, 'incident_status_name' => 'Progress', 'incident_status_icon' => 'play', 'incident_status_color' => 'emerald'],
+            ['tenant_id' => 1, 'incident_status_name' => 'On Hold', 'incident_status_icon' => 'pause', 'incident_status_color' => 'yellow'],
+            ['tenant_id' => 1, 'incident_status_name' => 'Waiting for Customer', 'incident_status_icon' => 'shop-lock', 'incident_status_color' => 'amber'],
+            ['tenant_id' => 1, 'incident_status_name' => 'Waiting for Supplier', 'incident_status_icon' => 'building-lock', 'incident_status_color' => 'orange'],
+            ['tenant_id' => 1, 'incident_status_name' => 'Closed', 'incident_status_icon' => 'lock', 'incident_status_color' => 'red'],
         ]);
     }
 

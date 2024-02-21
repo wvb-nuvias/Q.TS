@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * === Columns ===
  * @property int $id
  * @property int $tenant_id
- * @property string|null $name
- * @property string|null $icon
- * @property string|null $color
+ * @property string|null $incident_type_name
+ * @property string|null $incident_type_icon
+ * @property string|null $incident_type_color
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -23,7 +23,7 @@ class IncidentType extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'name', 'icon', 'color'];
+    protected $fillable = ['tenant_id', 'incident_type_name', 'incident_type_icon', 'incident_type_color'];
 
     /**
      * Get the incidents that have this incident_type.

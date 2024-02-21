@@ -16,15 +16,15 @@ return new class extends Migration
             $table->id();
             $table->integer('tenant_id')->nullable();
             $table->integer('hidden')->nullable();
-            $table->string('name',100)->nullable();
+            $table->string('role_name',100)->nullable();
             $table->timestamps();
         });
 
         //add the pre made roles
         DB::table('roles')->insert([
-            ['tenant_id' => 1, 'hidden' => 1, 'name' => 'Tenant Administrator'],
-            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Administrator'],
-            ['tenant_id' => 1, 'hidden' => 0, 'name' => 'Operator'],
+            ['tenant_id' => 1, 'hidden' => 1, 'role_name' => 'Tenant Administrator'],
+            ['tenant_id' => 1, 'hidden' => 0, 'role_name' => 'Administrator'],
+            ['tenant_id' => 1, 'hidden' => 0, 'role_name' => 'Operator'],
         ]);
     }
 

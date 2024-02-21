@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('device_groups', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id')->nullable();
-            $table->string('name',250)->nullable();
+            $table->string('device_group_name',250)->nullable();
             $table->string('rule',250)->nullable();
             $table->timestamps();
         });

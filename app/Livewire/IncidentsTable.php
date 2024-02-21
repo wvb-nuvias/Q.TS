@@ -18,26 +18,47 @@ use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
 final class IncidentsTable extends PowerGridComponent
 {
+    public $selectedstatus, $selectedbrand;
     use WithExport;
+
+    public string $primaryKey = 'incidents.id';
+    public string $sortField = 'incidents.id';
 
     public function setUp(): array
     {
-        $this->showCheckBox();
+        $this->showCheckBox('incident_nr');
 
         return [
             Exportable::make('export')
                 ->striped()
                 ->type(Exportable::TYPE_XLS, Exportable::TYPE_CSV),
-            Header::make()->showSearchInput(),
+            Header::make()
+                ->showToggleColumns()
+                ->showSearchInput(),
             Footer::make()
                 ->showPerPage()
-                ->showRecordCount(),
+                ->showRecordCount(mode: 'full'),
         ];
     }
 
     public function datasource(): Builder
     {
-        return Incident::query();
+        return Incident::query()
+            ->join('organizations', function ($organizations) {
+                $organizations->on('customer_id', '=', 'organizations.id');
+            })
+            ->join('incident_statuses', function ($statuses) {
+                $statuses->on('incident_status_id', '=', 'incident_statuses.id');
+            })
+            ->join('incident_severities', function ($severities) {
+                $severities->on('incident_severity_id', '=', 'incident_severities.id');
+            })
+            ->join('incident_types', function ($severities) {
+                $severities->on('incident_type_id', '=', 'incident_types.id');
+            })
+            ->join('brands', function ($brands) {
+                $brands->on('brand_id', '=', 'brands.id');
+            });
     }
 
     public function relationSearch(): array
@@ -53,6 +74,7 @@ final class IncidentsTable extends PowerGridComponent
             ->add('incident_nr')
             ->add('created_by')
             ->add('customer_id')
+            ->add('name')               //customer name
             ->add('incident_type_id')
             ->add('incident_status_id')
             ->add('brand_id')
@@ -61,17 +83,27 @@ final class IncidentsTable extends PowerGridComponent
             ->add('title')
             ->add('description')
             ->add('time_spent')
-            ->add('created_at');
+            ->add('created_at')
+            ->add('info', function ($model) {
+                $tmp="<i class=\"p-1\"><img src=\"img/icon/vendor/".$model->brand_icon."\" title=\"".$model->brand_name."\"></i>";
+                $tmp.="<i class=\"p-1 text-".$model->incident_type_color."-600 fa fa-".$model->incident_type_icon."\" title=\"Type : ".$model->incident_type_name."\"></i>";
+                $tmp.="<i class=\"p-1 text-".$model->incident_status_color."-600 fa fa-".$model->incident_status_icon."\" title=\"Status : ".$model->incident_status_name."\"></i>";
+                $tmp.="<i class=\"p-1 text-".$model->incident_severity_color."-600 fa fa-".$model->incident_severity_icon."\" title=\"Impact : ".$model->incident_severity_name."\"></i>";
+
+                return $tmp;
+            });
     }
 
     public function columns(): array
     {
         return [
+            Column::make('Info', 'info'),
+
             Column::make('Incident nr', 'incident_nr')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Customer id', 'customer_id')
+            Column::make('Customer', 'name')
                 ->sortable()
                 ->searchable(),
 
@@ -103,10 +135,10 @@ final class IncidentsTable extends PowerGridComponent
     {
         return [
             Button::add('edit')
-                ->slot('Edit: '.$row->id)
+                ->slot('Edit: '.$row->incident_nr)
                 ->id()
                 ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
+                ->dispatch('edit', ['rowId' => $row->incident_nr])
         ];
     }
 

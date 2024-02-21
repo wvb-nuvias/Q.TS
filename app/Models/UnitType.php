@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * === Columns ===
  * @property int $id
  * @property int|null $tenant_id
- * @property string|null $name
+ * @property string|null $unit_type_name
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -21,7 +21,7 @@ class UnitType extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'name'];
+    protected $fillable = ['tenant_id', 'unit_type_name'];
 
     /**
      * Get the products that have this unittype.

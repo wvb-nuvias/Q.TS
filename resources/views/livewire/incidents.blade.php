@@ -16,8 +16,9 @@
             <x-panel.subtitle extracss="-mt-4">
                 These are all the incidents based on selected filters
             </x-panel.subtitle>
-            <div class="pt-6">
-                <livewire:incidents-table/>
+            <div class="pt-6 text-sm">
+                @livewire('incidents-table', ['selectedstatus' => $selectedstatus, 'selectedbrand' => $selectedbrand])
+
             </div>
         </x-panel>
     </div>

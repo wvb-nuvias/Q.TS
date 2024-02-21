@@ -15,13 +15,13 @@ return new class extends Migration
         Schema::create('email_types', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id')->nullable();
-            $table->string('name',100)->nullable();
+            $table->string('email_type_name',100)->nullable();
             $table->timestamps();
         });
 
         DB::table('email_types')->insert([
-            ['tenant_id' => 1, 'name' => 'Home'],
-            ['tenant_id' => 1, 'name' => 'Work'],
+            ['tenant_id' => 1, 'email_type_name' => 'Home'],
+            ['tenant_id' => 1, 'email_type_name' => 'Work'],
         ]);
     }
 
