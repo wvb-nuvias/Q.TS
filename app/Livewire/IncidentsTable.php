@@ -16,12 +16,15 @@ use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 use Livewire\Attributes\On;
+use App\Models\User;
+use App\Models\UserSetting;
 
 final class IncidentsTable extends PowerGridComponent
 {
-    public $selectedstatus, $selectedbrand;
     use WithExport;
 
+    public User $user;
+    public $selectedstatus, $selectedbrand;
     public string $primaryKey = 'incidents.id';
     public string $sortField = 'incidents.id';
 
@@ -56,7 +59,8 @@ final class IncidentsTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Incident::whereIn('brand_id',$this->selectedbrand)
+        return Incident::where('incidents.tenant_id',$this->user->tenant_id)
+            ->whereIn('brand_id',$this->selectedbrand)
             ->whereIn('incident_status_id',$this->selectedstatus)
             ->join('organizations', function ($organizations) {
                 $organizations->on('customer_id', '=', 'organizations.id');

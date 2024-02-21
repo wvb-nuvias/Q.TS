@@ -17,7 +17,7 @@
                 These are all the incidents based on selected filters
             </x-panel.subtitle>
             <div class="pt-6 text-sm">
-                @livewire('incidents-table', ['selectedstatus' => $selectedstatus, 'selectedbrand' => $selectedbrand])
+                @livewire('incidents-table', ['selectedstatus' => $selectedstatus, 'selectedbrand' => $selectedbrand, 'user' => $user])
 
             </div>
         </x-panel>
