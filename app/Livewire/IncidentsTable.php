@@ -15,6 +15,7 @@ use PowerComponents\LivewirePowerGrid\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
+use Livewire\Attributes\On;
 
 final class IncidentsTable extends PowerGridComponent
 {
@@ -23,6 +24,18 @@ final class IncidentsTable extends PowerGridComponent
 
     public string $primaryKey = 'incidents.id';
     public string $sortField = 'incidents.id';
+
+    #[On('brand-selector-changed')]
+    public function updateBrandSelected($selected)
+    {
+        $this->selectedbrand=$selected;
+    }
+
+    #[On('incident-status-selector-changed')]
+    public function updateIncidentStatusSelected($selected)
+    {
+        $this->selectedstatus=$selected;
+    }
 
     public function setUp(): array
     {
@@ -43,7 +56,8 @@ final class IncidentsTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Incident::query()
+        return Incident::whereIn('brand_id',$this->selectedbrand)
+            ->whereIn('incident_status_id',$this->selectedstatus)
             ->join('organizations', function ($organizations) {
                 $organizations->on('customer_id', '=', 'organizations.id');
             })
@@ -85,10 +99,10 @@ final class IncidentsTable extends PowerGridComponent
             ->add('time_spent')
             ->add('created_at')
             ->add('info', function ($model) {
-                $tmp="<i class=\"p-1\"><img src=\"img/icon/vendor/".$model->brand_icon."\" title=\"".$model->brand_name."\"></i>";
-                $tmp.="<i class=\"p-1 text-".$model->incident_type_color."-600 fa fa-".$model->incident_type_icon."\" title=\"Type : ".$model->incident_type_name."\"></i>";
-                $tmp.="<i class=\"p-1 text-".$model->incident_status_color."-600 fa fa-".$model->incident_status_icon."\" title=\"Status : ".$model->incident_status_name."\"></i>";
-                $tmp.="<i class=\"p-1 text-".$model->incident_severity_color."-600 fa fa-".$model->incident_severity_icon."\" title=\"Impact : ".$model->incident_severity_name."\"></i>";
+                $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"img/icon/vendor/".$model->brand_icon."\" title=\"".$model->brand_name."\"></i>";
+                $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->incident_type_color."-600 fa fa-".$model->incident_type_icon."\" title=\"Type : ".$model->incident_type_name."\"></i>";
+                $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->incident_status_color."-600 fa fa-".$model->incident_status_icon."\" title=\"Status : ".$model->incident_status_name."\"></i>";
+                $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->incident_severity_color."-600 fa fa-".$model->incident_severity_icon."\" title=\"Impact : ".$model->incident_severity_name."\"></i>";
 
                 return $tmp;
             });
