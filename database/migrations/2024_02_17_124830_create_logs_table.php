@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->integer('tenant_id')->nullable();
             $table->integer('user_id')->nullable();
-            $table->string('group',150)->nullable();
+            $table->string('category',150)->nullable();
             $table->string('source',150)->nullable();
-            $table->string('log_type',50)->nullable();
+            $table->integer('log_type')->nullable();
             $table->string('message',250)->nullable();
+            $table->dateTime('log_date')->nullable();
             $table->timestamps();
         });
     }

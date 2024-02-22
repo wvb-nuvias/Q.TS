@@ -144,9 +144,9 @@ class User extends Authenticatable
     /**
      * Get the full name for this user.
      */
-    public function fullname()
+    public function getFullnameAttribute()
     {
-        return $this->firstname." ".$this->name;
+        return "{$this->first_name} {$this->name}";
     }
 
     /**

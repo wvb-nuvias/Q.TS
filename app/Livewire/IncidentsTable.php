@@ -122,6 +122,10 @@ final class IncidentsTable extends PowerGridComponent
         //TODO if tenantadmin, also add column tenant (with name)
 
         return [
+            Column::make('Created at', 'created_at')
+                ->sortable()
+                ->searchable(),
+
             Column::make('Info', 'info'),
 
             Column::make('Incident nr', 'incident_nr')
@@ -133,10 +137,6 @@ final class IncidentsTable extends PowerGridComponent
                 ->searchable(),
 
             Column::make('Title', 'title')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Created at', 'created_at')
                 ->sortable()
                 ->searchable(),
 
