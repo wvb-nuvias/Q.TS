@@ -17,6 +17,10 @@
             </x-panel.subtitle>
 
         </x-panel>
-
+        @if ($user->hasright('VIEW_LOG'))
+            <div class="pt-6">
+                <livewire:log-panel source="Subscriptions" />
+            </div>
+        @endif
     </div>
 </div>
