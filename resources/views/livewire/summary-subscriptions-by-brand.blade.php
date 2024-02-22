@@ -10,8 +10,8 @@
                     </div>
                 </div>
                 <div class="px-3 text-right basis-1/3">
-                    <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-{{ $color1 }} to-{{ $color2 }}">
-                        <img src="{{$icon}}" />
+                    <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-{{ $color1 }} to-{{ $color2 }} flex items-center justify-center">
+                        <img src="{{$icon}}" class="h-10 w-10" />
                     </div>
                 </div>
             </div>
