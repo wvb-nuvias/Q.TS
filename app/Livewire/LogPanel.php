@@ -9,6 +9,7 @@ use App\Models\Log;
 use Livewire\Attributes\On;
 class LogPanel extends Component
 {
+    public $update;
     public User $user;
     public $rights;
     public $title="Logs";

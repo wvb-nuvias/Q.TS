@@ -7,6 +7,7 @@ use App\Livewire\Dashboards\Alerts as Dashboard_Alerts;
 use App\Livewire\Dashboards\Incidents as Dashboard_Incidents;
 use App\Livewire\Dashboards\Devices as Dashboard_Devices;
 use App\Livewire\Dashboards\Subscriptions as Dashboard_Subscriptions;
+use App\Livewire\Integrations;
 use App\Livewire\UserManagement;
 use App\Livewire\UserProfile;
 use App\Livewire\Subscriptions;
@@ -47,6 +48,7 @@ Route::middleware([
     Route::get('dashboards/incidents', Dashboard_Incidents::class)->name('dashboard_incidents');
     Route::get('dashboards/subscriptions', Dashboard_Subscriptions::class)->name('dashboard_subscriptions');
 
+    Route::get('integrations', Integrations::class)->name('integrations');
     Route::get('incidents', Incidents::class)->name('incidents');
     Route::get('subscriptions', Subscriptions::class)->name('subscriptions');
     Route::get('organizations', Organizations::class)->name('organizations');

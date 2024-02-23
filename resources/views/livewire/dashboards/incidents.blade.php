@@ -13,7 +13,7 @@
         <div class="flex flex-wrap space-x-6">
             <livewire:summary-incidents-last />
         </div>
-        <div class="flex flex-wrap ">
+        <div class="flex flex-wrap space-x-6">
             @if ($user->hasright('VIEW_LOG'))
             <livewire:log-panel source="Incidents" />
             @endif

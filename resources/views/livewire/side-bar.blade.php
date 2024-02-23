@@ -60,6 +60,10 @@
                 <x-navbar.item route="alerts"                icon="bell"             name="Alerts" />
                 @endif
 
+                @if (in_array("VIEW_INTEGRATIONS", $rights))
+                <x-navbar.item route="integrations"                icon="code-compare"             name="Integrations" />
+                @endif
+
                 <x-navbar.sep />
             @endif
 

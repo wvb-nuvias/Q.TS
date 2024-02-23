@@ -14,12 +14,15 @@ return new class extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 250)->nullable();
+            $table->string('tenant_name', 250)->nullable();
+            $table->string('tenant_icon',150)->nullable();
+            $table->string('tenant_logo',150)->nullable();
+            $table->string('tenant_color',150)->nullable();
             $table->timestamps();
         });
 
         DB::table('tenants')->insert([
-            ['name' => 'Default'],
+            ['tenant_name' => 'Default', 'tenant_icon' => 'img/icon/favicon-192.png', 'tenant_logo' => '', 'tenant_color' => 'green'],
         ]);
     }
 

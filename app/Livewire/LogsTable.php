@@ -34,11 +34,18 @@ final class LogsTable extends PowerGridComponent
     public $log_type=1;
     public $tenant_id;
     public $selectedtypes;
+    public $update;
 
     #[On('log-type-selector-changed')]
     public function updateLogTypeSelected($selected)
     {
         $this->selectedtypes=$selected;
+    }
+
+    #[On('update-log')]
+    public function refreshcomponent()
+    {
+        $this->update = !$this->update;
     }
 
     public function setUp(): array
