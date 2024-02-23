@@ -64,6 +64,9 @@ final class LogsTable extends PowerGridComponent
         })
         ->join('users', function ($users) {
             $users->on('log_user_id', '=', 'users.id');
+        })
+        ->join('tenants', function ($tenants) {
+            $tenants->on('logs.tenant_id', '=', 'tenants.id');
         });
 
         $logs=$logs->where('source',$this->source);
@@ -101,6 +104,7 @@ final class LogsTable extends PowerGridComponent
         return PowerGrid::fields()
             ->add('id')
             ->add('tenant_id')
+            ->add('tenant_name')
             ->add('log_user_id')
             ->add('category')
             ->add('source')
@@ -119,30 +123,37 @@ final class LogsTable extends PowerGridComponent
 
     public function columns(): array
     {
-        return [
-            Column::make('Log date', 'log_date', 'log_date')
-                ->sortable(),
+        $columns=[];
 
-            Column::make('Info', 'info'),
+        if ($this->user->role->role_name=='Tenant Administrator')
+        {
+            $columns[]=Column::make('Tenant', 'tenant_name');
+        }
 
-            Column::make('Category', 'category')
-                ->sortable()
-                ->searchable(),
+        $columns[]=Column::make('Log date', 'log_date', 'log_date')
+        ->sortable();
 
-            Column::make('User', 'fullname')
-                ->sortable()
-                ->searchable('users.name'),
+        $columns[]=Column::make('Info', 'info');
 
-            Column::make('Source', 'source')
-                ->sortable()
-                ->searchable(),
+        $columns[]=Column::make('Category', 'category')
+        ->sortable()
+        ->searchable();
 
-            Column::make('Message', 'message')
-                ->sortable()
-                ->searchable(),
+        $columns[]=Column::make('User', 'fullname')
+        ->sortable()
+        ->searchable('users.name');
 
-            Column::action('Action')
-        ];
+        $columns[]=Column::make('Source', 'source')
+        ->sortable()
+        ->searchable();
+
+        $columns[]=Column::make('Message', 'message')
+        ->sortable()
+        ->searchable();
+
+        $columns[]=Column::action('Action');
+
+        return $columns;
     }
 
     public function filters(): array
@@ -160,13 +171,36 @@ final class LogsTable extends PowerGridComponent
 
     public function actions(\App\Models\Log $row): array
     {
-        return [
-            Button::add('edit')
-                ->slot('Edit: '.$row->id)
+        $buttons=[];
+
+        if ($this->user->hasright('VIEW_LOG'))
+        {
+            $buttons[]=Button::add('view')
+            ->slot('<i class="fa fas fa-solid fa-eye fa-2xs fa-fw" title="View: '.$row->id.'"></i>')
+            ->id()
+            ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-green-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
+            ->dispatch('view', ['rowId' => $row->id]);
+        }
+
+        if ($this->user->hasright('EDIT_LOG'))
+        {
+            $buttons[]=Button::add('edit')
+                ->slot('<i class="fa fas fa-solid fa-pen fa-2xs fa-fw" title="Edit: '.$row->id.'"></i>')
                 ->id()
-                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
-        ];
+                ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-amber-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
+                ->dispatch('edit', ['rowId' => $row->id]);
+        }
+
+        if ($this->user->hasright('DELETE_LOG'))
+        {
+            $buttons[]=Button::add('delete')
+                ->slot('<i class="fa fas fa-solid fa-trash-can fa-2xs fa-fw" title="Delete: '.$row->id.'"></i>')
+                ->id()
+                ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-red-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
+                ->dispatch('delete', ['rowId' => $row->id]);
+        }
+
+        return $buttons;
     }
 
     /*

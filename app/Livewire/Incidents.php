@@ -13,6 +13,7 @@ class Incidents extends Component
     public $rights;
     public $selectedstatus=[1,2,3];
     public $selectedbrand=[1,2,3,4,5,6,7,8];
+    public $newid;
 
     public function mount() {
         $this->user = auth()->user();
@@ -34,8 +35,6 @@ class Incidents extends Component
     {
         if ($this->user->hasright('VIEW_INC'))
         {
-
-
             return view('livewire.incidents');
         }
         else

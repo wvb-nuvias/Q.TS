@@ -6,7 +6,7 @@
     <div style="position:absolute; right:25px; top:20px">
         @livewire('log-type-selector', ["selectedtypes" => $selectedtypes])
     </div>
-    <div class="pt-6">
+    <div class="pt-6 text-sm">
         @livewire('logs-table', ["user" => $user, "source" => $source, "selectedtypes" => $selectedtypes])
     </div>
 </x-panel>

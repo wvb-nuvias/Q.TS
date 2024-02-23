@@ -25,4 +25,6 @@ class Log extends Model
     use HasFactory;
 
     protected $fillable = ['tenant_id', 'log_user_id', 'category', 'source', 'log_type', 'message', 'log_date'];
+
+
 }
