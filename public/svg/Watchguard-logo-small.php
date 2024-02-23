@@ -1,0 +1,65 @@
+<?php
+    header('Content-type: image/svg+xml');
+    $color = "#".$_REQUEST["color"];
+
+    if (!isset($color))
+    {
+        $color="#ffffff";
+    }
+?>
+
+<svg
+   width="967.55908"
+   height="967.55908"
+   viewBox="0 0 256 256"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="Watchguard-small-white.svg"
+   inkscape:export-filename="C:\Users\woute.FIRST\source\repos\Q.TS\public\img\icon\vendor\watchguard_small_white_28x28.png"
+   inkscape:export-xdpi="2.7781248"
+   inkscape:export-ydpi="2.7781248"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="225.66117"
+     inkscape:cy="560.61693"
+     inkscape:window-width="1718"
+     inkscape:window-height="1360"
+     inkscape:window-x="-7"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <style
+       id="style859">.cls-1{fill:#999898;}.cls-2{fill:#ed1f24;}</style>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 198.17873,66.86628 a 94.235189,94.235189 0 0 1 23.5246,56.4864 c 0,0 0,0 0,0 a 362.67098,362.67098 0 0 1 -22.79516,69.93555 c 0,0 -13.40355,0.54708 -36.97375,0.86622 -5.56202,-33.96479 -14.90804,-70.16351 -21.38186,-95.010227 h -0.31913 C 133.7596,123.99094 124.41359,160.18966 118.85157,194.15445 95.281373,193.83531 81.92341,193.28823 81.92341,193.28823 55.617795,135.9812 50.010186,68.37076 50.010186,68.37076 c 12.081435,-0.866216 22.248076,-1.230938 32.597079,-1.45889 2.553058,25.348221 11.443169,75.54315 16.458104,89.85852 h 0.136773 A 380.58798,380.58798 0 0 1 123.95768,65.954472 c 11.76231,-0.273542 19.87738,-0.455903 31.91323,0 h 0.41031 a 378.39964,378.39964 0 0 1 24.98349,90.861498 h 0.41032 c 5.06052,-14.31536 13.6771,-64.510288 16.5037,-89.858509 z"
+       id="path883"
+       style="fill:<?=$color?>;stroke-width:4.55903" />
+    <path
+       class="cls-1"
+       d="m 139.54957,11.291681 c -4.10313,-0.410313 -8.29744,-0.638265 -12.58293,-0.638265 a 118.53483,118.53483 0 1 0 12.58293,0.638265 l -0.9574,9.8931 a 109.41677,109.41677 0 1 1 -11.62553,-0.592675 c 3.92077,0 7.79595,0.227952 11.62553,0.592675 z"
+       id="path885"
+       style="fill:<?=$color?>;stroke-width:4.55903" />
+  </g>
+</svg>

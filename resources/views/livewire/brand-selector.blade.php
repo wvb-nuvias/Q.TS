@@ -10,8 +10,7 @@
                 <img src="/img/icon/vendor/{{$brand->brand_icon}}" class="h-6 w-6" />
             </div>
             @else
-            <div wire:click="toggle({{$brand->id}})" title="{{$brand->brand_name}
-            }" class="mr-2 mb-2 cursor-pointer flex border rounded-sm bg-{{$brand->brand_color1}} text-white opacity-30 hover:opacity-100 size-7 items-center justify-center">
+            <div wire:click="toggle({{$brand->id}})" title="{{$brand->brand_name}}" class="mr-2 mb-2 cursor-pointer flex border rounded-sm bg-{{$brand->brand_color1}} text-white opacity-30 hover:opacity-100 size-7 items-center justify-center">
                 <img src="/img/icon/vendor/{{$brand->brand_icon}}" class="h-6 w-6" />
             </div>
             @endif

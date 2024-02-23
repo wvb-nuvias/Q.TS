@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<?php
+    header('Content-type: image/svg+xml');
+    $color = "#".$_REQUEST["color"];
+
+    if (!isset($color))
+    {
+        $color="#ffffff";
+    }
+?>
 
 <svg
    width="256"
@@ -43,17 +50,17 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#ffffff;stroke:none;stroke-width:0.231963px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:<?=$color?>;stroke:none;stroke-width:0.231963px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 24.531001,8.9795235 58.513649,9.0955052 58.629631,43.310116 C 52.717623,27.149438 41.881452,15.247495 24.531001,8.9795235 Z"
        id="path1655"
        sodipodi:nodetypes="cccc" />
     <path
-       style="fill:#ffffff;stroke:none;stroke-width:0.231963px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:<?=$color?>;stroke:none;stroke-width:0.231963px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 8.2935579,11.41514 8.1775768,49.921075 C 22.294433,42.023323 32.64215,33.268947 39.956572,23.825186 33.129043,18.756801 28.193457,13.215432 8.2935579,11.41514 Z"
        id="path1827"
        sodipodi:nodetypes="cccc" />
     <path
-       style="fill:#ffffff;stroke:none;stroke-width:0.231963px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:<?=$color?>;stroke:none;stroke-width:0.231963px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 18.152006,59.54756 h 38.15799 C 56.229857,47.812544 52.059557,37.222773 44.247896,27.652583 37.135224,32.228767 28.663647,41.993494 18.152006,59.54756 Z"
        id="path2070"
        sodipodi:nodetypes="cccc" />

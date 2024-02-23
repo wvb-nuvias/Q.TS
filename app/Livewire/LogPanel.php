@@ -21,6 +21,12 @@ class LogPanel extends Component
         $this->user = auth()->user();
         $this->rights = $this->user->rights();
         $this->tenant_id=$this->user->tenant_id;
+
+        $sel=$this->user->setting("logtypesselection");
+        if ($sel)
+        {
+            $this->selectedtypes=explode(",",$sel);
+        }
     }
 
     public function render()

@@ -19,6 +19,7 @@ use App\Livewire\RoleManagement;
 use App\Livewire\TypeManagement;
 use App\Livewire\TenantManagement;
 use App\Livewire\ProductManagement;
+use App\Livewire\Svg\WatchguardIcon;
 
 /*
 |--------------------------------------------------------------------------
