@@ -49,7 +49,7 @@ class SummarySubscriptionsByBrand extends Component
             $this->title=$brand->brand_name;
             $this->color1=$brand->brand_color1;
             $this->color2=$brand->brand_color1;
-            $this->icon="/img/icon/vendor/".$brand->brand_icon;
+            $this->icon="/".$brand->brand_icon;
 
         }
 

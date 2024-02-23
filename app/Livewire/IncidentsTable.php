@@ -108,12 +108,7 @@ final class IncidentsTable extends PowerGridComponent
             ->add('time_spent')
             ->add('created_at')
             ->add('info', function ($model) {
-                if ($model->brand_id<=5)
-                {
-                    $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"svg/{$model->brand_name}-logo-small.php?color={$model->brand_colorcode}\" title=\"".$model->brand_name."\" class=\"h-5 w-5\"></i>";
-                } else {
-                    $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"img/icon/vendor/".$model->brand_icon."\" title=\"".$model->brand_name."\" class=\"h-5 w-5\"></i>";
-                }
+                $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"svg/{$model->brand_name}-logo-small.php?color={$model->brand_colorcode}\" title=\"".$model->brand_name."\" class=\"h-5 w-5\"></i>";
                 $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->incident_type_color."-600 fa fa-".$model->incident_type_icon."\" title=\"Type : ".$model->incident_type_name."\"></i>";
                 $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->incident_status_color."-600 fa fa-".$model->incident_status_icon."\" title=\"Status : ".$model->incident_status_name."\"></i>";
                 $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->incident_severity_color."-600 fa fa-".$model->incident_severity_icon."\" title=\"Impact : ".$model->incident_severity_name."\"></i>";

@@ -1,0 +1,57 @@
+<?php
+    header('Content-type: image/svg+xml');
+    $color = "#".$_REQUEST["color"];
+
+    if (!isset($color))
+    {
+        $color="#ffffff";
+    }
+?>
+
+<svg
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="ColorTokens-small-white.svg"
+   inkscape:export-filename="C:\Users\woute.FIRST\source\repos\Q.TS\public\img\icon\vendor\tplink-small-white_16x16.png"
+   inkscape:export-xdpi="8.1280003"
+   inkscape:export-ydpi="8.1280003"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2"
+     inkscape:cx="95.75"
+     inkscape:cy="96"
+     inkscape:window-width="1718"
+     inkscape:window-height="1360"
+     inkscape:window-x="1713"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1187"
+       style="fill:<?=$color?>;stroke:#2646ff;stroke-width:1.01848;stroke-opacity:0"
+       d="M 96.009766 22.066406 A 73.241391 73.538403 0 0 0 23.552734 84.941406 L 48.097656 85.203125 A 48.14706 47.632144 0 0 1 95.097656 47.871094 A 48.14706 47.632144 0 0 1 119.25195 54.300781 L 155.18164 52.269531 A 73.241391 73.538403 0 0 0 96.009766 22.066406 z M 95.130859 67.191406 A 27.941431 28.074368 0 0 0 67.189453 95.265625 A 27.941431 28.074368 0 0 0 95.130859 123.33984 A 27.941431 28.074368 0 0 0 117.45508 112.11914 L 148.19531 114.89453 L 148.20117 114.83789 L 166.23438 116.42773 A 73.241391 73.538403 0 0 0 169.25195 95.605469 A 73.241391 73.538403 0 0 0 166.60156 76 L 151.74219 76.839844 L 151.74609 76.802734 L 117.68555 78.697266 A 27.941431 28.074368 0 0 0 95.130859 67.191406 z M 49.289062 110.14062 L 24.271484 110.40625 A 73.241391 73.538403 0 0 0 96.009766 169.14258 A 73.241391 73.538403 0 0 0 154.89258 139.31836 L 119.66992 136.44141 A 48.14706 47.632144 0 0 1 95.097656 143.13477 A 48.14706 47.632144 0 0 1 49.289062 110.14062 z "
+       transform="scale(0.26458333)" />
+  </g>
+</svg>
