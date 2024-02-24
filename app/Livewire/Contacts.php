@@ -52,7 +52,10 @@ class Contacts extends Component
             if ($this->mode=="list")
                 return view('livewire.contacts');
             if ($this->mode=="add")
+            {
+                $this->contact=new Contact;
                 return view('livewire.contact.add');
+            }
         }
         else
         {

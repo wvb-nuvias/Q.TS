@@ -18,7 +18,7 @@ class Organizations extends Component
     public $rights;
     public $mode="list";
     public $isnew=true;
-    public $organisation=null;
+    public $organization=null;
 
     public function switchmode($mode)
     {
@@ -53,7 +53,10 @@ class Organizations extends Component
             if ($this->mode=="list")
                 return view('livewire.organizations');
             if ($this->mode=="add")
+            {
+                $this->organization=new Organization;
                 return view('livewire.organization.add');
+            }
         }
         else
         {
