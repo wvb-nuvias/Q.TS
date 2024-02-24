@@ -15,7 +15,9 @@
             <x-panel.subtitle extracss="-mt-4">
                 These are all the subscriptions based on selected filters
             </x-panel.subtitle>
-
+            <div class="pt-6 text-sm">
+                @livewire('subscriptions-table', ['selectedtypes' => $selectedtypes, 'selectedbrand' => $selectedbrand, 'user' => $user])
+            </div>
         </x-panel>
         @if ($user->hasright('VIEW_LOG'))
             <div class="pt-6">

@@ -16,6 +16,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 use Livewire\Attributes\On;
+use App\Livewire\Actions;
 use App\Models\User;
 use App\Models\Log;
 use App\Models\UserSetting;
@@ -127,7 +128,6 @@ final class IncidentsTable extends PowerGridComponent
     {
         $columns=[];
 
-        //TODO if tenantadmin, also add column tenant (with name)
         if ($this->user->role->role_name=='Tenant Administrator')
         {
             $columns[]=Column::make('Tenant', 'tenant_name');
@@ -261,59 +261,7 @@ final class IncidentsTable extends PowerGridComponent
 
     public function actions(\App\Models\Incident $row): array
     {
-        $buttons=[];
-
-        if ($this->user->hasright('VIEW_INC'))
-        {
-            $buttons[]=Button::add('view_incident')
-            ->slot('<i class="fa fas fa-solid fa-eye fa-2xs fa-fw" title="View: '.$row->incident_nr.'"></i>')
-            ->id()
-            ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-green-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
-            ->dispatch('view_incident', ['rowId' => $row->incident_nr]);
-        }
-
-        if ($row->incident_status_id!=6)
-        {
-
-            if ($this->user->hasright('EDIT_INC'))
-            {
-                $buttons[]=Button::add('edit_incident')
-                    ->slot('<i class="fa fas fa-solid fa-pen fa-2xs fa-fw" title="Edit: '.$row->incident_nr.'"></i>')
-                    ->id()
-                    ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-amber-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
-                    ->dispatch('edit_incident', ['rowId' => $row->incident_nr]);
-            }
-
-            if ($this->user->hasright('DELETE_INC'))
-            {
-                $buttons[]=Button::add('delete_incident')
-                    ->slot('<i class="fa fas fa-solid fa-trash-can fa-2xs fa-fw" title="Delete: '.$row->incident_nr.'"></i>')
-                    ->id()
-                    ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-red-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
-                    ->dispatch('delete_incident', ['rowId' => $row->incident_nr]);
-            }
-
-            if ($this->user->hasright('CLOSE_INC'))
-            {
-                $buttons[]=Button::add('close_incident')
-                    ->slot('<i class="fa fas fa-solid fa-lock fa-2xs fa-fw" title="Close: '.$row->incident_nr.'"></i>')
-                    ->id()
-                    ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-purple-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
-                    ->dispatch('close_incident', ['rowId' => $row->incident_nr]);
-            }
-        } else
-        {
-            if ($this->user->hasright('REOPEN_INC'))
-            {
-                $buttons[]=Button::add('reopen_incident')
-                    ->slot('<i class="fa fas fa-solid fa-unlock fa-2xs fa-fw" title="ReOpen: '.$row->incident_nr.'"></i>')
-                    ->id()
-                    ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-blue-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
-                    ->dispatch('reopen_incident', ['rowId' => $row->incident_nr]);
-            }
-
-        }
-        return $buttons;
+        return Actions::action_buttons($row->incident_nr,'incident','INC',$row,$this->user);
     }
 
     /*

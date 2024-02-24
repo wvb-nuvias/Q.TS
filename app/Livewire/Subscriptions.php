@@ -13,6 +13,7 @@ class Subscriptions extends Component
     public User $user;
     public $rights;
     public $selectedbrand=[1,2,3,4,5,6,7,8];
+    public $selectedtypes=[1,2,3,4,5,6];
 
     public function mount() {
         $this->user = auth()->user();

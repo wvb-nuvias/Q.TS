@@ -11,6 +11,7 @@ use App\Models\OrganizationType;
 class Organizations extends Component
 {
     public User $user;
+    public $selectedtypes = [2,3,4];
     public $rights;
 
     public function mount() {

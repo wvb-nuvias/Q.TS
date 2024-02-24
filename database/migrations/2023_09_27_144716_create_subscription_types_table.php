@@ -16,13 +16,18 @@ return new class extends Migration
             $table->id();
             $table->integer('tenant_id')->nullable();
             $table->string('subscription_type_name',100)->nullable();
+            $table->string('subscription_type_icon',150)->nullable();
+            $table->string('subscription_type_color',150)->nullable();
             $table->timestamps();
         });
 
         DB::table('subscription_types')->insert([
-            ['tenant_id' => 1, 'subscription_type_name' => 'Monthly'],
-            ['tenant_id' => 1, 'subscription_type_name' => 'Yearly'],
-            ['tenant_id' => 1, 'subscription_type_name' => '3 Months'],
+            ['tenant_id' => 1, 'subscription_type_name' => 'Monthly', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
+            ['tenant_id' => 1, 'subscription_type_name' => 'Yearly', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
+            ['tenant_id' => 1, 'subscription_type_name' => '3 Months', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
+            ['tenant_id' => 1, 'subscription_type_name' => 'Managed Services', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
+            ['tenant_id' => 1, 'subscription_type_name' => 'Care Services', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
+            ['tenant_id' => 1, 'subscription_type_name' => 'License', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
         ]);
     }
 
