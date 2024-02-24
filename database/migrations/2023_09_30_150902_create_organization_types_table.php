@@ -17,14 +17,16 @@ return new class extends Migration
             $table->integer('tenant_id')->nullable();
             $table->integer('hidden')->nullable();
             $table->string('organization_type_name',100)->nullable();
+            $table->string('organization_type_icon',150)->nullable();
+            $table->string('organization_type_color',150)->nullable();
             $table->timestamps();
         });
 
         DB::table('organization_types')->insert([
-            ['tenant_id' => 1, 'hidden' => 1, 'organization_type_name' => 'Master'],
-            ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Normal'],
-            ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Prospect'],
-            ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Reseller'],
+            ['tenant_id' => 1, 'hidden' => 1, 'organization_type_name' => 'Master', 'organization_type_icon' => 'hotel', 'organization_type_color' => 'red'],
+            ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Normal', 'organization_type_icon' => 'building', 'organization_type_color' => 'green'],
+            ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Prospect', 'organization_type_icon' => 'tents', 'organization_type_color' => 'blue'],
+            ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Reseller', 'organization_type_icon' => 'tent-arrow-turn-left', 'organization_type_color' => 'amber'],
         ]);
     }
 

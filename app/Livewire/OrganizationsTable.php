@@ -44,12 +44,16 @@ final class OrganizationsTable extends PowerGridComponent
         ];
     }
 
+    #[On('organization-type-selector-changed')]
+    public function updateOrganizationTypeSelected($selected)
+    {
+        $this->selectedtypes=$selected;
+    }
+
     public function datasource(): Builder
     {
-        // ->whereIn('organizations.organization_type_id',$this->selectedtypes)
-
         $orgs= Organization::where('organizations.tenant_id',$this->user->tenant_id)
-
+            ->whereIn('organizations.organization_type_id',$this->selectedtypes)
             ->join('organization_types', function ($organization_types) {
                 $organization_types->on('organization_type_id', '=', 'organization_types.id');
             })
@@ -57,8 +61,6 @@ final class OrganizationsTable extends PowerGridComponent
                 $tenants->on('organizations.tenant_id', '=', 'tenants.id');
             })
             ;
-
-        //dd($orgs->get());
 
         return $orgs;
     }

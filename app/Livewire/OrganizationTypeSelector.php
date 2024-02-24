@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\SubscriptionType;
+use App\Models\OrganizationType;
 
 class OrganizationTypeSelector extends Component
 {
@@ -12,7 +12,7 @@ class OrganizationTypeSelector extends Component
 
     public function mount($selected)
     {
-        $this->types = SubscriptionType::all();
+        $this->types = OrganizationType::all();
     }
 
     public function render()
