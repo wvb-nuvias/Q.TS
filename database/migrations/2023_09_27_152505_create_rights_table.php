@@ -147,6 +147,9 @@ return new class extends Migration
             ['tenant_id' => 1, 'name' => 'Export Alert Rule',    'code' => 'EXPORT_ALERTRULE','group' => 'Alert Rule'],
             ['tenant_id' => 1, 'name' => 'View Types',           'code' => 'VIEW_TYPES',         'group' => 'System'],
             ['tenant_id' => 1, 'name' => 'View Roles',           'code' => 'VIEW_ROLES',         'group' => 'System'],
+            ['tenant_id' => 1, 'name' => 'Edit Log',           'code' => 'EDIT_LOG',         'group' => 'System'],
+            ['tenant_id' => 1, 'name' => 'Delete Log',           'code' => 'DELETE_LOG',         'group' => 'System'],
+            ['tenant_id' => 1, 'name' => 'View Integrations',           'code' => 'VIEW_INTEGRATIONS',         'group' => 'System'],
 
 
 

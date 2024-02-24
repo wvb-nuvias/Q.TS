@@ -16,9 +16,7 @@
             @if ($icon=="")
                 <img class="w-full shadow-sm rounded-xl" src="{{$url}}" alt="{{ $title }}" style="height:76px;width:76px">
             @else
-                <div class="border shadow-sm rounded-xl flex items-center justify-center bg-gradient-to-tl from-{{$color}}-800 to-{{$color}}-600" style="height:76px;width:76px">
-                    <i class="fa fa-{{$icon}} dark:text-white text-4xl"></i>
-                </div>
+                <x-theme.icon icon="{{$icon}}" color="{{$color}}" />
             @endif
         </div>
     </div>

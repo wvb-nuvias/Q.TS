@@ -16,6 +16,14 @@ class Organizations extends Component
     public User $user;
     public $selectedtypes = [2,3,4];
     public $rights;
+    public $mode="list";
+    public $isnew=true;
+    public $organisation=null;
+
+    public function switchmode($mode)
+    {
+        $this->mode=$mode;
+    }
 
     public function mount() {
         $this->user = auth()->user();
@@ -42,7 +50,10 @@ class Organizations extends Component
     {
         if ($this->user->hasright('VIEW_ORG'))
         {
-            return view('livewire.organizations');
+            if ($this->mode=="list")
+                return view('livewire.organizations');
+            if ($this->mode=="add")
+                return view('livewire.organization.add');
         }
         else
         {
@@ -74,5 +85,10 @@ class Organizations extends Component
         }
 
         $this->selectedtypes=$selected;
+    }
+
+    public function updateorganization()
+    {
+        $this->switchmode('list');
     }
 }

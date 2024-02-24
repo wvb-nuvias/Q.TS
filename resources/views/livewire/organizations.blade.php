@@ -7,6 +7,7 @@
                     <x-theme.headericon icon="building" title="Organizations" subtitle="CRUD for Organizations" color="emerald" />
                 </div>
                 <div class="flex flex-row-reverse w-2/3">
+                    <x-theme.iconbutton icon="building" color="emerald" wire="switchmode('add')" title="Add Organization" />
                     <livewire:organization-type-selector :selected="$selectedtypes" />
                 </div>
             </div>
@@ -18,7 +19,6 @@
             <div class="pt-6 text-sm">
                 @livewire('organizations-table', ['selectedtypes' => $selectedtypes ,'user' => $user])
             </div>
-
         </x-panel>
         @if ($user->hasright('VIEW_LOG'))
             <div class="pt-6">

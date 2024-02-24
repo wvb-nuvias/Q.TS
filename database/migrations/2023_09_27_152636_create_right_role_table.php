@@ -147,6 +147,9 @@ return new class extends Migration
             ['tenant_id' => 1, 'role_id' => 1, 'right_id' => 122], //EXPORT_ALERTRULE
             ['tenant_id' => 1, 'role_id' => 1, 'right_id' => 123], //VIEW_TYPES
             ['tenant_id' => 1, 'role_id' => 1, 'right_id' => 124], //VIEW_ROLES
+            ['tenant_id' => 1, 'role_id' => 1, 'right_id' => 125], //EDIT_LOG
+            ['tenant_id' => 1, 'role_id' => 1, 'right_id' => 126], //DELETE_LOG
+            ['tenant_id' => 1, 'role_id' => 1, 'right_id' => 127], //VIEW_INTEGRATIONS
 
             //Administrator
 
