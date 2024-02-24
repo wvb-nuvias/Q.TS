@@ -65,8 +65,9 @@ class Integration extends Model
 
     public function getsetting($key)
     {
-        $user=auth()->user;
-        $setting=IntegrationSetting::where('tenant_id',$user->tenant_id)
+        //$user=auth()->user;
+        $setting=IntegrationSetting::
+            where('tenant_id',1)
             ->where('integration_setting_key',$key)->first();
 
         if ($setting) {

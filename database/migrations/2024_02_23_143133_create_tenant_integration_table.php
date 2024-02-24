@@ -22,6 +22,10 @@ return new class extends Migration
         DB::table('tenant_integration')->insert([
             ['tenant_id' => 1,'integration_id' => 1],
             ['tenant_id' => 1,'integration_id' => 2],
+            ['tenant_id' => 1,'integration_id' => 3],
+            ['tenant_id' => 1,'integration_id' => 4],
+            ['tenant_id' => 1,'integration_id' => 5],
+            ['tenant_id' => 1,'integration_id' => 6],
 
         ]);
     }

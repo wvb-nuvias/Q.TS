@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('organization_type_id')->nullable();
             $table->string('name',100)->nullable();
             $table->integer('managed_by')->nullable();
+            $table->string('source',100)->nullable();
             $table->timestamps();
         });
 

@@ -86,5 +86,6 @@ bg-slate-100 bg-slate-200 bg-slate-300 bg-slate-400 bg-slate-500
 bg-slate-600 bg-slate-700 bg-slate-800 bg-slate-900 text-slate-100 text-slate-200 text-slate-300 text-slate-400 text-slate-500
 text-slate-600 text-slate-700 text-slate-800 text-slate-900
 
-opacity-20 opacity-25 opacity-50 opacity-60 opacity-75 opacity-85 opacity-100
+opacity-10 opacity-20 opacity-25 opacity-50 opacity-60 opacity-75 opacity-85 opacity-100
+bg-opacity-10 bg-opacity-20 bg-opacity-25 bg-opacity-50 bg-opacity-60 bg-opacity-75 bg-opacity-85 bg-opacity-100
 "></a>
