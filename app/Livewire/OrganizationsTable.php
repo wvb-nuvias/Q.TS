@@ -46,8 +46,10 @@ final class OrganizationsTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Organization::where('organizations.tenant_id',$this->user->tenant_id)
-            ->whereIn('organizations.organization_type_id',$this->selectedtypes)
+        // ->whereIn('organizations.organization_type_id',$this->selectedtypes)
+
+        $orgs= Organization::where('organizations.tenant_id',$this->user->tenant_id)
+
             ->join('organization_types', function ($organization_types) {
                 $organization_types->on('organization_type_id', '=', 'organization_types.id');
             })
@@ -55,6 +57,10 @@ final class OrganizationsTable extends PowerGridComponent
                 $tenants->on('organizations.tenant_id', '=', 'tenants.id');
             })
             ;
+
+        //dd($orgs->get());
+
+        return $orgs;
     }
 
     public function relationSearch(): array
@@ -118,7 +124,9 @@ final class OrganizationsTable extends PowerGridComponent
 
     public function actions(\App\Models\Organization $row): array
     {
-        return Actions::action_buttons($row->id,'organization','ORG',$row,$this->user);
+        $actions= Actions::action_buttons($row->id,'organization','ORG',$row,$this->user);
+        //dd($actions);
+        return $actions;
     }
 
     /*

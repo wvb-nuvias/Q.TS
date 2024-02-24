@@ -31,16 +31,23 @@ class Actions extends Component
     {
         $buttons=[];
 
-        $buttons[]=Actions::button($id,'eye','view_'.$page,'green','View',$user->hasright('VIEW_'.$short));
+        $button=Actions::button($id,'eye','view_'.$page,'green','View',$user->hasright('VIEW_'.$short));
+        if ($button) $buttons[]=$button;
 
         if ($row->incident_status_id!=6)
         {
-            $buttons[]=Actions::button($id,'pen','edit_'.$page,'amber','Edit',$user->hasright('EDIT_'.$short));
-            $buttons[]=Actions::button($id,'trash-can','delete_'.$page,'red','Delete',$user->hasright('DELETE_'.$short));
-            $buttons[]=Actions::button($id,'lock','close_'.$page,'purple','Close',$user->hasright('CLOSE_'.$short));
+            $button=Actions::button($id,'pen','edit_'.$page,'amber','Edit',$user->hasright('EDIT_'.$short));
+            if ($button) $buttons[]=$button;
+
+            $button=Actions::button($id,'trash-can','delete_'.$page,'red','Delete',$user->hasright('DELETE_'.$short));
+            if ($button) $buttons[]=$button;
+
+            $button=Actions::button($id,'lock','close_'.$page,'purple','Close',$user->hasright('CLOSE_'.$short));
+            if ($button) $buttons[]=$button;
         } else
         {
-            $buttons[]=Actions::button($row->incident_nr,'unlock','reopen_'.$page,'blue','ReOpen',$user->hasright('REOPEN_'.$short));
+            $button=Actions::button($row->incident_nr,'unlock','reopen_'.$page,'blue','ReOpen',$user->hasright('REOPEN_'.$short));
+            if ($button) $buttons[]=$button;
         }
         return $buttons;
     }

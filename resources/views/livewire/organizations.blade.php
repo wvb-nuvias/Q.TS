@@ -16,7 +16,7 @@
                 These are all the organizations based on selected filters
             </x-panel.subtitle>
             <div class="pt-6 text-sm">
-                @livewire('organizations-table', ['selectedtypes' => $selectedtypes, 'user' => $user])
+                @livewire('organizations-table', ['user' => $user])
             </div>
 
         </x-panel>
