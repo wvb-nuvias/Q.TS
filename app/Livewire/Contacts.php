@@ -17,11 +17,14 @@ class Contacts extends Component
     public $selectedtypes=[1,2];
     public $mode="list";
     public $isnew=true;
-    public $contact=null;
+    public $contacttypes=null;
+    public $contact_type=null;
+    public $contact;
 
     public function mount() {
         $this->user = auth()->user();
         $this->rights = $this->user->rights();
+        $this->contacttypes=ContactType::all();
 
         $sel=$this->user->setting("contacttypes");
         if ($sel)

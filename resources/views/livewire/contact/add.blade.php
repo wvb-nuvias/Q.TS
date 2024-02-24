@@ -18,9 +18,16 @@
             <div class="flex-auto pt-4 space-y-3">
                 <div class="flex flex-wrap -mx-3">
                     <div class="w-6/12 max-w-full px-3 flex-0">
-                        <x-label for="ContactType" value="{{ __(' Contact Type') }}" />
-                        <x-input id="ContactType" type="text" class="mt-1 block w-full" wire:model="" autocomplete="" />
-                        <x-input-error for="ContactType" class="mt-2" />
+                        <x-label for="contact_type" value="{{ __(' Contact Type') }}" />
+
+                        <select id="contact_type" class="form-control mt-1 block w-full" name="ContactType" wire:model="contact.contact_type_id">
+                            <option value="">Select Contact Type</option>
+                            @foreach ($contacttypes as $contact_type)
+                                <option value="{{ $contact_type->id }}">{{ $contact_type->contact_type_name }}</option>
+                            @endforeach
+                        </select>
+                        <x-input id="contact_type" type="text" class="mt-1 block w-full" wire:model="" autocomplete="" />
+                        <x-input-error for="contact_type" class="mt-2" />
                     </div>
                     <div class="w-6/12 max-w-full px-3 flex-0">
                         <x-label for="Tenant" value="{{ __(' Tenant') }}" />
