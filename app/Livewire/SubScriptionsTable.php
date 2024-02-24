@@ -75,12 +75,10 @@ final class SubScriptionsTable extends PowerGridComponent
                 $subscription_types->on('subscription_type_id', '=', 'subscription_types.id');
             });
 
-            /*
             $subscriptions
             ->join('brands', function ($brands) {
                 $brands->on('brand_id', '=', 'brands.id');
             });
-            */
 
             $subscriptions
             ->join('tenants', function ($tenants) {
@@ -125,7 +123,7 @@ final class SubScriptionsTable extends PowerGridComponent
             ->add('brand_id')
             ->add('created_at')
             ->add('info', function ($model) {
-                $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"svg/{$model->brand_name}-logo-small.php?color={$model->brand_colorcode}\" title=\"".$model->brand_name."\" class=\"h-4 w-4\"></i>";
+                $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"svg/{$model->brand_name}-logo-small.php?color={$model->brand_colorcode}\" class=\"h-6 w-6\"></i>";
                 $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->subscription_type_color."-600 fa fa-".$model->subscription_type_icon."\" title=\"Type : ".$model->subscription_type_name."\"></i>";
 
                 return $tmp;
