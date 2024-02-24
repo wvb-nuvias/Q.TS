@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
+use App\Models\Log;
 use App\Models\User;
 use App\Models\UserSetting;
 
@@ -22,6 +23,16 @@ class Devices extends Component
         {
             $this->selectedbrand=explode(",",$sel);
         }
+
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "Devices",
+            "log_type"      => 3,
+            "message"       => 'Devices Page is opened.',
+            "log_date"      => now()
+        ]);
     }
 
     public function render()

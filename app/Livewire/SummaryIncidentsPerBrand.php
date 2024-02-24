@@ -25,8 +25,7 @@ class SummaryIncidentsPerBrand extends Component
         $tenant_id = $this->user->tenant_id;
         $organizationid = $this->user->organization_id;
 
-        $brands=Brand::select('id','brand_name', 'brand_icon','brand_color1', 'brand_color2')
-                        ->where('tenant_id',$tenant_id)
+        $brands=Brand::where('tenant_id',$tenant_id)
                         ->get();
 
         $incidents=Incident::where('tenant_id',$tenant_id);
@@ -58,10 +57,11 @@ class SummaryIncidentsPerBrand extends Component
             if ($tot>0) {
                 $tmp[]=[
                     "id"   => $brand->id,
-                    "icon" => $brand->brand_icon,
+                    "icon" => 'svg/'.$brand->brand_name.'-logo-small.php?color='.$brand->brand_colorcode,
                     "name" => $brand->brand_name,
                     "color1" => $brand->brand_color1,
                     "color2" => $brand->brand_color2,
+                    "colorcode" => $brand->brand_colorcode,
                     "tot"  => $tot,
                     "percentage" => $tot/$total*100
                 ];

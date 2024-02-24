@@ -18,7 +18,7 @@
                 <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                     <div class="flex px-2">
                         <div>
-                            <img src="img/icon/vendor/{{ $result["icon"] }}" class="inline-flex items-center justify-center mr-2 text-sm text-white transition-all duration-200 ease-in-out h-6 w-6" alt="spotify">
+                            <img src="../{{$result["icon"]}}" class="inline-flex items-center justify-center mr-2 text-sm text-white transition-all duration-200 ease-in-out h-6 w-6" alt="spotify">
                         </div>
                         <div class="my-auto">
                             <h6 class="mb-0 text-xs leading-normal dark:text-white dark:opacity-60">{{ $result["name"] }}</h6>

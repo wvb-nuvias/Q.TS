@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Log;
 use App\Models\User;
 use Livewire\Component;
 
@@ -24,6 +25,16 @@ class UserProfile extends Component
     public function mount() {
         $this->user = auth()->user();
         $this->rights = $this->user->rights();
+
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "User Profile",
+            "log_type"      => 2,
+            "message"       => 'User Profile Page is opened.',
+            "log_date"      => now()
+        ]);
     }
 
     public function updated($propertyName)
@@ -54,7 +65,18 @@ class UserProfile extends Component
 
     public function success()
     {
-        session()->flash('success', 'Profile successfully updated.');
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "User Profile",
+            "log_type"      => 3,
+            "message"       => 'User Profile Page is saved.',
+            "log_date"      => now()
+        ]);
+
+        $this->dispatch('log-update');
+        session()->flash('success', 'User Profile successfully updated.');
         $this->dispatch('alert_remove');
     }
 }

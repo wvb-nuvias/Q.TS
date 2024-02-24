@@ -93,7 +93,11 @@ class User extends Authenticatable
      */
     public function role(): HasOne
     {
-        return $this->HasOne(Role::class, 'id', 'role_id');
+        $role=$this->HasOne(Role::class, 'id', 'role_id');
+
+        //dd($role->first());
+
+        return $role;
     }
 
     /**

@@ -22,7 +22,7 @@ return new class extends Migration
         });
 
         DB::table('log_types')->insert([
-            ['tenant_id' => 1, 'log_type_name' => 'all', 'log_type_icon' => 'list-check', 'log_type_color' => 'purple'],
+            ['tenant_id' => 1, 'log_type_name' => 'alert', 'log_type_icon' => 'bell', 'log_type_color' => 'purple'],
             ['tenant_id' => 1, 'log_type_name' => 'info', 'log_type_icon' => 'circle-info', 'log_type_color' => 'green'],
             ['tenant_id' => 1, 'log_type_name' => 'debug', 'log_type_icon' => 'bug', 'log_type_color' => 'blue'],
             ['tenant_id' => 1, 'log_type_name' => 'warn', 'log_type_icon' => 'circle-exclamation', 'log_type_color' => 'orange'],

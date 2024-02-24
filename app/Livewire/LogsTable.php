@@ -80,12 +80,6 @@ final class LogsTable extends PowerGridComponent
 
         $logs=$logs->whereIn('log_type',$this->selectedtypes);
 
-        //dd($logs->get());
-
-        //$logs=$logs->where('logs.tenant_id',$user->tenant_id);
-
-        //dd($logs->get());
-
         if ($this->category!="")
         {
             $logs=$logs->where('category',$this->category);
@@ -170,10 +164,22 @@ final class LogsTable extends PowerGridComponent
         ];
     }
 
-    #[\Livewire\Attributes\On('edit')]
+    #[\Livewire\Attributes\On('viewlog')]
+    public function view($rowId): void
+    {
+        $this->js('alert(\'View: \','.$rowId.')');
+    }
+
+    #[\Livewire\Attributes\On('editlog')]
     public function edit($rowId): void
     {
-        $this->js('alert('.$rowId.')');
+        $this->js('alert(\'Edit: \','.$rowId.')');
+    }
+
+    #[\Livewire\Attributes\On('deletelog')]
+    public function delete($rowId): void
+    {
+        $this->js('alert(\'Delete: \','.$rowId.')');
     }
 
     public function actions(\App\Models\Log $row): array
@@ -186,7 +192,7 @@ final class LogsTable extends PowerGridComponent
             ->slot('<i class="fa fas fa-solid fa-eye fa-2xs fa-fw" title="View: '.$row->id.'"></i>')
             ->id()
             ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-green-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
-            ->dispatch('view', ['rowId' => $row->id]);
+            ->dispatch('viewlog', ['rowId' => $row->id]);
         }
 
         if ($this->user->hasright('EDIT_LOG'))
@@ -195,7 +201,7 @@ final class LogsTable extends PowerGridComponent
                 ->slot('<i class="fa fas fa-solid fa-pen fa-2xs fa-fw" title="Edit: '.$row->id.'"></i>')
                 ->id()
                 ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-amber-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
-                ->dispatch('edit', ['rowId' => $row->id]);
+                ->dispatch('editlog', ['rowId' => $row->id]);
         }
 
         if ($this->user->hasright('DELETE_LOG'))
@@ -204,7 +210,7 @@ final class LogsTable extends PowerGridComponent
                 ->slot('<i class="fa fas fa-solid fa-trash-can fa-2xs fa-fw" title="Delete: '.$row->id.'"></i>')
                 ->id()
                 ->class('inline-flex items-center justify-center w-5 h-5 ml-1 bg-red-600 opacity-80 dark:text-white hover:opacity-100 border border-white rounded-full focus:shadow-outline')
-                ->dispatch('delete', ['rowId' => $row->id]);
+                ->dispatch('deletelog', ['rowId' => $row->id]);
         }
 
         return $buttons;

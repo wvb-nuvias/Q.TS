@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\User;
+use App\Models\Log;
 use App\Models\UserSetting;
 
 class Incidents extends Component
@@ -29,6 +30,16 @@ class Incidents extends Component
         {
             $this->selectedstatus=explode(",",$sel);
         }
+
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "Incidents",
+            "log_type"      => 2,
+            "message"       => 'incidents Page is opened.',
+            "log_date"      => now()
+        ]);
     }
 
     public function render()
