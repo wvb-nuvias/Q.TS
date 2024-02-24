@@ -28,6 +28,7 @@ return new class extends Migration
         DB::table('integrations')->insert([
             ['integration_name' => 'Microsoft Teams','integration_icon' => 'fa-brands fa-microsoft','integration_logo' => '','integration_color' => 'green','integration_url' => '','integration_author_id' => 1,'integration_description' => 'Allows The sending of a webhook to Ms Teams channel, adds settings panel and functionality in GUI','integration_type' => 3],
             ['integration_name' => 'Spryng SMS','integration_icon' => 'fa fa-message','integration_logo' => '','integration_color' => 'blue','integration_url' => '','integration_author_id' => 1,'integration_description' => 'Allows The sending of a SMS to Spryng API, adds settings panel and functionality in GUI','integration_type' => 3],
+            ['integration_name' => 'Watchguard','integration_icon' => 'fa fa-fire-flame-curved','integration_logo' => '','integration_color' => 'red','integration_url' => '','integration_author_id' => 1,'integration_description' => 'Enables The Watchguard Device Functions','integration_type' => 1],
         ]);
     }
 

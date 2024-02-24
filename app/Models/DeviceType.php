@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int|null $tenant_id
  * @property string|null $device_type_name
+ * @property string|null $device_type_icon
+ * @property string|null $device_type_color
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -19,5 +21,5 @@ class DeviceType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tenant_id', 'device_type_name'];
+    protected $fillable = ['tenant_id', 'device_type_name', 'device_type_icon', 'device_type_color'];
 }

@@ -13,6 +13,7 @@ class Devices extends Component
     public User $user;
     public $rights;
     public $selectedbrand=[1,2,3,4,5,6,7,8];
+    public $selectedtypes=[1,2,3,4,5,6,7,8,9];
 
     public function mount() {
         $this->user = auth()->user();
@@ -22,6 +23,12 @@ class Devices extends Component
         if ($sel)
         {
             $this->selectedbrand=explode(",",$sel);
+        }
+
+        $sel=$this->user->setting("selecteddevicetypes");
+        if ($sel)
+        {
+            $this->selectedtypes=explode(",",$sel);
         }
 
         Log::create([
@@ -71,5 +78,31 @@ class Devices extends Component
         }
 
         $this->selectedbrand=$selected;
+    }
+
+    #[On('device-type-selector-changed')]
+    public function updateDeviceTypeSelected($selected)
+    {
+        $sel=UserSetting::where("tenant_id",$this->user->tenant_id)
+                        ->where("user_id",$this->user->id)
+                        ->where("key","selecteddevicetypes")
+                        ->first();
+
+        if ($sel)
+        {
+            $sel->val=implode(",",$selected);
+            $sel->save();
+        } else {
+            UserSetting::create(
+                [
+                    "tenant_id"      => $this->user->tenant_id,
+                    "user_id"       => $this->user->id,
+                    "key"           => "selecteddevicetypes",
+                    "val"           => implode(",",$selected)
+                ]
+            );
+        }
+
+        $this->selectedtypes=$selected;
     }
 }

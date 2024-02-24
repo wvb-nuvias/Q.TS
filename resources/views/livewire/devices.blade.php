@@ -7,6 +7,7 @@
                     <x-theme.headericon icon="server" title="Devices" subtitle="CRUD for Devices" color="cyan" />
                 </div>
                 <div class="flex flex-row-reverse w-2/3">
+                    <livewire:device-type-selector :selected="$selectedtypes" />
                     <livewire:brand-selector :selected="$selectedbrand" />
                 </div>
             </div>
@@ -15,7 +16,9 @@
             <x-panel.subtitle extracss="-mt-4">
                 These are all the devices based on selected filters
             </x-panel.subtitle>
-
+            <div class="pt-6 text-sm">
+                @livewire('devices-table', ['selectedtypes' => $selectedtypes, 'selectedbrand' => $selectedbrand, 'user' => $user])
+            </div>
         </x-panel>
         @if ($user->hasright('VIEW_LOG'))
             <div class="pt-6">
