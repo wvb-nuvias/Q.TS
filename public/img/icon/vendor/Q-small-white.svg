@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733331 67.733331"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="logo-small-white.svg"
+   inkscape:export-filename="C:\Users\woute.FIRST\source\repos\Q.TS\public\img\icon\logo-small-white-16x16.png"
+   inkscape:export-xdpi="6.0000005"
+   inkscape:export-ydpi="6.0000005"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="1.9235537"
+     inkscape:cx="119.83029"
+     inkscape:cy="149.20301"
+     inkscape:window-width="1718"
+     inkscape:window-height="1360"
+     inkscape:window-x="1713"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <filter
+       inkscape:label="Channel Transparency"
+       style="color-interpolation-filters:sRGB"
+       id="filter171">
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 -1.72 9.69 0 -0.9375 0 "
+         in="SourceGraphic"
+         result="colormatrix"
+         id="feColorMatrix167" />
+      <feComposite
+         in="colormatrix"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite169" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       inkscape:connector-curvature="0"
+       id="path21"
+       d="m 42.381915,16.641662 -18.793946,0.103662 c -6.686602,0.02746 -11.192865,2.89911 -11.525638,11.214173 l -0.207323,10.591241 c 0.230453,6.588782 0.878699,12.959734 14.121012,12.771503 l 17.132489,-0.311464 c 2.359692,-0.137905 4.470687,-0.569064 6.229303,-1.415444 l 3.946809,2.453502 4.67246,-7.579778 -3.44093,-2.099523 c 0.228702,-1.298264 0.310707,-2.769552 0.222138,-4.441725 L 54.53048,27.544368 C 54.189008,19.893144 49.348766,17.115388 42.381915,16.641662 Z M 27.3136,25.256152 c 0.208613,-0.0031 0.420583,-0.0016 0.635353,0.0038 h 11.21417 c 3.104876,0.06862 5.624733,0.828582 5.71099,4.46466 l 0.348728,6.974995 -9.901429,-6.040601 -5.088061,7.060985 8.183119,5.086628 -12.544105,-0.102712 c -3.764009,-0.03596 -4.121105,-2.51787 -4.36099,-4.983916 l -0.103661,-7.579778 c 0.383798,-3.789285 2.776748,-4.838456 5.905886,-4.884084 z"
+       style="fill:#ffffff;fill-opacity:0.552764;stroke:none;stroke-width:0.0473707;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

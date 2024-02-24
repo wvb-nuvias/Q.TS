@@ -44,26 +44,59 @@ final class SubScriptionsTable extends PowerGridComponent
         ];
     }
 
+    #[On('subscription-type-selector-changed')]
+    public function updateSubscriptionTypeSelected($selected)
+    {
+        $this->selectedtypes=$selected;
+    }
+
+    #[On('brand-selector-changed')]
+    public function updateBrandSelected($selected)
+    {
+        $this->selectedbrand=$selected;
+    }
+
+
     public function datasource(): Builder
     {
-        return Subscription::where('subscriptions.tenant_id',$this->user->tenant_id)
-            ->whereIn('subscriptions.brand_id',$this->selectedbrand)
-            ->join('organizations', function ($organizations) {
+        $subscriptions= Subscription::where('subscriptions.tenant_id',$this->user->tenant_id);
+
+        if ($subscriptions)
+        {
+            $subscriptions=$subscriptions->join('organizations', function ($organizations) {
                 $organizations->on('customer_id', '=', 'organizations.id');
-            })
+            });
+
+            $subscriptions=$subscriptions->whereIn('subscriptions.brand_id',$this->selectedbrand);
+            $subscriptions=$subscriptions->whereIn('subscriptions.subscription_type_id',$this->selectedtypes);
+
+            $subscriptions
             ->join('subscription_types', function ($subscription_types) {
                 $subscription_types->on('subscription_type_id', '=', 'subscription_types.id');
-            })
+            });
+
+            /*
+            $subscriptions
             ->join('brands', function ($brands) {
                 $brands->on('brand_id', '=', 'brands.id');
-            })
+            });
+            */
+
+            $subscriptions
             ->join('tenants', function ($tenants) {
                 $tenants->on('subscriptions.tenant_id', '=', 'tenants.id');
-            })
+            });
+
+            $subscriptions
             ->join('products', function ($products) {
                 $products->on('product_id', '=', 'products.id');
             })
             ;
+        } else {
+            $subscriptions="";
+        }
+
+        return $subscriptions;
     }
 
     public function relationSearch(): array
@@ -127,7 +160,7 @@ final class SubScriptionsTable extends PowerGridComponent
         ->sortable()
         ->searchable();
 
-        $columns[]=Column::make('Serial', 'brand_id')
+        $columns[]=Column::make('Serial', 'serial')
         ->sortable()
         ->searchable();
 

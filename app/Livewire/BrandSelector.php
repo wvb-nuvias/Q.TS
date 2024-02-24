@@ -7,7 +7,7 @@ use App\Models\Brand;
 
 class BrandSelector extends Component
 {
-    public $selected=[1,2,3,4,5,6,7,8];
+    public $selected=[0,1,2,3,4,5,6,7,8];
     public $brands;
 
     public function render()

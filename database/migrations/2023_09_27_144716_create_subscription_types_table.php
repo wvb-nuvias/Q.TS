@@ -27,7 +27,7 @@ return new class extends Migration
             ['tenant_id' => 1, 'subscription_type_name' => '3 Months', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
             ['tenant_id' => 1, 'subscription_type_name' => 'Managed Services', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
             ['tenant_id' => 1, 'subscription_type_name' => 'Care Services', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
-            ['tenant_id' => 1, 'subscription_type_name' => 'License', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
+            ['tenant_id' => 1, 'subscription_type_name' => 'NFR License', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
         ]);
     }
 

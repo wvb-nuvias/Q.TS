@@ -24,6 +24,11 @@ class Subscriptions extends Component
         {
             $this->selectedbrand=explode(",",$sel);
         }
+        $sel=$this->user->setting("selectedsubscriptiontypes");
+        if ($sel)
+        {
+            $this->selectedtypes=explode(",",$sel);
+        }
 
         Log::create([
             "tenant_id"     => $this->user->tenant_id,
@@ -72,5 +77,31 @@ class Subscriptions extends Component
         }
 
         $this->selectedbrand=$selected;
+    }
+
+    #[On('subscription-type-selector-changed')]
+    public function updateSubscriptionTypeSelected($selected)
+    {
+        $sel=UserSetting::where("tenant_id",$this->user->tenant_id)
+                        ->where("user_id",$this->user->id)
+                        ->where("key","selectedsubscriptiontypes")
+                        ->first();
+
+        if ($sel)
+        {
+            $sel->val=implode(",",$selected);
+            $sel->save();
+        } else {
+            UserSetting::create(
+                [
+                    "tenant_id"      => $this->user->tenant_id,
+                    "user_id"       => $this->user->id,
+                    "key"           => "selectedsubscriptiontypes",
+                    "val"           => implode(",",$selected)
+                ]
+            );
+        }
+
+        $this->selectedtypes=$selected;
     }
 }

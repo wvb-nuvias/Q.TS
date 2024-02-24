@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -28,6 +29,21 @@ return new class extends Migration
             $table->integer('brand_id')->nullable();
             $table->timestamps();
         });
+
+        DB::table('subscriptions')->insert([
+            'tenant_id' => 1,
+            'subscription_type_id' => 6,
+            'code' => 'NFR-0',
+            'product_id' => 1,
+            'name' => 'Endless NFR License',
+            'description' => 'Endless NFR License',
+            'date_start' => '2024-01-01 00:00:00',
+            'date_end' => null,
+            'customer_id' => 1,
+            'reseller_id' => 1,
+            'serial' => '',
+            'brand_id' => 0
+        ]);
     }
 
     /**
