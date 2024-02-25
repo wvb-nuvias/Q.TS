@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\User;
 use App\Models\Log;
+use App\Models\Incident;
 use App\Models\UserSetting;
 
 class Incidents extends Component
@@ -15,6 +16,14 @@ class Incidents extends Component
     public $selectedstatus=[1,2,3];
     public $selectedbrand=[1,2,3,4,5,6,7,8];
     public $newid;
+    public $mode="list";
+    public $isnew=true;
+    public $incident=null;
+
+    public function switchmode($mode)
+    {
+        $this->mode=$mode;
+    }
 
     public function mount() {
         $this->user = auth()->user();
@@ -46,7 +55,13 @@ class Incidents extends Component
     {
         if ($this->user->hasright('VIEW_INC'))
         {
-            return view('livewire.incidents');
+            if ($this->mode=="list")
+                return view('livewire.incidents');
+            if ($this->mode=="add")
+            {
+                $this->incident=new Incident;
+                return view('livewire.incident.add');
+            }
         }
         else
         {
@@ -104,5 +119,10 @@ class Incidents extends Component
         }
 
         $this->selectedbrand=$selected;
+    }
+
+    public function updateIncident()
+    {
+        $this->switchmode('list');
     }
 }

@@ -10,20 +10,13 @@
             </div>
         </div>
     </x-header>
-    <x-panel title="New {{ $title }}" extracss="mt-6">
-        <x-panel.subtitle extracss="-mt-4">
-            Please complete the form
-        </x-panel.subtitle>
-        <div class="flex-auto pt-4 space-y-3">
-            {{ $content }}
-        </div>
-        <div class="flex flex-wrap justify-end pt-6">
-            <x-theme.button wire="update{{ $title }}">Save {{ $title }}</x-theme.button>
-        </div>
-    </x-panel>
+
+    {{ $content }}
+
     @if ($user->hasright('VIEW_LOG'))
         <div class="pt-6">
             <livewire:log-panel source="{{ $title }}s" />
         </div>
     @endif
 </div>
+

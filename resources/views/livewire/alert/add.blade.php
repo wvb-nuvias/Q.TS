@@ -1,26 +1,21 @@
 <div>
-    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header5.jpg" icon="building-user" iconcolor="purple" title="Contact" subtitle="Add a Contact" :user="$user">
+    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header4.jpg" icon="bell" iconcolor="red" title="Alert" subtitle="Add an Alert" :user="$user">
         <x-slot name="header">
 
         </x-slot>
         <x-slot name="content">
-            <x-panel title="New Contact" extracss="mt-6">
+            <x-panel title="New Alert" extracss="mt-6">
                 <x-panel.subtitle extracss="-mt-4">
                     Please complete the form
                 </x-panel.subtitle>
                 <div class="flex-auto pt-4 space-y-3">
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="contact_type" value="{{ __(' Contact Type') }}" />
+                            <x-label for="alert_type" value="{{ __(' Alert Type') }}" />
 
-                            <select id="contact_type" class="form-control mt-1 block w-full" name="ContactType" wire:model="contact.contact_type_id">
-                                <option value="">Select Contact Type</option>
-                                @foreach ($contacttypes as $contact_type)
-                                    <option value="{{ $contact_type->id }}">{{ $contact_type->contact_type_name }}</option>
-                                @endforeach
-                            </select>
-                            <x-input id="contact_type" type="text" class="mt-1 block w-full" wire:model="" autocomplete="" />
-                            <x-input-error for="contact_type" class="mt-2" />
+
+                            <x-input id="alert_type" type="text" class="mt-1 block w-full" wire:model="" autocomplete="" />
+                            <x-input-error for="alert_type" class="mt-2" />
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="Tenant" value="{{ __(' Tenant') }}" />
@@ -42,7 +37,7 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap justify-end pt-6">
-                    <x-theme.button wire="updateContact">Save Contact</x-theme.button>
+                    <x-theme.button wire="updateAlert">Save Alert</x-theme.button>
                 </div>
             </x-panel>
         </x-slot>

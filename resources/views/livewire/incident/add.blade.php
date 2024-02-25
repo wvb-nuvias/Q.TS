@@ -1,26 +1,19 @@
 <div>
-    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header5.jpg" icon="building-user" iconcolor="purple" title="Contact" subtitle="Add a Contact" :user="$user">
+    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header1.jpg" icon="ambulance" iconcolor="emerald" title="Incident" subtitle="Add an Incident" :user="$user">
         <x-slot name="header">
 
         </x-slot>
         <x-slot name="content">
-            <x-panel title="New Contact" extracss="mt-6">
+            <x-panel title="New Incident" extracss="mt-6">
                 <x-panel.subtitle extracss="-mt-4">
                     Please complete the form
                 </x-panel.subtitle>
                 <div class="flex-auto pt-4 space-y-3">
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="contact_type" value="{{ __(' Contact Type') }}" />
-
-                            <select id="contact_type" class="form-control mt-1 block w-full" name="ContactType" wire:model="contact.contact_type_id">
-                                <option value="">Select Contact Type</option>
-                                @foreach ($contacttypes as $contact_type)
-                                    <option value="{{ $contact_type->id }}">{{ $contact_type->contact_type_name }}</option>
-                                @endforeach
-                            </select>
-                            <x-input id="contact_type" type="text" class="mt-1 block w-full" wire:model="" autocomplete="" />
-                            <x-input-error for="contact_type" class="mt-2" />
+                            <x-label for="IncidentType" value="{{ __(' Incident Type') }}" />
+                            <x-input id="IncidentType" type="text" class="mt-1 block w-full" wire:model="" autocomplete="" />
+                            <x-input-error for="IncidentType" class="mt-2" />
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="Tenant" value="{{ __(' Tenant') }}" />
@@ -30,9 +23,9 @@
                     </div>
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="Name" value="{{ __(' Name') }}" />
-                            <x-input id="Name" type="text" class="mt-1 block w-full" wire:model="contact.contact_name" autocomplete="name" />
-                            <x-input-error for="Name" class="mt-2" />
+                            <x-label for="Title" value="{{ __(' Title') }}" />
+                            <x-input id="Title" type="text" class="mt-1 block w-full" wire:model="incident.title" autocomplete="title" />
+                            <x-input-error for="Title" class="mt-2" />
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="Address" value="{{ __(' Address') }}" />
@@ -42,7 +35,7 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap justify-end pt-6">
-                    <x-theme.button wire="updateContact">Save Contact</x-theme.button>
+                    <x-theme.button wire="updateIncident">Save Incident</x-theme.button>
                 </div>
             </x-panel>
         </x-slot>

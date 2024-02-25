@@ -1,30 +1,21 @@
 <div>
-    <div class="w-full px-6 py-6 mx-auto">
-        @include('components.flash-messages')
-        <x-header themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" url="img/header/header3.jpg">
-            <div class="flex flex-row w-full">
-                <div class="w-2/3">
-                    <x-theme.headericon icon="file-contract" title="Subscriptions" subtitle="CRUD for Subscriptions" color="amber" />
+    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header3.jpg" icon="file-contract" iconcolor="amber" title="Subscriptions" subtitle="CRUD for Subscriptions" :user="$user">
+        <x-slot name="header">
+            @if ($user->hasright('CREATE_SUB'))
+            <x-theme.iconbutton icon="file-contract" color="amber" wire="switchmode('add')" title="Add Subscription" />
+            @endif
+            <livewire:subscription-type-selector :selected="$selectedtypes" :user="$user" />
+            <livewire:brand-selector :selected="$selectedbrand" />
+        </x-slot>
+        <x-slot name="content">
+            <x-panel title="List" extracss="mt-6">
+                <x-panel.subtitle extracss="-mt-4">
+                    These are all the subscriptions based on selected filters
+                </x-panel.subtitle>
+                <div class="pt-6 text-sm">
+                    @livewire('subscriptions-table', ['selectedtypes' => $selectedtypes, 'selectedbrand' => $selectedbrand, 'user' => $user])
                 </div>
-                <div class="flex flex-row-reverse w-2/3">
-                    <x-theme.iconbutton icon="file-contract" color="amber" wire="switchmode('add')" title="Add Subscription" />
-                    <livewire:subscription-type-selector :selected="$selectedtypes" :user="$user" />
-                    <livewire:brand-selector :selected="$selectedbrand" />
-                </div>
-            </div>
-        </x-header>
-        <x-panel title="List" extracss="mt-6">
-            <x-panel.subtitle extracss="-mt-4">
-                These are all the subscriptions based on selected filters
-            </x-panel.subtitle>
-            <div class="pt-6 text-sm">
-                @livewire('subscriptions-table', ['selectedtypes' => $selectedtypes, 'selectedbrand' => $selectedbrand, 'user' => $user])
-            </div>
-        </x-panel>
-        @if ($user->hasright('VIEW_LOG'))
-            <div class="pt-6">
-                <livewire:log-panel source="Subscriptions" />
-            </div>
-        @endif
-    </div>
+            </x-panel>
+        </x-slot>
+    </x-layouts.tspage>
 </div>
