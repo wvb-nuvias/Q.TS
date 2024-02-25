@@ -101,6 +101,7 @@ final class DevicesTable extends PowerGridComponent
             ->add('notes')
             ->add('ignore')
             ->add('created_at')
+            ->add('device_source')
             ->add('info', function ($model) {
                 $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"svg/{$model->brand_name}-logo-small.php?color={$model->brand_colorcode}\" title=\"".$model->brand_name."\" class=\"h-4 w-4\"></i>";
                 $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->device_type_color."-600 fa fa-".$model->device_type_icon."\" title=\"Type : ".$model->device_type_name."\"></i>";
@@ -131,6 +132,11 @@ final class DevicesTable extends PowerGridComponent
         $columns[]=Column::make('Serial', 'serial')
             ->sortable()
             ->searchable();
+
+        $columns[]=Column::make('Source', 'device_source')
+            ->sortable()
+            ->searchable();
+
 
         $columns[]=Column::action('Action');
 

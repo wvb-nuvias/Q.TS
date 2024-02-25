@@ -18,6 +18,13 @@ class Integrations extends Component
     public $inactive_integrations;
     public $tenant_id;
     public $rights;
+    public $integration;
+    public $mode='tiles';
+
+    public function switchmode($mode)
+    {
+        $this->mode=$mode;
+    }
 
     public function mount()
     {
@@ -43,6 +50,31 @@ class Integrations extends Component
 
     public function render()
     {
-        return view('livewire.integrations');
+        if ($this->user->hasright('VIEW_INC'))
+        {
+            if ($this->mode=="tiles")
+            {
+                return view('livewire.integrations');
+            }
+            elseif ($this->mode=="add")
+            {
+                $this->integration=new Integration();
+                return view('livewire.integration.add');
+            }
+            elseif ($this->mode=="settings")
+            {
+                //$this->integration=new Integration();
+                return view('livewire.integration.settings');
+            }
+        }
+        else
+        {
+            return view('errors.403');
+        }
+    }
+
+    public function updateIntegration()
+    {
+        $this->switchmode('tiles');
     }
 }

@@ -68,6 +68,7 @@ class Integration extends Model
         //$user=auth()->user;
         $setting=IntegrationSetting::
             where('tenant_id',1)
+            ->where('integration_id',$this->id)
             ->where('integration_setting_key',$key)->first();
 
         if ($setting) {
@@ -85,5 +86,18 @@ class Integration extends Model
             return true;
         }
         return false;
+    }
+
+    function getbrand()
+    {
+        $icon=$this->integration_icon;
+
+        if (str_contains($icon,'brand:'))
+        {
+            $id=intval(str_replace('brand:','',$icon));
+            $brand=Brand::where('id',$id)->first();
+
+            return $brand;
+        }
     }
 }
