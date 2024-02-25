@@ -25,7 +25,7 @@ return new class extends Migration
         });
 
         DB::table('organizations')->insert([
-            ['tenant_id' => 1, 'number' => 1, 'organization_type_id' => 1, 'name' => 'the Q Continuum', 'managed_by' => 1, 'address_id' => 1],
+            ['tenant_id' => 1, 'number' => 1, 'organization_type_id' => 1, 'name' => 'the Q Continuum', 'managed_by' => 1, 'address_id' => 1, 'source' => 'system'],
         ]);
     }
 

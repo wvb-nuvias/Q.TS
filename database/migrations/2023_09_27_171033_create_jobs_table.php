@@ -15,18 +15,19 @@ return new class extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id')->nullable();
-            $table->string('name',100)->nullable();
+            $table->string('job_name',100)->nullable();
+            $table->string('job_source',100)->nullable();
             $table->timestamps();
         });
 
         DB::table('jobs')->insert([
-            ['tenant_id' => 1, 'name' => 'CEO / Co-Founder'],
-            ['tenant_id' => 1, 'name' => 'Team Leader'],
-            ['tenant_id' => 1, 'name' => 'Security Engineer'],
-            ['tenant_id' => 1, 'name' => 'Pre Sales Engineer'],
-            ['tenant_id' => 1, 'name' => 'Sales Person'],
-            ['tenant_id' => 1, 'name' => 'IT Person'],
-            ['tenant_id' => 1, 'name' => '3rd Party IT'],
+            ['tenant_id' => 1, 'job_name' => 'CEO / Co-Founder', 'job_source' => 'system'],
+            ['tenant_id' => 1, 'job_name' => 'Team Leader', 'job_source' => 'system'],
+            ['tenant_id' => 1, 'job_name' => 'Security Engineer', 'job_source' => 'system'],
+            ['tenant_id' => 1, 'job_name' => 'Pre Sales Engineer', 'job_source' => 'system'],
+            ['tenant_id' => 1, 'job_name' => 'Sales Person', 'job_source' => 'system'],
+            ['tenant_id' => 1, 'job_name' => 'IT Person', 'job_source' => 'system'],
+            ['tenant_id' => 1, 'job_name' => '3rd Party IT', 'job_source' => 'system'],
         ]);
     }
 

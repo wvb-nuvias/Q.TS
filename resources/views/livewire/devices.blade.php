@@ -7,6 +7,7 @@
                     <x-theme.headericon icon="server" title="Devices" subtitle="CRUD for Devices" color="cyan" />
                 </div>
                 <div class="flex flex-row-reverse w-2/3">
+                    <x-theme.iconbutton icon="server" color="cyan" wire="switchmode('add')" title="Add Device" />
                     <livewire:device-type-selector :selected="$selectedtypes" />
                     <livewire:brand-selector :selected="$selectedbrand" />
                 </div>

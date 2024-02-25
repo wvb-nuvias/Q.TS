@@ -90,7 +90,7 @@ class Organizations extends Component
         $this->selectedtypes=$selected;
     }
 
-    public function updateorganization()
+    public function updateOrganization()
     {
         $this->switchmode('list');
     }

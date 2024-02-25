@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property int|null $reseller_id
  * @property string|null $serial
  * @property int|null $brand_id
+ * @property string|null $subscription_source
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -45,6 +46,7 @@ class Subscription extends Model
         'reseller_id',
         'serial',
         'brand_id',
+        'subscription_source',
     ];
 
     /**

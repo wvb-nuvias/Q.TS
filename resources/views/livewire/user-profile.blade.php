@@ -3,7 +3,7 @@
         @include('components.flash-messages')
         <x-header themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" url="img/header/header6.jpg">
             <!-- TODO click on header icon , forward to gravatar.com -->
-            <x-theme.headericon url="https://gravatar.com/avatar/{{$gravatarhash}}" title="{{ $user->firstname }} {{ $user->name }}" subtitle="{{ $user->job->name }} - {{ $user->role->role_name }}" />
+            <x-theme.headericon url="https://gravatar.com/avatar/{{$gravatarhash}}" title="{{ $user->firstname }} {{ $user->name }}" subtitle="{{ $user->job->job_name }} - {{ $user->role->role_name }}" />
         </x-header>
         <x-panel title="Basic Info" extracss="mt-6">
             <x-panel.subtitle extracss="-mt-4">

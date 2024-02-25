@@ -92,7 +92,7 @@ class Contacts extends Component
         $this->selectedtypes=$selected;
     }
 
-    public function updatecontact()
+    public function updateContact()
     {
         $this->switchmode('list');
     }

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('reseller_id')->nullable();
             $table->string('serial',50)->nullable();
             $table->integer('brand_id')->nullable();
+            $table->string('subscription_source',50)->nullable();
             $table->timestamps();
         });
 
@@ -42,7 +43,8 @@ return new class extends Migration
             'customer_id' => 1,
             'reseller_id' => 1,
             'serial' => '',
-            'brand_id' => 0
+            'brand_id' => 0,
+            'subscription_source' => 'system'
         ]);
     }
 

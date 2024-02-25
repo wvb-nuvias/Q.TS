@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Log;
 use App\Models\User;
+use App\Models\Device;
 use App\Models\UserSetting;
 
 class Devices extends Component
@@ -14,6 +15,14 @@ class Devices extends Component
     public $rights;
     public $selectedbrand=[1,2,3,4,5,6,7,8];
     public $selectedtypes=[1,2,3,4,5,6,7,8,9];
+    public $mode="list";
+    public $isnew=true;
+    public $device=null;
+
+    public function switchmode($mode)
+    {
+        $this->mode=$mode;
+    }
 
     public function mount() {
         $this->user = auth()->user();
@@ -46,7 +55,13 @@ class Devices extends Component
     {
         if ($this->user->hasright('VIEW_DEVICE'))
         {
-            return view('livewire.devices');
+            if ($this->mode=="list")
+                return view('livewire.devices');
+            if ($this->mode=="add")
+            {
+                $this->device=new Device;
+                return view('livewire.device.add');
+            }
         }
         else
         {
@@ -104,5 +119,10 @@ class Devices extends Component
         }
 
         $this->selectedtypes=$selected;
+    }
+
+    public function updateDevice()
+    {
+        $this->switchmode('list');
     }
 }

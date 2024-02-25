@@ -7,6 +7,7 @@
                     <x-theme.headericon icon="file-contract" title="Subscriptions" subtitle="CRUD for Subscriptions" color="amber" />
                 </div>
                 <div class="flex flex-row-reverse w-2/3">
+                    <x-theme.iconbutton icon="file-contract" color="amber" wire="switchmode('add')" title="Add Subscription" />
                     <livewire:subscription-type-selector :selected="$selectedtypes" :user="$user" />
                     <livewire:brand-selector :selected="$selectedbrand" />
                 </div>

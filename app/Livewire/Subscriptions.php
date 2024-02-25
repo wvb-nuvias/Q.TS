@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Log;
+use App\Models\Subscription;
 use App\Models\User;
 use App\Models\UserSetting;
 
@@ -14,6 +15,14 @@ class Subscriptions extends Component
     public $rights;
     public $selectedbrand=[1,2,3,4,5,6,7,8];
     public $selectedtypes=[1,2,3,4,5,6];
+    public $mode="list";
+    public $isnew=true;
+    public $subscription=null;
+
+    public function switchmode($mode)
+    {
+        $this->mode=$mode;
+    }
 
     public function mount() {
         $this->user = auth()->user();
@@ -45,6 +54,11 @@ class Subscriptions extends Component
     {
         if ($this->user->hasright('VIEW_SUB'))
         {
+            if ($this->mode=="add")
+            {
+                $this->subscription=new Subscription();
+                return view('livewire.subscription.add');
+            }
             return view('livewire.subscriptions');
         }
         else
@@ -103,5 +117,10 @@ class Subscriptions extends Component
         }
 
         $this->selectedtypes=$selected;
+    }
+
+    public function updateSubscription()
+    {
+        $this->switchmode('list');
     }
 }
