@@ -80,6 +80,7 @@ final class OrganizationsTable extends PowerGridComponent
             ->add('organization_type_id')
             ->add('organization_type_name')
             ->add('name')
+            ->add('organization_source')
             ->add('managed_by')
             ->add('created_at')
             ->add('info', function ($model) {
@@ -105,6 +106,10 @@ final class OrganizationsTable extends PowerGridComponent
             ->searchable();
 
         $columns[]=Column::make('Name', 'name')
+            ->sortable()
+            ->searchable();
+
+        $columns[]=Column::make('Source', 'organization_source')
             ->sortable()
             ->searchable();
 

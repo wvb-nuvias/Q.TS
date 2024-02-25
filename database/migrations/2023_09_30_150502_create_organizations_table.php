@@ -20,12 +20,12 @@ return new class extends Migration
             $table->integer('organization_type_id')->nullable();
             $table->string('name',100)->nullable();
             $table->integer('managed_by')->nullable();
-            $table->string('source',100)->nullable();
+            $table->string('organization_source',100)->nullable();
             $table->timestamps();
         });
 
         DB::table('organizations')->insert([
-            ['tenant_id' => 1, 'number' => 1, 'organization_type_id' => 1, 'name' => 'the Q Continuum', 'managed_by' => 1, 'address_id' => 1, 'source' => 'system'],
+            ['tenant_id' => 1, 'number' => 1, 'organization_type_id' => 1, 'name' => 'the Q Continuum', 'managed_by' => 1, 'address_id' => 1, 'organization_source' => 'system'],
         ]);
     }
 

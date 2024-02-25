@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('lastname',100)->nullable();
             $table->string('firstname',100)->nullable();
             $table->string('language',4)->nullable();
-            $table->string('source',100)->nullable();
+            $table->string('contact_source',100)->nullable();
             $table->timestamps();
         });
     }

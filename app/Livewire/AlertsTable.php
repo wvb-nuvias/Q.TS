@@ -53,6 +53,7 @@ final class AlertsTable extends PowerGridComponent
             ->add('alert_rule_id')
             ->add('alert_status_id')
             ->add('message')
+            ->add('alert_source')
             ->add('created_at');
     }
 
@@ -76,8 +77,9 @@ final class AlertsTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Created at', 'created_at_formatted', 'created_at')
-                ->sortable(),
+            Column::make('Source', 'alert_source')
+                ->sortable()
+                ->searchable(),
 
             Column::make('Created at', 'created_at')
                 ->sortable()

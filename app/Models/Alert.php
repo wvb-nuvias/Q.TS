@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $alert_rule_id
  * @property int $alert_status_id
  * @property string|null $message
+ * @property string|null $alert_source
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -21,5 +22,5 @@ class Alert extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tenant_id', 'alert_rule_id', 'alert_status_id', 'message'];
+    protected $fillable = ['tenant_id', 'alert_rule_id', 'alert_status_id', 'message', 'alert_source'];
 }

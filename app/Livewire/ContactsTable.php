@@ -79,6 +79,7 @@ final class ContactsTable extends PowerGridComponent
             ->add('job_id')
             ->add('lastname')
             ->add('firstname')
+            ->add('contact_source')
             ->add('created_at');
     }
 
@@ -102,6 +103,10 @@ final class ContactsTable extends PowerGridComponent
             ->searchable();
 
         $columns[]=Column::make('Lastname', 'lastname')
+            ->sortable()
+            ->searchable();
+
+        $columns[]=Column::make('Source', 'contact_source')
             ->sortable()
             ->searchable();
 

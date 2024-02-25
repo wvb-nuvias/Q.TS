@@ -114,6 +114,7 @@ final class IncidentsTable extends PowerGridComponent
             ->add('description')
             ->add('time_spent')
             ->add('created_at')
+            ->add('incident_source')
             ->add('info', function ($model) {
                 $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"svg/{$model->brand_name}-logo-small.php?color={$model->brand_colorcode}\" title=\"".$model->brand_name."\" class=\"h-4 w-4\"></i>";
                 $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->incident_type_color."-600 fa fa-".$model->incident_type_icon."\" title=\"Type : ".$model->incident_type_name."\"></i>";
@@ -152,6 +153,10 @@ final class IncidentsTable extends PowerGridComponent
                 ->searchable();
 
         $columns[]=Column::make('Time Spent', 'time_spent')
+                ->sortable()
+                ->searchable();
+
+        $columns[]=Column::make('Source', 'incident_source')
                 ->sortable()
                 ->searchable();
 

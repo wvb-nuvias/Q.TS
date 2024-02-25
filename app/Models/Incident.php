@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string|null $title
  * @property string|null $description
  * @property int|null $time_spent
+ * @property string|null $incident_source
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -45,6 +46,7 @@ class Incident extends Model
         'title',
         'description',
         'time_spent',
+        'incident_source',
     ];
 
     /**

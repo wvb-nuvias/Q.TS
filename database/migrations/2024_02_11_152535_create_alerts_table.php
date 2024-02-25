@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('alert_rule_id')->nullable();
             $table->integer('alert_status_id')->nullable();
             $table->string('message',250)->nullable();
+            $table->string('alert_source',100)->nullable();
             $table->timestamps();
         });
     }

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('title',200)->nullable();
             $table->text('description')->nullable();
             $table->integer('time_spent')->nullable();
+            $table->string('incident_source',100)->nullable();
             $table->timestamps();
         });
     }

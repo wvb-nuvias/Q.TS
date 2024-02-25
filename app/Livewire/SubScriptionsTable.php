@@ -122,6 +122,7 @@ final class SubScriptionsTable extends PowerGridComponent
             ->add('serial')
             ->add('brand_id')
             ->add('created_at')
+            ->add('subscription_source')
             ->add('info', function ($model) {
                 $tmp="<i class=\"p-1 opacity-80 hover:opacity-100\"><img src=\"svg/{$model->brand_name}-logo-small.php?color={$model->brand_colorcode}\" class=\"h-6 w-6\"></i>";
                 $tmp.="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->subscription_type_color."-600 fa fa-".$model->subscription_type_icon."\" title=\"Type : ".$model->subscription_type_name."\"></i>";
@@ -159,6 +160,10 @@ final class SubScriptionsTable extends PowerGridComponent
         ->searchable();
 
         $columns[]=Column::make('Serial', 'serial')
+        ->sortable()
+        ->searchable();
+
+        $columns[]=Column::make('Source', 'subscription_source')
         ->sortable()
         ->searchable();
 
