@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('icon',250)->nullable();
             $table->text('notes')->nullable();
             $table->integer('ignore')->nullable();
+            $table->string('source',100)->nullable();
             $table->timestamps();
         });
     }

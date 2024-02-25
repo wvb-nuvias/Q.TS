@@ -12,7 +12,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * === Columns ===
  * @property int $id
  * @property int $tenant_id
- * @property string|null $name
+ * @property string|null $job_name
+ * @property string|null $job_source
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -21,7 +22,7 @@ class Job extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'name'];
+    protected $fillable = ['tenant_id', 'job_name', 'job_source'];
 
     /**
      * Get the contacts who have this job.

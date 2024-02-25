@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property int|null $organization_type_id
  * @property string|null $name
  * @property int|null $managed_by
- * @property string|null $source
+ * @property string|null $organization_source
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -26,7 +26,7 @@ class Organization extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'number', 'address_id', 'organization_type_id', 'name', 'managed_by', 'source'];
+    protected $fillable = ['tenant_id', 'number', 'address_id', 'organization_type_id', 'name', 'managed_by', 'organization_source'];
 
     /**
      * Get the addresses for the organization.

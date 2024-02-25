@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string|null $icon
  * @property string|null $notes
  * @property int|null $ignore
+ * @property string|null $device_source
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -56,6 +57,7 @@ class Device extends Model
         'icon',
         'notes',
         'ignore',
+        'device_source',
     ];
 
     /**

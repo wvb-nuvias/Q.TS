@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string|null $lastname
  * @property string|null $firstname
  * @property string|null $language
- * @property string|null $source
+ * @property string|null $contact_source
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -29,7 +29,7 @@ class Contact extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'customer_id', 'contact_type_id', 'job_id', 'lastname', 'firstname','source'];
+    protected $fillable = ['tenant_id', 'customer_id', 'contact_type_id', 'job_id', 'lastname', 'firstname','contact_source'];
 
     /**
      * Get the addresses for the contact.
