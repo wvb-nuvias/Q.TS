@@ -57,9 +57,9 @@ return [
     'addcontact' => 'Add Contact',
     'crudcontacts' => 'CRUD for Contacts',
     'listcontacts' => 'These are all the contacts based on selected filters',
-    'addcontact' => 'Add Organization',
-    'crudcontacts' => 'CRUD for Organizations',
-    'listcontacts' => 'These are all the organizations based on selected filters',
+    'addorganization' => 'Add Organization',
+    'crudorganizations' => 'CRUD for Organizations',
+    'listorganizations' => 'These are all the organizations based on selected filters',
     'addsubscription' => 'Add Subscription',
     'crudsubscriptions' => 'CRUD for Subscriptions',
     'listsubscriptions' => 'These are all the subscriptions based on selected filters',
@@ -69,5 +69,9 @@ return [
     'addalert' => 'Add Alert',
     'crudalerts' => 'CRUD for Alerts',
     'listalerts' => 'These are all the alerts based on selected filters',
-
+    'listintegrationsactive' => 'These are all the current active integrations',
+    'listintegrationsinactive' => 'These are all the current inactive integrations',
+    'integrationsubtitle' => 'Integrations Management',
+    'integrationsactive' => 'Active Integrations',
+    'integrationsinactive' => 'Inactive Integrations',
 ];
