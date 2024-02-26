@@ -26,8 +26,8 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('subscription_types')->insert([
-            ['tenant_id' => 1, 'product_type_id' => 1, 'brand_id' => 0, 'code' => 'NFR-0', 'name' => 'Endless NFR License', 'description' => 'Endless NFR License','init_type_id' => 3,'units' => 1, 'cost' => 0],
+        DB::table('products')->insert([
+            ['tenant_id' => 1, 'product_type_id' => 1, 'brand_id' => 0, 'code' => 'NFR-0', 'name' => 'Endless NFR License', 'description' => 'Endless NFR License','unit_type_id' => 3,'units' => 1, 'cost' => 0],
         ]);
     }
 

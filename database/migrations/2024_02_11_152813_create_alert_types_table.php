@@ -25,7 +25,7 @@ return new class extends Migration
         DB::table('alert_types')->insert([
             ['tenant_id' => 1, 'alert_type_name' => 'ICMP Unreachable', 'alert_type_icon' => 'magnifying-glass-chart', 'alert_type_color' => 'red'],
             ['tenant_id' => 1, 'alert_type_name' => 'SNMP Unreachable', 'alert_type_icon' => 'magnifying-glass-location', 'alert_type_color' => 'orange'],
-            ['tenant_id' => 1, 'alert_type_name' => 'Cluster Failover', 'alert_type_icon' => '', 'circle-exclamation' => 'amber'],
+            ['tenant_id' => 1, 'alert_type_name' => 'Cluster Failover', 'alert_type_icon' => 'circle-exclamation', 'alert_type_color' => 'amber'],
             ['tenant_id' => 1, 'alert_type_name' => 'Other Alert', 'alert_type_icon' => 'bell', 'alert_type_color' => 'blue'],
         ]);
     }

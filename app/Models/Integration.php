@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\IntegrationType;
 use App\Models\IntegrationSetting;
 use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use PowerComponents\LivewirePowerGrid\Components\Filters\Builders\Boolean;
@@ -57,8 +58,8 @@ class Integration extends Model
 
     public function getsettings()
     {
-        $user=auth()->user;
-        $settings=IntegrationSetting::where('tenant_id',$user->tenant_id)
+        //$user=auth()->user;
+        $settings=IntegrationSetting::where('tenant_id',1)
             ->where('integration_id',$this->id)
             ->where('integration_setting_key','!=','active')
             ->get();

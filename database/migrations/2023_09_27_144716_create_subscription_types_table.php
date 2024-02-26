@@ -22,12 +22,12 @@ return new class extends Migration
         });
 
         DB::table('subscription_types')->insert([
-            ['tenant_id' => 1, 'subscription_type_name' => 'Monthly', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
-            ['tenant_id' => 1, 'subscription_type_name' => 'Yearly', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
-            ['tenant_id' => 1, 'subscription_type_name' => '3 Months', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
-            ['tenant_id' => 1, 'subscription_type_name' => 'Managed Services', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
-            ['tenant_id' => 1, 'subscription_type_name' => 'Care Services', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
-            ['tenant_id' => 1, 'subscription_type_name' => 'NFR License', 'subscription_type_icon' => '', 'subscription_type_color' => ''],
+            ['tenant_id' => 1, 'subscription_type_name' => 'Monthly', 'subscription_type_icon' => 'calendar', 'subscription_type_color' => 'purple'],
+            ['tenant_id' => 1, 'subscription_type_name' => 'Yearly', 'subscription_type_icon' => 'calendar', 'subscription_type_color' => 'cyan'],
+            ['tenant_id' => 1, 'subscription_type_name' => '3 Months', 'subscription_type_icon' => 'calendar', 'subscription_type_color' => 'emerald'],
+            ['tenant_id' => 1, 'subscription_type_name' => 'Managed Services', 'subscription_type_icon' => 'file-signature', 'subscription_type_color' => 'blue'],
+            ['tenant_id' => 1, 'subscription_type_name' => 'Care Services', 'subscription_type_icon' => 'file-contract', 'subscription_type_color' => 'red'],
+            ['tenant_id' => 1, 'subscription_type_name' => 'NFR License', 'subscription_type_icon' => 'id-card', 'subscription_type_color' => 'green'],
         ]);
     }
 

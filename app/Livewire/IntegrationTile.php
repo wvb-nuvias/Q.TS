@@ -24,8 +24,8 @@ class IntegrationTile extends Component
         $this->rights = $this->user->rights();
         $this->tenant_id=$this->user->tenant_id;
         $this->brands=Brand::all();
-        $this->settings=$this->getsettings();
-        $this->hasrun=$this->getsetting('hasrun');
+        $this->settings=$this->integration->getsettings();
+        $this->hasrun=$this->integration->getsetting('hasrun');
 
         //check if there are settings, $this->settings count > 0, anders icoon tonen in rood om aandacht te trekken, nog niet geconfigureerd.
 
