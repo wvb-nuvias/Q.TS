@@ -74,4 +74,17 @@ return [
     'integrationsubtitle'=> 'Integratie Management',
     'integrationsactive' => 'Actieve Integraties',
     'integrationsinactive' => 'Uitgeschakelde Integraties',
+    'savealert' => 'Alarm Opslaan',
+    'saveincident' => 'Incident Opslaan',
+    'savedevice' => 'Toestel Opslaan',
+    'saveorganization' => 'Organisatie Opslaan',
+    'saveintegration' => 'Integratie Opslaan',
+    'savesubscription' => 'Contract Opslaan',
+    'savecontact' => 'Contact Opslaan',
+    'saveaddress' => 'Address Opslaan',
+    'savesettings' => 'Instellingen Opslaan',
+    'listsettings' => 'Alle instellingen van al uw Integraties op één plek',
+    'integrationsettings' => 'Integrations Settings',
+    'completeform' => 'Vervolledig dit formulier',
+
 ];
