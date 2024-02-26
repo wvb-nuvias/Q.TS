@@ -11,7 +11,7 @@
             <x-navbar.sep />
 
             <x-navbar.title title="Dashboards" />
-            <x-navbar.item route="dashboard"             icon="chart-pie"        name="{{__('messages.overview')}}" />
+            <x-navbar.item route="dashboard_overview"             icon="chart-pie"        name="{{__('messages.overview')}}" />
 
             @if (in_array("VIEW_INC", $rights) || in_array("VIEW_SUB", $rights) || in_array("VIEW_DEVICE", $rights) || in_array("VIEW_ALERT", $rights))
                 @if (in_array("VIEW_INC", $rights))

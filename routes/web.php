@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Livewire\Dashboard;
+use App\Livewire\Dashboards\Overview as Dashboard_Overview;
 use App\Livewire\Dashboards\Alerts as Dashboard_Alerts;
 use App\Livewire\Dashboards\Incidents as Dashboard_Incidents;
 use App\Livewire\Dashboards\Devices as Dashboard_Devices;
@@ -42,7 +42,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('dashboard', Dashboard::class)->name('dashboard');
+    Route::get('dashboards/overview', Dashboard_Overview::class)->name('dashboard_overview');
     Route::get('dashboards/alerts', Dashboard_Alerts::class)->name('dashboard_alerts');
     Route::get('dashboards/devices', Dashboard_Devices::class)->name('dashboard_devices');
     Route::get('dashboards/incidents', Dashboard_Incidents::class)->name('dashboard_incidents');

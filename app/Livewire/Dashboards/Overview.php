@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Dashboards;
 
 use Livewire\Component;
 use App\Models\User;
 
-class Dashboard extends Component
+class Overview extends Component
 {
     public User $user;
 
@@ -15,6 +15,6 @@ class Dashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboard');
+        return view('livewire.dashboards.overview');
     }
 }
