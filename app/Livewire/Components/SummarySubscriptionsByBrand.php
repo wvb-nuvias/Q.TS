@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components;
 
 use Livewire\Component;
 use App\Models\Subscription;
@@ -53,6 +53,6 @@ class SummarySubscriptionsByBrand extends Component
 
         }
 
-        return view('livewire.summary-subscriptions-by-brand');
+        return view('livewire.components.summary-subscriptions-by-brand');
     }
 }

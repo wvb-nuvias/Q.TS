@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components;
 
 use Livewire\Component;
 use App\Models\Incident;
@@ -81,6 +81,6 @@ class SummaryIncidentsByType extends Component
             $this->icon="file-circle-question";
         }
 
-        return view('livewire.summary-incidents-by-type');
+        return view('livewire.components.summary-incidents-by-type');
     }
 }

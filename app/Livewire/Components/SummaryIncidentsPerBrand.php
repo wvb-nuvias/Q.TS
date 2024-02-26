@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components;
 
 use Livewire\Component;
 use App\Models\Incident;
@@ -72,11 +72,11 @@ class SummaryIncidentsPerBrand extends Component
 
         if ($this->showview==false)
         {
-            return view('livewire.summary-incidents-per-brand-settings');
+            return view('livewire.components.summary-incidents-per-brand-settings');
         }
         else
         {
-            return view('livewire.summary-incidents-per-brand');
+            return view('livewire.components.summary-incidents-per-brand');
         }
 
     }

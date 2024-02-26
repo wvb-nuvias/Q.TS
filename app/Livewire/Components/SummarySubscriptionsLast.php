@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components;
 
 use Livewire\Component;
 use App\Models\User;
@@ -16,6 +16,6 @@ class SummarySubscriptionsLast extends Component
 
     public function render()
     {
-        return view('livewire.summary-subscriptions-last');
+        return view('livewire.components.summary-subscriptions-last');
     }
 }

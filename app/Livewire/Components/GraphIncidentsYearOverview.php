@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components;
 
 use Livewire\Component;
 use App\Models\User;
 
-class SummaryAlerts extends Component
+class GraphIncidentsYearOverview extends Component
 {
-    public $total=10;
-    public $icon="bell";
     public User $user;
 
     public function mount()
@@ -18,6 +16,6 @@ class SummaryAlerts extends Component
 
     public function render()
     {
-        return view('livewire.summary-alerts');
+        return view('livewire.components.graph-incidents-year-overview');
     }
 }
