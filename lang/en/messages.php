@@ -51,7 +51,23 @@ return [
     'reopen' => 'ReOpen',
     'edit' => 'Edit',
     'update' => 'Update',
-
-
+    'addincident' => 'Add Incident',
+    'crudincidents' => 'CRUD for Incidents',
+    'listincidents' => 'These are all the incidents based on selected filters',
+    'addcontact' => 'Add Contact',
+    'crudcontacts' => 'CRUD for Contacts',
+    'listcontacts' => 'These are all the contacts based on selected filters',
+    'addcontact' => 'Add Organization',
+    'crudcontacts' => 'CRUD for Organizations',
+    'listcontacts' => 'These are all the organizations based on selected filters',
+    'addsubscription' => 'Add Subscription',
+    'crudsubscriptions' => 'CRUD for Subscriptions',
+    'listsubscriptions' => 'These are all the subscriptions based on selected filters',
+    'adddevice' => 'Add Device',
+    'cruddevices' => 'CRUD for Devices',
+    'listdevices' => 'These are all the devices based on selected filters',
+    'addalert' => 'Add Alert',
+    'crudalerts' => 'CRUD for Alerts',
+    'listalerts' => 'These are all the alerts based on selected filters',
 
 ];
