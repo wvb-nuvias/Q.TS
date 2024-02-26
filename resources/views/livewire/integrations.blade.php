@@ -24,11 +24,11 @@
                 </x-panel.subtitle>
                 <div class="w-full px-6 pt-6 mx-auto space-y-6">
                     <div class="flex flex-wrap -mx-3">
-                    @foreach ($inactive_integrations as $integration)
-                    <div class="w-full px-3 pt-3 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-                        <livewire:integration-tile :integration="$integration" />
-                    </div>
-                    @endforeach
+                        @foreach ($inactive_integrations as $integration)
+                        <div class="w-full px-3 pt-3 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+                            <livewire:integration-tile :integration="$integration" />
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </x-panel>
