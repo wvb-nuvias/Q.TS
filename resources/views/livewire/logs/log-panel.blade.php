@@ -4,10 +4,10 @@
         {{ $subtitle }}
     </x-panel.subtitle>
     <div style="position:absolute; right:25px; top:20px">
-        @livewire('log-type-selector', ["selectedtypes" => $selectedtypes])
+        @livewire('logs.log-type-selector', ["selectedtypes" => $selectedtypes])
     </div>
     <div class="pt-6 text-sm">
-        @livewire('logs-table', ["user" => $user, "source" => $source, "selectedtypes" => $selectedtypes])
+        @livewire('logs.logs-table', ["user" => $user, "source" => $source, "selectedtypes" => $selectedtypes])
     </div>
 </x-panel>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Logs;
 
 use Livewire\Component;
 use App\Models\LogType;
@@ -17,7 +17,7 @@ class LogTypeSelector extends Component
 
     public function render()
     {
-        return view('livewire.log-type-selector');
+        return view('livewire.logs.log-type-selector');
     }
 
     public function toggle($id)

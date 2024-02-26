@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Logs;
 
 use Livewire\Component;
 use App\Models\User;
@@ -34,7 +34,7 @@ class LogPanel extends Component
     {
         $this->subtitle="Logs of ".$this->source;
 
-        return view('livewire.log-panel');
+        return view('livewire.logs.log-panel');
     }
 
     #[On('log-type-selector-changed')]

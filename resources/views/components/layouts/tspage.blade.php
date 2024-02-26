@@ -15,7 +15,7 @@
 
     @if ($user->hasright('VIEW_LOG'))
         <div class="pt-6">
-            <livewire:log-panel source="{{ $title }}s" />
+            <livewire:logs.log-panel source="{{ $title }}s" />
         </div>
     @endif
 </div>

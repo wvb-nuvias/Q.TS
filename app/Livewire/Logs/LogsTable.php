@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Logs;
 
 use App\Models\Log;
 use Illuminate\Support\Carbon;
