@@ -1,4 +1,4 @@
-<div class="w-full">
+<div><div class="w-full">
 <x-panel title="Logs" extracss="opacity-20 hover:opacity-100">
     <x-panel.subtitle extracss="-mt-4">
         {{ $subtitle }}
@@ -10,4 +10,5 @@
         @livewire('logs.logs-table', ["user" => $user, "source" => $source, "selectedtypes" => $selectedtypes])
     </div>
 </x-panel>
+</div>
 </div>
