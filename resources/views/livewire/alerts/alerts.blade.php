@@ -5,7 +5,7 @@
             <x-theme.iconbutton icon="bell" color="red" wire="switchmode('add')" title="{{__('messages.addalert')}}" />
             @endif
             <livewire:alerts.alert-type-selector :selected="$selectedtypes" />
-            <livewire:brand-selector :selected="$selectedbrand" />
+            <livewire:brands.brand-selector :selected="$selectedbrand" />
         </x-slot>
         <x-slot name="content">
             <x-panel title="List" extracss="mt-6">
