@@ -14,8 +14,8 @@
 
     {{ $content }}
 
-    @if ($user->hasright('VIEW_LOG'))
-    <!-- && $title=='Integration' && str_contains($subtitle,'Setting') -->
+    @if ($user->hasright('VIEW_LOG') && !($title=='Integration' && str_contains($subtitle,'Setting')))
+    <!--  -->
     <div class="pt-6">
         <livewire:logs.log-panel source="{{ $title }}" />
     </div>

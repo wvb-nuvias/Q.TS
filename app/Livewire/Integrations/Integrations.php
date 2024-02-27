@@ -5,6 +5,7 @@ namespace App\Livewire\Integrations;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\User;
+use App\Models\Log;
 use App\Models\Integration;
 use App\Models\IntegrationType;
 use App\Models\IntegrationSetting;
@@ -46,6 +47,15 @@ class Integrations extends Component
                     ->whereNotIn('id',$actids)
                     ->get();
 
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "Integrations",
+            "log_type"      => 2,
+            "message"       => 'Integrations Page is opened.',
+            "log_date"      => now()
+        ]);
     }
 
     public function render()
@@ -63,7 +73,7 @@ class Integrations extends Component
             }
             elseif ($this->mode=="settings")
             {
-                $this->integration=new Integration();
+                //$this->integration=new Integration();
                 return view('livewire.integrations.settings');
             }
         }
