@@ -5,7 +5,7 @@
             <x-theme.iconbutton icon="ambulance" color="emerald" wire="switchmode('add')" title="{{__('messages.addincident')}}" />
             @endif
             <livewire:incidents.incident-status-selector :selected="$selectedstatus" />
-            <livewire:brand-selector :selected="$selectedbrand" />
+            <livewire:brands.brand-selector :selected="$selectedbrand" />
         </x-slot>
         <x-slot name="content">
             <x-panel title="List" extracss="mt-6">

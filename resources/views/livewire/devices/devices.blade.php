@@ -5,7 +5,7 @@
             <x-theme.iconbutton icon="server" color="cyan" wire="switchmode('add')" title="Add Device" />
             @endif
             <livewire:devices.device-type-selector :selected="$selectedtypes" />
-            <livewire:brand-selector :selected="$selectedbrand" />
+            <livewire:brands.brand-selector :selected="$selectedbrand" />
         </x-slot>
         <x-slot name="content">
             <x-panel title="List" extracss="mt-6">

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Admins;
 
 use Livewire\Component;
 use App\Models\User;
 
-class ProductManagement extends Component
+class TypeManagement extends Component
 {
     public User $user;
     public $rights;
@@ -17,9 +17,9 @@ class ProductManagement extends Component
 
     public function render()
     {
-        if ($this->user->hasright('VIEW_PROD'))
+        if ($this->user->hasright('VIEW_TYPES'))
         {
-            return view('livewire.product-management');
+            return view('livewire.admins.type-management');
         }
         else
         {

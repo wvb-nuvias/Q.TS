@@ -5,7 +5,7 @@
             <x-theme.iconbutton icon="file-contract" color="amber" wire="switchmode('add')" title="Add Subscription" />
             @endif
             <livewire:subscriptions.subscription-type-selector :selected="$selectedtypes" :user="$user" />
-            <livewire:brand-selector :selected="$selectedbrand" />
+            <livewire:brands.brand-selector :selected="$selectedbrand" />
         </x-slot>
         <x-slot name="content">
             <x-panel title="List" extracss="mt-6">

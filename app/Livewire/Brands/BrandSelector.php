@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Brands;
 
 use Livewire\Component;
 use App\Models\Brand;
@@ -14,7 +14,7 @@ class BrandSelector extends Component
     {
         $this->brands = Brand::all();
 
-        return view('livewire.brand-selector');
+        return view('livewire.brands.brand-selector');
     }
 
     public function toggle($id)

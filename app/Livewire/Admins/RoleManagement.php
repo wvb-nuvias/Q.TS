@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Admins;
 
 use Livewire\Component;
 use App\Models\User;
 
-class UserManagement extends Component
+class RoleManagement extends Component
 {
     public User $user;
     public $rights;
@@ -17,9 +17,9 @@ class UserManagement extends Component
 
     public function render()
     {
-        if ($this->user->hasright('VIEW_USER'))
+        if ($this->user->hasright('VIEW_ROLES'))
         {
-            return view('livewire.user-management');
+            return view('livewire.admins.role-management');
         }
         else
         {

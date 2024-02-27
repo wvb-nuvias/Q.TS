@@ -7,7 +7,7 @@
             <livewire:components.summary-alerts :updown="-10" :updownwhy="'since last month'" />
         </div>
         <div class="flex flex-wrap space-x-6">
-            <livewire:comonents.graph-incidents-year-overview />
+            <livewire:components.graph-incidents-year-overview />
             <livewire:components.summary-incidents-per-brand :start="'2024-02-01'" :end="'2024-02-28'" />
         </div>
         <div class="flex flex-wrap space-x-6">
