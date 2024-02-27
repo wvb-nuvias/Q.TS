@@ -15,7 +15,7 @@
     {{ $content }}
 
     @if ($user->hasright('VIEW_LOG') && !($title=='Integration' && str_contains($subtitle,'Setting')))
-    <!--  -->
+    <!-- Exception for Integrations Settings, that crashes when log panel is shown? why? -->
     <div class="pt-6">
         <livewire:logs.log-panel source="{{ $title }}" />
     </div>
