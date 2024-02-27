@@ -1,3 +1,4 @@
+<div>
 <div class="w-full px-6 py-6 mx-auto">
     @include('components.flash-messages')
     <x-header themecolor1="{{ $themecolor1 }}" themecolor2="{{ $themecolor2 }}" url="{{ $themeheader }}">
@@ -13,10 +14,10 @@
 
     {{ $content }}
 
-    @if ($user->hasright('VIEW_LOG'))
-        <div class="pt-6">
-            <livewire:logs.log-panel source="{{ $title }}s" />
-        </div>
+    @if ($user->hasright('VIEW_LOG') && $title!='Integration')
+    <div class="pt-6">
+        <livewire:logs.log-panel source="{{ $title }}s" />
+    </div>
     @endif
 </div>
-
+</div>

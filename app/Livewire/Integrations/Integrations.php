@@ -63,7 +63,7 @@ class Integrations extends Component
             }
             elseif ($this->mode=="settings")
             {
-                //$this->integration=new Integration();
+                $this->integration=new Integration();
                 return view('livewire.integrations.settings');
             }
         }

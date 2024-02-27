@@ -34,6 +34,8 @@ class LogPanel extends Component
     {
         $this->subtitle="Logs of ".$this->source;
 
+        //dd($this->source);
+
         return view('livewire.logs.log-panel');
     }
 

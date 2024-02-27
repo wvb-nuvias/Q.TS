@@ -8,7 +8,7 @@
     @if ($size=="big")
         <div class="flex mb-3">
             <div class="">
-                <img src="img/icon/favicon-192.png" />
+                <img src="/img/icon/favicon-192.png" />
             </div>
             <div class="flex flex-col">
                 <div class="dark:text-white text-9xl">
