@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Navbar;
 
 use Livewire\Component;
+use App\Models\User;
+use App\Models\UserSetting;
 
-namespace App\Livewire extends Component
+class SwitchLanguage extends Component
 {
     public function render()
     {

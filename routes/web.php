@@ -14,12 +14,12 @@ use App\Livewire\Contacts\Contacts;
 use App\Livewire\Incidents\Incidents;
 use App\Livewire\Devices\Devices;
 use App\Livewire\Alerts\Alerts;
-use App\Livewire\UserProfile;
-use App\Livewire\UserManagement;
-use App\Livewire\RoleManagement;
-use App\Livewire\TypeManagement;
-use App\Livewire\ProductManagement;
-use App\Livewire\TenantManagement;
+use App\Livewire\Profiles\UserProfile;
+use App\Livewire\Admins\UserManagement;
+use App\Livewire\Admins\RoleManagement;
+use App\Livewire\Admins\TypeManagement;
+use App\Livewire\Admins\ProductManagement;
+use App\Livewire\Admins\TenantManagement;
 
 /*
 |--------------------------------------------------------------------------

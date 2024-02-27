@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Navbar;
 
 use Livewire\Component;
 use App\Models\User;
@@ -21,6 +21,6 @@ class SideBar extends Component
 
     public function render()
     {
-        return view('livewire.side-bar');
+        return view('livewire.navbar.side-bar');
     }
 }

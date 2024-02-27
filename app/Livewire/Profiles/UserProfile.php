@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Profiles;
 
 use App\Models\Log;
 use App\Models\User;
@@ -55,7 +55,7 @@ class UserProfile extends Component
         if ($this->user->hasright('VIEW_PROFILE'))
         {
             $this->gravatarhash=hash( 'sha256', strtolower( trim( $this->user->email ) ) );
-            return view('livewire.user-profile');
+            return view('livewire.profiles.user-profile');
         }
         else
         {

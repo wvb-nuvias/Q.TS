@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Navbar;
 
-use app\Models\User;
 use Livewire\Component;
+use App\Models\User;
+use App\Models\UserSetting;
 
-namespace App\Livewire extends Component
-{       
+Class SwitchDarkMode extends Component
+{
     public User $user;
-    
+
     public function render()
     {
         return view('class SwitchDarkmode');
     }
-        
+
 }

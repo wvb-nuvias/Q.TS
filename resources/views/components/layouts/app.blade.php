@@ -28,12 +28,12 @@
     </head>
     <body class="m-0 font-sans text-base antialiased font-normal text-left leading-default dark:bg-slate-900 bg-gray-50 text-slate-500 dark:text-white">
         @if (auth()->user()->hasright("ACCESS"))
-            <livewire:side-bar />
+            <livewire:navbar.side-bar />
 
             <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl ps ps--active-y">
-                <livewire:top-bar />
+                <livewire:navbar.top-bar />
                 @if (auth()->user()->hasright("ACCESS_SETTING"))
-                <livewire:side-bar-settings />
+                <livewire:navbar.side-bar-settings />
                 @endif
 
                 {{ $slot }}

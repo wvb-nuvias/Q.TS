@@ -90,7 +90,7 @@
 
         @if ($user->hasright('VIEW_LOG'))
             <div class="pt-6">
-                <livewire:log-panel source="User Profile" />
+                <livewire:logs.log-panel source="User Profile" />
             </div>
         @endif
     </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Navbar;
 
 use Livewire\Component;
 use App\Models\User;
@@ -17,7 +17,7 @@ class SideBarSettings extends Component
 
     public function render()
     {
-        return view('livewire.side-bar-settings');
+        return view('livewire.navbar.side-bar-settings');
     }
 
     public function savesetting($key,$value) {

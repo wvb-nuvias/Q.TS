@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Navbar;
 
 use Livewire\Component;
 use App\Models\User;
@@ -16,6 +16,6 @@ class TopBar extends Component
 
     public function render()
     {
-        return view('livewire.top-bar');
+        return view('livewire.navbar.top-bar');
     }
 }
