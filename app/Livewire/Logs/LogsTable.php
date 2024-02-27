@@ -131,7 +131,7 @@ final class LogsTable extends PowerGridComponent
             $columns[]=Column::make('Tenant', 'tenant_name');
         }
 
-        $columns[]=Column::make('Log date', 'log_date', 'log_date')
+        $columns[]=Column::make('Log date', 'log_date', 'log_date_formatted')
         ->sortable();
 
         $columns[]=Column::make('Info', 'info');

@@ -1,5 +1,5 @@
 <div>
-    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header3.jpg" icon="file-contract" iconcolor="amber" title="{{__('messages.subscription')}}" subtitle="{{__('messages.addsubscription')}}" :user="$user">
+    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header3.jpg" icon="file-contract" iconcolor="amber" title="{{__('messages.subscriptions')}}" subtitle="{{__('messages.addsubscription')}}" :user="$user">
         <x-slot name="header">
 
         </x-slot>

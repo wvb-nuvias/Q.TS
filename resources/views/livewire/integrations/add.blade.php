@@ -1,5 +1,5 @@
 <div>
-    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header4.jpg" icon="code-compare" iconcolor="cyan" title="{{__('messages.integration')}}" subtitle="{{__('messages.addintegration')}}" :user="$user">
+    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header4.jpg" icon="code-compare" iconcolor="cyan" title="{{__('messages.integrations')}}" subtitle="{{__('messages.addintegration')}}" :user="$user">
         <x-slot name="header">
 
         </x-slot>
