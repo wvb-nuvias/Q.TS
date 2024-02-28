@@ -7,8 +7,12 @@ import { getRelativePosition } from 'chart.js/helpers';
 import jQuery from 'jquery';
 window.$ = jQuery;
 
-//import Alpine from 'alpinejs'
+import Alpine from 'alpinejs'
 import { createPopper } from "@popperjs/core";
+
+import focus from '@alpinejs/focus'
+
+Alpine.plugin(focus)
 
 //window.Alpine = Alpine;
 //Alpine.start()

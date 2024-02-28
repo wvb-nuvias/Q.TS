@@ -47,5 +47,6 @@
             <x-errors.403 />
         @endif
         @livewireScripts
+        @include('simple-select::components.script')
     </body>
 </html>

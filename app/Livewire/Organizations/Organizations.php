@@ -23,7 +23,7 @@ class Organizations extends Component
     public $organization=null;
     public $organizationtypes=null;
     public $organizationtype,$tenant,$tenant_id,$tenant_icon,$tenant_color,$tenant_name,$name,$number,$address_id,$organization_type_id,$managedby,$source;
-    public $tenants=null;
+    public $address,$tenants=null;
 
     public function openImportModal()
     {

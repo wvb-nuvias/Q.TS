@@ -23,8 +23,20 @@
                                 placeholder="Select Tenant"
                                 search-input-placeholder="Search Tenant"
                                 :searchable="true"
-                                class="form-select"
-                            />
+                                class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                            >
+                                <x-slot name="customOption">
+                                    <div class="h-10 flex flex-row opacity-50 hover:opacity-100 w-full bg-${option.tenant_color}-600 bg-opacity-50 cursor-pointer">
+                                        <div class="flex h-10 justify-center w-10 mt-2 pr-2 pl-2">
+                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" color="${option.tenant_color}" icon="${option.tenant_icon}" />
+                                        </div>
+                                        <div class="">
+                                            <div class="text-sm">$option.name</div>
+                                            <div class="text-xs -mt-1">${option.tenant_icon}</div>
+                                        </div>
+                                    </div>
+                                </x-slot>
+                            </x-simple-select>
                             <x-input-error for="tenant_id" class="mt-2" />
                         </div>
                     </div>
@@ -39,10 +51,10 @@
                                 :options="$organizationtypes"
                                 value-field='id'
                                 text-field='organization_type_name'
-                                placeholder="Select Organization"
-                                search-input-placeholder="Search Organization"
+                                placeholder="Select Organization Type"
+                                search-input-placeholder="Search Organization Type"
                                 :searchable="true"
-                                class="form-select"
+                                class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                             />
                             <x-input-error for="organization_type_id" class="mt-2" />
                         </div>
@@ -50,15 +62,30 @@
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="Name" value="{{ __(' Name') }}" />
-                            <x-input id="Name" type="text" class="block w-full mt-1" wire:model="organization.name" autocomplete="hostname" />
+                            <x-input id="Name" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="organization.name" autocomplete="hostname" placeholder="Enter Name" />
                             <x-input-error for="Name" class="mt-2" />
                         </div>
-                        <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="Address" value="{{ __(' Address') }}" />
-                            <x-input id="Address" type="text" class="block w-full mt-1" wire:model="" autocomplete="" />
-                            <x-input-error for="Address" class="mt-2" />
+                        <div class="w-6/12 max-w-full px-3 flex-0 flex flex-row">
+                            <div class="w-10/12">
+                                <x-label for="address" value="{{ __(' Address') }}" />
+                                <x-input id="address" type="text" class="text-sm mt-1 block w-full placeholder-gray-500" value="" placeholder="Enter Address" />
+                                <x-input-error for="address" class="mt-2" />
+                            </div>
+                            <div class="w-2/12 flex flex-wrap justify-end pl-3">
+                                <x-theme.button extracss="h-10 self-end">Change</x-theme.button>
+                            </div>
                         </div>
                     </div>
+                    @if ($address)
+                    <div class="flex flex-wrap pt-3 -mx-3">
+                        <div class="w-6/12 max-w-full px-3 flex-0">
+
+                        </div>
+                        <div class="w-6/12 max-w-full px-3 flex-0">
+                            <x-map :address="$address"/>
+                        </div>
+                    </div>
+                    @endif
                 </div>
                 <div class="flex flex-wrap justify-end pt-6 space-x-3">
                     <x-theme.button wire="openImportModal">{{__('messages.import')}}</x-theme.button>
@@ -68,4 +95,5 @@
         </x-slot>
     </x-layouts.tspage>
     <livewire:imports.imports :destination="'organizations'" />
+
 </div>
