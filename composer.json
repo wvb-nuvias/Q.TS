@@ -15,7 +15,8 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "openspout/openspout": "^4.23",
-        "power-components/livewire-powergrid": "^5.3"
+        "power-components/livewire-powergrid": "^5.3",
+        "victorybiz/laravel-simple-select": "^1.6"
     },
     "require-dev": {
         "adetxt/laravel-fillable-generator": "^1.2",

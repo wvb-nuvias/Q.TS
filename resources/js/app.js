@@ -6,3 +6,11 @@ import { getRelativePosition } from 'chart.js/helpers';
 
 import jQuery from 'jquery';
 window.$ = jQuery;
+
+//import Alpine from 'alpinejs'
+import { createPopper } from "@popperjs/core";
+
+//window.Alpine = Alpine;
+//Alpine.start()
+
+window.createPopper = createPopper;

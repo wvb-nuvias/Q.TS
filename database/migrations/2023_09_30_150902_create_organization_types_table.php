@@ -24,8 +24,8 @@ return new class extends Migration
 
         DB::table('organization_types')->insert([
             ['tenant_id' => 1, 'hidden' => 1, 'organization_type_name' => 'Master', 'organization_type_icon' => 'hotel', 'organization_type_color' => 'red'],
-            ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Normal', 'organization_type_icon' => 'building', 'organization_type_color' => 'green'],
             ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Prospect', 'organization_type_icon' => 'tents', 'organization_type_color' => 'blue'],
+            ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Customer', 'organization_type_icon' => 'building', 'organization_type_color' => 'green'],
             ['tenant_id' => 1, 'hidden' => 0, 'organization_type_name' => 'Reseller', 'organization_type_icon' => 'tent-arrow-turn-left', 'organization_type_color' => 'amber'],
         ]);
     }

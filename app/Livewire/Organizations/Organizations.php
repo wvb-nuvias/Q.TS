@@ -9,6 +9,7 @@ use App\Models\Organization;
 use App\Models\OrganizationType;
 use Livewire\Attributes\On;
 use App\Models\UserSetting;
+use App\Models\Tenant;
 
 
 class Organizations extends Component
@@ -20,6 +21,9 @@ class Organizations extends Component
     public $mode="list";
     public $isnew=true;
     public $organization=null;
+    public $organizationtypes=null;
+    public $organizationtype,$tenant,$tenant_id,$tenant_icon,$tenant_color,$tenant_name,$name,$number,$address_id,$organization_type_id,$managedby,$source;
+    public $tenants=null;
 
     public function openImportModal()
     {
@@ -44,6 +48,14 @@ class Organizations extends Component
         {
             $this->selectedtypes=explode(",",$sel);
         }
+
+        $this->organizationtypes=OrganizationType::where('tenant_id',$this->user->tenant_id)
+            ->whereIn('id',$this->selectedtypes)
+            ->select('id','hidden','organization_type_name','organization_type_icon', 'organization_type_color')
+            ->get()
+            ->toArray();
+
+        $this->tenants=Tenant::select('id', 'tenant_name', 'tenant_icon', 'tenant_color')->get()->toArray();
 
         Log::create([
             "tenant_id"     => $this->user->tenant_id,
