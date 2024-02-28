@@ -1,4 +1,5 @@
 <div>
+
 <div class="w-full px-6 py-6 mx-auto">
     @include('components.flash-messages')
     <x-header themecolor1="{{ $themecolor1 }}" themecolor2="{{ $themecolor2 }}" url="{{ $themeheader }}">
@@ -20,5 +21,7 @@
         <livewire:logs.log-panel source="{{ $title }}" />
     </div>
     @endif
+
+
 </div>
 </div>

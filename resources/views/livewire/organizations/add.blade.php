@@ -1,4 +1,5 @@
 <div>
+
     <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header2.jpg" icon="building" iconcolor="emerald" title="{{__('messages.organizations')}}" subtitle="{{__('messages.addorganization')}}" :user="$user">
         <x-slot name="header">
 
@@ -34,10 +35,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-wrap justify-end pt-6">
+                <div class="flex flex-wrap justify-end pt-6 space-x-3">
+                    <x-theme.button wire="openImportModal">{{__('messages.import')}}</x-theme.button>
                     <x-theme.button wire="updateOrganization">{{__('messages.saveorganization')}}</x-theme.button>
                 </div>
             </x-panel>
         </x-slot>
     </x-layouts.tspage>
+    <livewire:imports.imports :destination="'organizations'" />
 </div>

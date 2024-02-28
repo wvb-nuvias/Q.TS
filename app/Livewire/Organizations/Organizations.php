@@ -13,12 +13,22 @@ use App\Models\UserSetting;
 
 class Organizations extends Component
 {
+    public bool $showImportModal, $showConfirmImportModal = false;
     public User $user;
     public $selectedtypes = [2,3,4];
     public $rights;
     public $mode="list";
     public $isnew=true;
     public $organization=null;
+
+    public function openImportModal()
+    {
+        $this->dispatch('show-dialog-imports');
+    }
+
+    public function cancel() {
+        $this->showImportModal = false;
+    }
 
     public function switchmode($mode)
     {

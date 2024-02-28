@@ -30,3 +30,4 @@ class BrandSelector extends Component
         $this->dispatch('brand-selector-changed', selected: $this->selected);
     }
 }
+

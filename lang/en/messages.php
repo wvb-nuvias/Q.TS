@@ -86,4 +86,5 @@ return [
     'listsettings' => 'All Enabled Integrations Settings will be here',
     'integrationsettings' => 'Integrations Settings',
     'completeform' => 'Please complete the form',
+    'import' => 'Import',
 ];
