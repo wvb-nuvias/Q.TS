@@ -132,7 +132,7 @@
             />
             <ul
                 x-ref="simpleSelectOptionsList"
-                class="absolute z-10 w-full py-1 overflow-auto text-base bg-white dark:bg-gray-800 shadow-lg rounded-b-md max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                class="absolute z-10 w-full overflow-auto text-base bg-white dark:bg-gray-800 shadow-lg rounded-b-md max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                 tabindex="-1"
                 role="listbox"
             >
@@ -141,7 +141,7 @@
                 <template x-for="(option, index) in Object.values(options)" :key="index">
                     <li
                         :tabindex="index"
-                        class="relative py-2 pl-3 select-none pr-9 whitespace-nowrap"
+                        class="relative h-12 select-none whitespace-nowrap"
                         @isset($attributes['multiple'])
                             x-bind:class="{
                                 'text-sm bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-400 hover:none': selected && selected.includes(getOptionValue(option, index)),
@@ -150,7 +150,7 @@
                         @else
                             x-bind:class="{
                                 'text-sm bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-400 hover:none': selected == getOptionValue(option, index),
-                                'text-sm text-gray-900 dark:text-gray-400 cursor-defaul hover:bg-gray-200 dark:hover:bg-gray-800 hover:cursor-pointer focus:bg-gray-200': !(selected == getOptionValue(option, index)),
+                                'text-gray-900 dark:text-gray-400 cursor-defaul hover:bg-gray-200 dark:hover:bg-gray-800 hover:cursor-pointer focus:bg-gray-200': !(selected == getOptionValue(option, index)),
                             }"
                         @endisset
                         x-on:click="selectOption(getOptionValue(option, index))"

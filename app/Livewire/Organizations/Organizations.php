@@ -30,6 +30,11 @@ class Organizations extends Component
         $this->dispatch('show-dialog-imports');
     }
 
+    public function openAddressSelectorModal()
+    {
+        $this->dispatch('show-dialog-address');
+    }
+
     public function cancel() {
         $this->showImportModal = false;
     }

@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $tenant_id
  * @property int $hidden
  * @property string|null $address_type_name
+ * @property string|null $address_type_icon
+ * @property string|null $address_type_color
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  */
@@ -22,7 +24,7 @@ class AddressType extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'hidden', 'address_type_name'];
+    protected $fillable = ['tenant_id', 'hidden', 'address_type_name', 'address_type_icon', 'address_type_color'];
 
     /**
      * Get the addresses that have this address_type.

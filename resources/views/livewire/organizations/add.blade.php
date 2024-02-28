@@ -15,6 +15,7 @@
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="tenant_id" value="{{ __(' Tenant') }}" />
                             <x-simple-select
+                                wire:model.lazy="tenant_id"
                                 name="tenant_id"
                                 id="tenant_id"
                                 :options="$tenants"
@@ -26,13 +27,13 @@
                                 class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                             >
                                 <x-slot name="customOption">
-                                    <div class="h-10 flex flex-row opacity-50 hover:opacity-100 w-full bg-${option.tenant_color}-600 bg-opacity-50 cursor-pointer">
+                                    <div class="h-10 flex flex-row opacity-50 hover:opacity-100 w-full bg-emerald-600 bg-opacity-50 cursor-pointer">
                                         <div class="flex h-10 justify-center w-10 mt-2 pr-2 pl-2">
-                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" color="${option.tenant_color}" icon="${option.tenant_icon}" />
+                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" :color="'${ option.tenant_color }'" :icon="'${ option.tenant_icon }'" />
                                         </div>
-                                        <div class="">
-                                            <div class="text-sm">$option.name</div>
-                                            <div class="text-xs -mt-1">${option.tenant_icon}</div>
+                                        <div class="flex flex-col">
+                                            <div x-text="option.tenant_name" class="text-md"></div>
+                                            <div x-text="option.tenant_icon" class="text-xs -mt-1"></div>
                                         </div>
                                     </div>
                                 </x-slot>
@@ -46,6 +47,7 @@
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="organization_type_id" value="{{ __(' Organization Type') }}" />
                             <x-simple-select
+                                wire:model.lazy="organization_type_id"
                                 name="organization_type_id"
                                 id="organization_type_id"
                                 :options="$organizationtypes"
@@ -55,7 +57,19 @@
                                 search-input-placeholder="Search Organization Type"
                                 :searchable="true"
                                 class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
-                            />
+                            >
+                                <x-slot name="customOption">
+                                    <div class="h-10 flex flex-row opacity-50 hover:opacity-100 w-full bg-purple-600 bg-opacity-50 cursor-pointer">
+                                        <div class="flex h-10 justify-center w-10 mt-2 pr-2 pl-2">
+                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" color="${option.tenant_color}" icon="option.tenant_icon" />
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div x-text="option.organization_type_name" class="text-md"></div>
+                                            <div x-text="option.organization_type_icon" class="text-xs -mt-1"></div>
+                                        </div>
+                                    </div>
+                                </x-slot>
+                            </x-simple-select>
                             <x-input-error for="organization_type_id" class="mt-2" />
                         </div>
                     </div>
@@ -72,7 +86,7 @@
                                 <x-input-error for="address" class="mt-2" />
                             </div>
                             <div class="w-2/12 flex flex-wrap justify-end pl-3">
-                                <x-theme.button extracss="h-10 self-end">Change</x-theme.button>
+                                <x-theme.button wire="openAddressSelectorModal" extracss="h-10 self-end">Change</x-theme.button>
                             </div>
                         </div>
                     </div>
@@ -94,6 +108,6 @@
             </x-panel>
         </x-slot>
     </x-layouts.tspage>
-    <livewire:imports.imports :destination="'organizations'" />
+    <livewire:components.address-modal :user="$user" />
 
 </div>
