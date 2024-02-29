@@ -40,12 +40,12 @@
             'rounded-t-md': open,
             'bg-gray-200 cursor-default': disabled
         }"
-        {{ $attributes->class('block w-full border border-gray-300 rounded-md shadow-sm focus:ring-0 focus:ring-gray-400 focus:border-gray-400 sm:text-sm sm:leading-5')->only('class'); }}
+        {{ $attributes->class('h-10 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-0 focus:ring-gray-400 focus:border-gray-400 sm:text-sm sm:leading-5')->only('class'); }}
     >
         <div x-show="!selected || selected.length === 0" class="flex flex-wrap">
-            <div class="text-gray-800 rounded-sm w-full truncate flex flex-row items-center">
+            <div class="text-gray-800 rounded-sm w-full truncate flex flex-row items-center" >
                 <div class="w-full truncate dark:text-gray-500" x-text="placeholder">&nbsp;</div>
-                <div x-show="!disabled" x-bind:class="{ 'cursor-pointer': !disabled }" class="h-6" x-on:click.prevent.stop="toggleSelect()">
+                <div class="bg-white dark:bg-gray-900" style="position: absolute; right:8px; top: 8px" x-show="!disabled" x-bind:class="{ 'cursor-pointer': !disabled }" class="h-6" x-on:click.prevent.stop="toggleSelect()">
                     @include('simple-select::components.caret-icons')
                 </div>
             </div>
@@ -128,7 +128,7 @@
                 x-model="search"
                 x-on:click.prevent.stop="open=true"
                 :placeholder="searchInputPlaceholder"
-                class="block placeholder-gray-500 w-full p-2 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm text-sm"
+                class="block placeholder-gray-500 bg-white dark:bg-gray-900 w-full p-2 border-gray-300 dark:border-gray-700 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm text-sm"
             />
             <ul
                 x-ref="simpleSelectOptionsList"

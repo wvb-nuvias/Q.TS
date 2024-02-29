@@ -8,7 +8,7 @@
                 <div class="w-full max-w-full px-3 flex-0">
                     <x-label for="address_type_id" value="{{ __('Select Type') }}" />
                     <x-simple-select
-                        wire:model.lazy="address_type_id"
+                        wire:model="address_type_id"
                         name="address_type_id"
                         id="address_type_id"
                         :options="$address_types"

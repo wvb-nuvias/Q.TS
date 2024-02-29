@@ -117,7 +117,12 @@ class Organizations extends Component
         $this->selectedtypes=$selected;
     }
 
-    public function updateOrganization()
+    public function saveOrganization()
+    {
+        $this->switchmode('list');
+    }
+
+    public function cancelImportModal()
     {
         $this->switchmode('list');
     }

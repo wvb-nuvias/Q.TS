@@ -10,12 +10,12 @@
                     {{__('messages.completeform')}}
                 </x-panel.subtitle>
                 <div class="flex-auto pt-4 space-y-3">
-                    @if (in_array("VIEW_TENANT", $rights))
                     <div class="flex flex-wrap -mx-3">
+                        @if (in_array("VIEW_TENANT", $rights))
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="tenant_id" value="{{ __(' Tenant') }}" />
                             <x-simple-select
-                                wire:model.lazy="tenant_id"
+                                wire:model="tenant_id"
                                 name="tenant_id"
                                 id="tenant_id"
                                 :options="$tenants"
@@ -40,14 +40,19 @@
                             </x-simple-select>
                             <x-input-error for="tenant_id" class="mt-2" />
                         </div>
+                        @endif
+                        <div class="w-6/12 max-w-full px-3 flex-0">
+                            <x-label for="Name" value="{{ __(' Name') }}" />
+                            <x-input id="Name" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500" wire:model="organization.name" autocomplete="hostname" placeholder="Enter Name" />
+                            <x-input-error for="Name" class="mt-2" />
+                        </div>
                     </div>
-                    @endif
                     <!-- if you are endcustomer, auto select this, if reseller only show where has subscription for-->
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="organization_type_id" value="{{ __(' Organization Type') }}" />
                             <x-simple-select
-                                wire:model.lazy="organization_type_id"
+                                wire:model="organization_type_id"
                                 name="organization_type_id"
                                 id="organization_type_id"
                                 :options="$organizationtypes"
@@ -72,17 +77,10 @@
                             </x-simple-select>
                             <x-input-error for="organization_type_id" class="mt-2" />
                         </div>
-                    </div>
-                    <div class="flex flex-wrap -mx-3">
-                        <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="Name" value="{{ __(' Name') }}" />
-                            <x-input id="Name" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="organization.name" autocomplete="hostname" placeholder="Enter Name" />
-                            <x-input-error for="Name" class="mt-2" />
-                        </div>
                         <div class="w-6/12 max-w-full px-3 flex-0 flex flex-row">
                             <div class="w-10/12">
                                 <x-label for="address" value="{{ __(' Address') }}" />
-                                <x-input id="address" type="text" class="text-sm mt-1 block w-full placeholder-gray-500" value="" placeholder="Enter Address" />
+                                <x-input id="address" type="text" class="h-10 text-sm mt-1 block w-full placeholder-gray-500" value="" placeholder="Enter Address" />
                                 <x-input-error for="address" class="mt-2" />
                             </div>
                             <div class="w-2/12 flex flex-wrap justify-end pl-3">
@@ -90,6 +88,7 @@
                             </div>
                         </div>
                     </div>
+
                     @if ($address)
                     <div class="flex flex-wrap pt-3 -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
@@ -102,8 +101,9 @@
                     @endif
                 </div>
                 <div class="flex flex-wrap justify-end pt-6 space-x-3">
+                    <x-theme.button wire="cancelImportModal">{{__('messages.cancel')}}</x-theme.button>
                     <x-theme.button wire="openImportModal">{{__('messages.import')}}</x-theme.button>
-                    <x-theme.button wire="updateOrganization">{{__('messages.saveorganization')}}</x-theme.button>
+                    <x-theme.button wire="saveOrganization">{{__('messages.saveorganization')}}</x-theme.button>
                 </div>
             </x-panel>
         </x-slot>

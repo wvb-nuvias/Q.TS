@@ -87,4 +87,5 @@ return [
     'integrationsettings' => 'Integrations Settings',
     'completeform' => 'Please complete the form',
     'import' => 'Import',
+    'cancel' => 'Cancel',
 ];

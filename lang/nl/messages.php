@@ -86,5 +86,5 @@ return [
     'listsettings' => 'Alle instellingen van al uw Integraties op één plek',
     'integrationsettings' => 'Integrations Settings',
     'completeform' => 'Vervolledig dit formulier',
-
+    'cancel' => 'Annuleren',
 ];
