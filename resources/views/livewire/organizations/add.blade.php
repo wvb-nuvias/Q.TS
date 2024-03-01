@@ -80,7 +80,7 @@
                         <div class="w-6/12 max-w-full px-3 flex-0 flex flex-row">
                             <div class="w-10/12">
                                 <x-label for="address" value="{{ __(' Address') }}" />
-                                <x-input id="address" type="text" class="h-10 text-sm mt-1 block w-full placeholder-gray-500" value="" placeholder="Enter Address" />
+                                <x-input id="address" type="text" class="h-10 text-sm mt-1 block w-full placeholder-gray-500" value="{{$address->tostring()}}" placeholder="Enter Address" />
                                 <x-input-error for="address" class="mt-2" />
                             </div>
                             <div class="w-2/12 flex flex-wrap justify-end pl-3">

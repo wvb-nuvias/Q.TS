@@ -160,11 +160,11 @@ class Organizations extends Component
     {
         $neworg=Organization::create([
             "tenant_id" => $this->tenant_id,
-            //"number" => $this->number,
+            //"number" => $this->number,    //TODO hold databank of numbers, where to start latest etc, volgens type organizatie
             "address_id" => $this->address->address_id,
             "organization_type_id" => $this->organization_type_id,
             "name" => $this->organization->name,
-            //"managedby" => 1,
+            //"managedby" => 1,             //TODO should be the organization that the user is part of
             "organization_source" => "system"
         ]);
 
