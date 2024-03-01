@@ -20,6 +20,17 @@ class AddressModal extends Component
     public $address;
     public $addresses,$address_types,$address_type_id;
 
+    protected $rules = [
+        'address.street' => 'required',
+        'address.number' => 'required',
+        'address.apartment' => 'required',
+        'address.postal' => 'required',
+        'address.city' => 'required',
+        'address.region' => 'required',
+        'address.country' => 'required',
+        'address.address_type_id' => 'required',
+    ];
+
     #[On('show-dialog-address')]
     public function openAddressSelectorModal()
     {
@@ -57,6 +68,6 @@ class AddressModal extends Component
     }
 
     public function save() {
-
+        $this->dispatch('organization-address-changed', address: $this->address);
     }
 }

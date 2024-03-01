@@ -5,6 +5,7 @@ namespace App\Livewire\Organizations;
 use Livewire\Component;
 use App\Models\Log;
 use App\Models\User;
+use App\Models\Address;
 use App\Models\Organization;
 use App\Models\OrganizationType;
 use Livewire\Attributes\On;
@@ -24,6 +25,12 @@ class Organizations extends Component
     public $organizationtypes=null;
     public $organizationtype,$tenant,$tenant_id,$tenant_icon,$tenant_color,$tenant_name,$name,$number,$address_id,$organization_type_id,$managedby,$source;
     public $address,$tenants=null;
+
+    protected $rules = [
+        'organization.name' => 'required',
+        'organization.organization_type_id' => 'required',
+        'organization.tenant_id' => 'required',
+    ];
 
     public function openImportModal()
     {
@@ -53,6 +60,11 @@ class Organizations extends Component
         {
             $this->selectedtypes=explode(",",$sel);
         }
+
+        $this->address=new Address();
+        $this->organization=new Organization();
+
+        $this->tenant_id=$this->user->tenant_id;
 
         $this->organizationtypes=OrganizationType::where('tenant_id',$this->user->tenant_id)
             ->whereIn('id',$this->selectedtypes)
@@ -117,8 +129,55 @@ class Organizations extends Component
         $this->selectedtypes=$selected;
     }
 
+    #[On('organization-address-changed')]
+    public function address_changed($address)
+    {
+        $this->address=Address::create([
+            "tenant_id" => $this->tenant_id,
+            "address_type_id" => $address["address_type_id"],
+            "ordinal" => 1,                 // find way out to check if it is second address for same org
+            "street" => $address["street"],
+            "number" => $address["number"],
+            "apartment" => $address["apartment"],
+            "postal" => $address["postal"],
+            "city" => $address["city"],
+            "region" => $address["region"],
+            "country" => $address["country"]
+        ]);
+
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "Organizations",
+            "log_type"      => 2,
+            "message"       => 'New address has been created.',
+            "log_date"      => now()
+        ]);
+    }
+
     public function saveOrganization()
     {
+        $neworg=Organization::create([
+            "tenant_id" => $this->tenant_id,
+            //"number" => $this->number,
+            "address_id" => $this->address->address_id,
+            "organization_type_id" => $this->organization_type_id,
+            "name" => $this->organization->name,
+            //"managedby" => 1,
+            "organization_source" => "system"
+        ]);
+
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "Organizations",
+            "log_type"      => 2,
+            "message"       => 'New organization has been created.',
+            "log_date"      => now()
+        ]);
+
         $this->switchmode('list');
     }
 
