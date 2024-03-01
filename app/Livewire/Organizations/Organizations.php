@@ -145,6 +145,8 @@ class Organizations extends Component
             "country" => $address["country"]
         ]);
 
+        $this->address->updatelatlng();
+
         Log::create([
             "tenant_id"     => $this->user->tenant_id,
             "log_user_id"   => $this->user->id,
@@ -154,17 +156,25 @@ class Organizations extends Component
             "message"       => 'New address has been created.',
             "log_date"      => now()
         ]);
+
+        $this->cancel();
     }
 
     public function saveOrganization()
     {
+        $result=OrganizationType::where('id',$this->organization_type_id)
+            ->select('organization_type_number')
+            ->first();
+
+        $orgtypenr=$result->organization_type_number+1;
+
         $neworg=Organization::create([
             "tenant_id" => $this->tenant_id,
-            //"number" => $this->number,    //TODO hold databank of numbers, where to start latest etc, volgens type organizatie
+            "number" => $orgtypenr,
             "address_id" => $this->address->address_id,
             "organization_type_id" => $this->organization_type_id,
             "name" => $this->organization->name,
-            //"managedby" => 1,             //TODO should be the organization that the user is part of
+            "managedby" => $this->user->organization->id,
             "organization_source" => "system"
         ]);
 
@@ -179,6 +189,8 @@ class Organizations extends Component
         ]);
 
         $this->switchmode('list');
+        session()->flash('success', 'Organization successfully updated.');
+        $this->dispatch('alert_remove');
     }
 
     public function cancelImportModal()
