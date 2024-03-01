@@ -73,7 +73,7 @@ final class OrganizationsTable extends PowerGridComponent
     public function fields(): PowerGridFields
     {
         return PowerGrid::fields()
-            ->add('id')
+            ->add('organizations.id')
             ->add('tenant_id')
             ->add('number')
             ->add('address_id')
@@ -124,15 +124,14 @@ final class OrganizationsTable extends PowerGridComponent
         ];
     }
 
-    #[\Livewire\Attributes\On('edit-organization')]
-    public function edit($rowId): void
-    {
-        $this->js('alert('.$rowId.')');
-    }
-
     public function actions(\App\Models\Organization $row): array
     {
-        $actions= Actions::action_buttons($row->id,'organization','ORG',$row,$this->user);
+        if ($row->id!=1)
+        {
+            dd($row);
+        }
+
+        $actions= Actions::action_buttons($row->number,'organization','ORG',$row,$this->user);
         //dd($actions);
         return $actions;
     }

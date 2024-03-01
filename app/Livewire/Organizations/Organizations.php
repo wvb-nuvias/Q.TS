@@ -23,7 +23,7 @@ class Organizations extends Component
     public $isnew=true;
     public $organization=null;
     public $organizationtypes=null;
-    public $organizationtype,$tenant,$tenant_id,$tenant_icon,$tenant_color,$tenant_name,$name,$number,$address_id,$organization_type_id,$managedby,$source;
+    public $organizationtype,$tenant,$organization_id,$tenant_id,$tenant_icon,$tenant_color,$tenant_name,$name,$number,$address_id,$organization_type_id,$managedby,$source;
     public $address,$tenants=null;
 
     protected $rules = [
@@ -61,9 +61,6 @@ class Organizations extends Component
             $this->selectedtypes=explode(",",$sel);
         }
 
-        $this->address=new Address();
-        $this->organization=new Organization();
-
         $this->tenant_id=$this->user->tenant_id;
 
         $this->organizationtypes=OrganizationType::where('tenant_id',$this->user->tenant_id)
@@ -93,14 +90,37 @@ class Organizations extends Component
                 return view('livewire.organizations.organizations');
             if ($this->mode=="add")
             {
-                $this->organization=new Organization;
+                $this->address=new Address();
+                $this->organization=new Organization();
+
                 return view('livewire.organizations.add');
+            }
+            if ($this->mode=="edit")
+            {
+                $this->organization=Organization::where('number', $this->number)->first();
+                $this->address=Address::where('id',$this->organization->address_id)->first();
+
+                return view('livewire.organizations.edit');
             }
         }
         else
         {
             return view('errors.403');
         }
+    }
+
+    #[On('edit_organization')]
+    public function edit($rowId): void
+    {
+        $this->number=$rowId;
+        $this->switchmode('edit');
+    }
+
+    #[On('view_organization')]
+    public function view($rowId): void
+    {
+        $this->number=$rowId;
+        $this->switchmode('view');
     }
 
     #[On('organization-type-selector-changed')]

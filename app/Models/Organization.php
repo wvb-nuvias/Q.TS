@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Table: organizations
@@ -27,6 +28,14 @@ class Organization extends Model
 
     /** @var array */
     protected $fillable = ['tenant_id', 'number', 'address_id', 'organization_type_id', 'name', 'managed_by', 'organization_source'];
+
+    /**
+     * Get the addresses for the contact.
+     */
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(Address::class);
+    }
 
     /**
      * Get the addresses for the organization.

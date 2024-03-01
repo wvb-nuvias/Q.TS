@@ -1,11 +1,11 @@
 <div>
 
-    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header2.jpg" icon="building" iconcolor="emerald" title="{{__('messages.organizations')}}" subtitle="{{__('messages.addorganization')}}" :user="$user">
+    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header2.jpg" icon="building" iconcolor="emerald" title="{{__('messages.organizations')}}" subtitle="{{__('messages.editorganization')}}" :user="$user">
         <x-slot name="header">
 
         </x-slot>
         <x-slot name="content">
-            <x-panel title="New Organization" extracss="mt-6">
+            <x-panel title="Edit Organization" extracss="mt-6">
                 <x-panel.subtitle extracss="-mt-4">
                     {{__('messages.completeform')}}
                 </x-panel.subtitle>
@@ -15,7 +15,7 @@
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="tenant_id" value="{{ __(' Tenant') }}" />
                             <x-simple-select
-                                wire:model="tenant_id"
+                                wire:model="organization.tenant_id"
                                 name="tenant_id"
                                 id="tenant_id"
                                 :options="$tenants"
@@ -52,7 +52,7 @@
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="organization_type_id" value="{{ __(' Organization Type') }}" />
                             <x-simple-select
-                                wire:model="organization_type_id"
+                                wire:model="organization.organization_type_id"
                                 name="organization_type_id"
                                 id="organization_type_id"
                                 :options="$organizationtypes"
@@ -80,7 +80,7 @@
                         <div class="w-6/12 max-w-full px-3 flex-0 flex flex-row">
                             <div class="w-10/12">
                                 <x-label for="address" value="{{ __(' Address') }}" />
-                                <x-input id="address" type="text" class="h-10 text-sm mt-1 block w-full placeholder-gray-500" value="{{$address->tostring()}}" placeholder="Enter Address" />
+                                <x-input id="address" type="text" class="h-10 text-sm mt-1 block w-full placeholder-gray-500" value="{{$organization->address->tostring()}}" placeholder="Enter Address" />
                                 <x-input-error for="address" class="mt-2" />
                             </div>
                             <div class="w-2/12 flex flex-wrap justify-end pl-3">
@@ -89,25 +89,24 @@
                         </div>
                     </div>
 
-                    @if ($address)
+                    @if ($organization->address)
                     <div class="flex flex-wrap pt-3 -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
 
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-map :address="$address"/>
+                            <x-map :address="$organization->address"/>
                         </div>
                     </div>
                     @endif
+
                 </div>
                 <div class="flex flex-wrap justify-end pt-6 space-x-3">
                     <x-theme.button wire="cancelImportModal">{{__('messages.cancel')}}</x-theme.button>
-                    <x-theme.button wire="openImportModal">{{__('messages.import')}}</x-theme.button>
                     <x-theme.button wire="saveOrganization">{{__('messages.saveorganization')}}</x-theme.button>
                 </div>
             </x-panel>
         </x-slot>
     </x-layouts.tspage>
     <livewire:components.address-modal :user="$user" />
-    <livewire:imports.imports destination="Organisation" />
 </div>
