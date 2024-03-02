@@ -13,6 +13,7 @@
         "laravel/jetstream": "^4.2",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "larswiegers/laravel-maps": "^0.18.0",
         "livewire/livewire": "^3.0",
         "openspout/openspout": "^4.23",
         "power-components/livewire-powergrid": "^5.3",

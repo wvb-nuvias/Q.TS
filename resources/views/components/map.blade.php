@@ -15,3 +15,4 @@
         map.setView([{{ $address->lat }},{{ $address->lng }}],18);
     }
 </script>
+

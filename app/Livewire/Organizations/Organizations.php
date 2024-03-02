@@ -217,4 +217,5 @@ class Organizations extends Component
     {
         $this->switchmode('list');
     }
+
 }

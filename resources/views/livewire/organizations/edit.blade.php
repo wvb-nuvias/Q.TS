@@ -95,13 +95,20 @@
 
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-map :address="$organization->address"/>
+                            <x-maps-google class="form-control block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal h-72"
+                                :centerPoint="['lat' => 50.4, 'long' => 5]"
+                                :zoomlevel="6"
+                                :markers="[['lat' => 50.4, 'long' => 5, 'title' => 'Here']]"
+
+                            ></x-maps-google>
+
                         </div>
                     </div>
                     @endif
 
                 </div>
                 <div class="flex flex-wrap justify-end pt-6 space-x-3">
+                    <x-theme.button wire="testMap">{{__('messages.testmap')}}</x-theme.button>
                     <x-theme.button wire="cancelImportModal">{{__('messages.cancel')}}</x-theme.button>
                     <x-theme.button wire="saveOrganization">{{__('messages.saveorganization')}}</x-theme.button>
                 </div>
@@ -110,3 +117,4 @@
     </x-layouts.tspage>
     <livewire:components.address-modal :user="$user" />
 </div>
+
