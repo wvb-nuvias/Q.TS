@@ -88,4 +88,6 @@ return [
     'completeform' => 'Please complete the form',
     'import' => 'Import',
     'cancel' => 'Cancel',
+    'editorganization' => 'Edit Organization',
+    'vieworganization' => 'View Organization',
 ];

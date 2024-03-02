@@ -15,11 +15,19 @@
         switch ($mode)
         {
             case "add":
-                $modecolor='red';
+                $modecolor='blue';
                 $modeicon='plus';
                 break;
-            case "settings":
+            case "edit":
+                $modecolor='amber';
+                $modeicon='pen';
+                break;
+            case "view":
                 $modecolor='green';
+                $modeicon='eye';
+                break;
+            case "settings":
+                $modecolor='purple';
                 $modeicon='cog';
                 break;
         }

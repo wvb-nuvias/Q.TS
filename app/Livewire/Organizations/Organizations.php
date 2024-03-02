@@ -98,9 +98,16 @@ class Organizations extends Component
             if ($this->mode=="edit")
             {
                 $this->organization=Organization::where('number', $this->number)->first();
-                $this->address=Address::where('id',$this->organization->address_id)->first();
+                $this->address=$this->organization->address;
 
                 return view('livewire.organizations.edit');
+            }
+            if ($this->mode=="view")
+            {
+                $this->organization=Organization::where('number', $this->number)->first();
+                $this->address=$this->organization->address;
+
+                return view('livewire.organizations.view');
             }
         }
         else
@@ -218,4 +225,8 @@ class Organizations extends Component
         $this->switchmode('list');
     }
 
+    public function testMap()
+    {
+        $this->dispatch('reloadmap', [ 'lat' => $this->address->lat, 'lng' => $this->address->lng ]);
+    }
 }

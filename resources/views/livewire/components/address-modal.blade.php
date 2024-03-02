@@ -37,41 +37,41 @@
             <div class="flex flex-wrap -mx-3">
                 <div class="w-8/12 max-w-full px-3 flex-0">
                     <x-label for="street" value="{{ __(' Street') }}" />
-                    <x-input id="street" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="address.street" autocomplete="street" placeholder="Enter street" />
+                    <x-input id="street" type="text" class="text-sm block w-full mt-1 placeholder-gray-500 text-gray-500" wire:model="address.street" autocomplete="street" placeholder="Enter street" />
                     <x-input-error for="street" class="mt-2" />
                 </div>
                 <div class="w-2/12 max-w-full px-3 flex-0">
                     <x-label for="number" value="{{ __(' Number') }}" />
-                    <x-input id="number" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="address.number" autocomplete="number" placeholder="Enter number" />
+                    <x-input id="number" type="text" class="text-sm block w-full mt-1 placeholder-gray-500 text-gray-500" wire:model="address.number" autocomplete="number" placeholder="Enter number" />
                     <x-input-error for="number" class="mt-2" />
                 </div>
                 <div class="w-2/12 max-w-full px-3 flex-0">
                     <x-label for="apartment" value="{{ __(' Apartment') }}" />
-                    <x-input id="apartment" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="address.apartment" autocomplete="apartment" placeholder="Enter apartment" />
+                    <x-input id="apartment" type="text" class="text-sm block w-full mt-1 placeholder-gray-500 text-gray-500" wire:model="address.apartment" autocomplete="apartment" placeholder="Enter apartment" />
                     <x-input-error for="apartment" class="mt-2" />
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3">
                 <div class="w-3/12 max-w-full px-3 flex-0">
                     <x-label for="postal" value="{{ __(' Postal') }}" />
-                    <x-input id="postal" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="address.postal" autocomplete="postal" placeholder="Enter postal" />
+                    <x-input id="postal" type="text" class="text-sm block w-full mt-1 placeholder-gray-500 text-gray-500" wire:model="address.postal" autocomplete="postal" placeholder="Enter postal" />
                     <x-input-error for="postal" class="mt-2" />
                 </div>
                 <div class="w-9/12 max-w-full px-3 flex-0">
                     <x-label for="city" value="{{ __(' City') }}" />
-                    <x-input id="city" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="address.city" autocomplete="city" placeholder="Enter city" />
+                    <x-input id="city" type="text" class="text-sm block w-full mt-1 placeholder-gray-500 text-gray-500" wire:model="address.city" autocomplete="city" placeholder="Enter city" />
                     <x-input-error for="city" class="mt-2" />
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3">
                 <div class="w-6/12 max-w-full px-3 flex-0">
                     <x-label for="region" value="{{ __('Region') }}" />
-                    <x-input id="region" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="address.region" autocomplete="region" placeholder="Enter region" />
+                    <x-input id="region" type="text" class="text-sm block w-full mt-1 placeholder-gray-500 text-gray-500" wire:model="address.region" autocomplete="region" placeholder="Enter region" />
                     <x-input-error for="region" class="mt-2" />
                 </div>
                 <div class="w-6/12 max-w-full px-3 flex-0">
                     <x-label for="country" value="{{ __(' Country') }}" />
-                    <x-input id="country" type="text" class="text-sm block w-full mt-1 placeholder-gray-500" wire:model="address.country" autocomplete="country" placeholder="Enter country" />
+                    <x-input id="country" type="text" class="text-sm block w-full mt-1 placeholder-gray-500 text-gray-500" wire:model="address.country" autocomplete="country" placeholder="Enter country" />
                     <x-input-error for="country" class="mt-2" />
                 </div>
             </div>

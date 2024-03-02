@@ -25,6 +25,7 @@
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
         @livewireStyles
+
     </head>
     <body class="m-0 font-sans text-base antialiased font-normal text-left leading-default dark:bg-slate-900 bg-gray-50 text-slate-500 dark:text-white">
         @if (auth()->user()->hasright("ACCESS"))
@@ -48,5 +49,31 @@
         @endif
         @livewireScripts
         @include('simple-select::components.script')
+        @stack('scripts')
+        <script defer>
+            function enablemap(lat,lng) {
+                var elementExists = document.getElementById("location-map");
+
+                //alert('ok');  //conclusion it is called to quickly, try waiting for x seconds?
+
+                //alert(elementExists);
+
+                if (elementExists)
+                {
+                    //alert('ok');
+
+                    var L = window.L;
+
+                    var map = L.map('location-map');
+
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 20,
+                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        }).addTo(map);
+
+                    map.setView([lat,lng],18);
+                }
+            }
+        </script>
     </body>
 </html>

@@ -43,7 +43,7 @@
                         @endif
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="Name" value="{{ __(' Name') }}" />
-                            <x-input id="Name" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500" wire:model="organization.name" autocomplete="hostname" placeholder="Enter Name" />
+                            <x-input id="Name" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="organization.name" autocomplete="hostname" placeholder="Enter Name" />
                             <x-input-error for="Name" class="mt-2" />
                         </div>
                     </div>
@@ -80,11 +80,11 @@
                         <div class="w-6/12 max-w-full px-3 flex-0 flex flex-row">
                             <div class="w-10/12">
                                 <x-label for="address" value="{{ __(' Address') }}" />
-                                <x-input id="address" type="text" class="h-10 text-sm mt-1 block w-full placeholder-gray-500" value="{{$organization->address->tostring()}}" placeholder="Enter Address" />
+                                <x-input id="address" type="text" class="h-10 text-sm mt-1 block w-full placeholder-gray-500 dark:text-gray-400" value="{{$organization->address->tostring()}}" placeholder="Enter Address" />
                                 <x-input-error for="address" class="mt-2" />
                             </div>
                             <div class="w-2/12 flex flex-wrap justify-end pl-3">
-                                <x-theme.button wire="openAddressSelectorModal" extracss="h-10 self-end">Change</x-theme.button>
+                                <x-theme.button :address="$organization->address" wire="openAddressSelectorModal" extracss="h-10 self-end">Change</x-theme.button>
                             </div>
                         </div>
                     </div>
@@ -95,12 +95,7 @@
 
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-maps-google class="form-control block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal h-72"
-                                :centerPoint="['lat' => 50.4, 'long' => 5]"
-                                :zoomlevel="6"
-                                :markers="[['lat' => 50.4, 'long' => 5, 'title' => 'Here']]"
-
-                            ></x-maps-google>
+                            <x-map :address="$organization->address"/>
 
                         </div>
                     </div>
@@ -108,7 +103,6 @@
 
                 </div>
                 <div class="flex flex-wrap justify-end pt-6 space-x-3">
-                    <x-theme.button wire="testMap">{{__('messages.testmap')}}</x-theme.button>
                     <x-theme.button wire="cancelImportModal">{{__('messages.cancel')}}</x-theme.button>
                     <x-theme.button wire="saveOrganization">{{__('messages.saveorganization')}}</x-theme.button>
                 </div>
@@ -116,5 +110,14 @@
         </x-slot>
     </x-layouts.tspage>
     <livewire:components.address-modal :user="$user" />
+    @script
+    <script>
+        setTimeout(function() {
+            enablemap({{$organization->address->lat}},{{$organization->address->lng}});
+        }, 200);
+    </script>
+    @endscript
 </div>
+
+
 

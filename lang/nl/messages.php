@@ -87,4 +87,6 @@ return [
     'integrationsettings' => 'Integrations Settings',
     'completeform' => 'Vervolledig dit formulier',
     'cancel' => 'Annuleren',
+    'editorganization' => 'Organisatie aanpassen',
+    'vieworganization' => 'Organisatie Bekijken',
 ];
