@@ -15,6 +15,7 @@ use App\Models\Language;
 use App\Models\Job;
 use Livewire\Attributes\On;
 use App\Models\Tenant;
+use Illuminate\Support\Facades\DB;
 
 class Contacts extends Component
 {
@@ -27,9 +28,10 @@ class Contacts extends Component
     public $contacttypes=null;
     public $contact_type=null;
     public $contact;
+    public $address_id;
     public $address,$tenants=null,$tenant_id;
     public $organizations;
-    public $organization_id;
+    public $organization_id,$addresses;
     public $jobs,$languages;
 
     protected $rules = [
@@ -40,6 +42,7 @@ class Contacts extends Component
         'contact.lastname' => 'required',
         'contact.firstname' => 'required',
         'contact.language' => 'required',
+        'address_id' => 'required',
     ];
 
     #[On('edit_contact')]
@@ -80,9 +83,20 @@ class Contacts extends Component
         $this->mode=$mode;
     }
 
+    #[On('select')]
+    public function select(): void
+    {
+        $this->dispatch('refresh_map');
+    }
+
     public function mount() {
         $this->user = auth()->user();
         $this->rights = $this->user->rights();
+
+        $this->addresses=Address::select('*',DB::raw("CONCAT(street,' ',number,', ',postal,' ',city,', ',country) AS full"))
+            ->where('tenant_id',$this->user->tenant_id)
+            ->get()
+            ->toArray();
 
         $this->languages=Language::select('language_code', 'language_name', 'language_flag')
             ->get()
@@ -222,13 +236,14 @@ class Contacts extends Component
     {
         $newcon=Contact::create([
             "tenant_id" => $this->tenant_id,
-            "address_id" => $this->address->address_id,
+            "organization_id" => $this->organization_id,
             "contact_type_id" => $this->contact->contact_type_id,
+            "job_id" => $this->contact->job_id,
             "lastname" => $this->contact->lastname,
             "firstname" => $this->contact->firstname,
             "language" => $this->contact->language,
             "contact_source" => "system",
-            "organization_source" => "system"
+            "address_id" => $this->address->address_id
         ]);
 
         Log::create([

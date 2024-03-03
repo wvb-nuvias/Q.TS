@@ -113,9 +113,35 @@
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0 flex flex-row">
                             <div class="w-10/12">
-                                <x-label for="address" value="{{ __(' Address') }}" />
-                                <x-input id="address" type="text" class="h-10 text-sm mt-1 block w-full placeholder-gray-500" value="{{$address->tostring()}}" placeholder="Enter Address" />
-                                <x-input-error for="address" class="mt-2" />
+                                <x-label value="{{ __(' Address') }}" />
+                                <x-simple-select
+                                    wire:model="address_id"
+                                    name="contact_address_id"
+                                    id="contact_address_id"
+                                    :options="$addresses"
+                                    value-field='id'
+                                    text-field='full'
+                                    placeholder="Select Address"
+                                    search-input-placeholder="Search Address"
+                                    :searchable="true"
+                                    class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                                >
+                                <x-slot name="customOption">
+                                    <div class="h-10 flex flex-row opacity-50 hover:opacity-100 w-full bg-opacity-50 cursor-pointer">
+                                        <div class="flex flex-col ml-2">
+                                            <div class="flex flex-row">
+                                                <div x-text="option.street" class="text-md mr-2"></div>
+                                                <div x-text="option.number" class="text-md"></div>
+                                            </div>
+                                            <div class="flex flex-row -mt-1">
+                                                <div x-text="option.postal" class="text-xs mr-2"></div>
+                                                <div x-text="option.city" class="text-xs"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </x-slot>
+                                </x-simple-select>
+                                <x-input-error for="contact_address_id" class="mt-2" />
                             </div>
                             <div class="w-2/12 flex flex-wrap justify-end pl-3">
                                 <x-theme.button wire="openAddressSelectorModal" extracss="h-10 self-end">Change</x-theme.button>
@@ -175,7 +201,7 @@
         </x-slot>
     </x-layouts.tspage>
     <livewire:components.address-modal :user="$user" />
-    <livewire:imports.imports destination="Organisation" />
+    <livewire:imports.imports destination="Contact" />
     @if ($address->lat!=null)
         @script
         <script>

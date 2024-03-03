@@ -3,3 +3,10 @@ $wire.on('alert_remove',()=> {
         $(".alert").fadeOut('fast');
     }, 4000);
 });
+
+$wire.on('refresh_map',()=> {
+
+    alert('ok');
+
+    enablemap(lat,lng);
+});
