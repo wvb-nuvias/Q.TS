@@ -7,7 +7,7 @@
 @if (!isset($mode))
     @php
     $mode="add";
-    $modecolor='red';
+    $modecolor='blue';
     $modeicon='plus';
     @endphp
 @else
