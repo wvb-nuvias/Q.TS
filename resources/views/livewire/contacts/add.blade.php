@@ -10,38 +10,90 @@
                 </x-panel.subtitle>
                 <div class="flex-auto pt-4 space-y-3">
                     <div class="flex flex-wrap -mx-3">
+                        @if (in_array("VIEW_TENANT", $rights))
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="contact_type" value="{{ __(' Contact Type') }}" />
-
-                            <select id="contact_type" class="block w-full mt-1 form-control" name="ContactType" wire:model="contact.contact_type_id">
-                                <option value="">Select Contact Type</option>
-                                @foreach ($contacttypes as $contact_type)
-                                    <option value="{{ $contact_type->id }}">{{ $contact_type->contact_type_name }}</option>
-                                @endforeach
-                            </select>
-                            <x-input id="contact_type" type="text" class="block w-full mt-1" wire:model="" autocomplete="" />
-                            <x-input-error for="contact_type" class="mt-2" />
+                            <x-label value="{{ __(' Tenant') }}" />
+                            <x-simple-select
+                                wire:model="tenant_id"
+                                name="tenant_id"
+                                id="tenant_id"
+                                :options="$tenants"
+                                value-field='id'
+                                text-field='tenant_name'
+                                placeholder="Select Tenant"
+                                search-input-placeholder="Search Tenant"
+                                :searchable="true"
+                                class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                            >
+                                <x-slot name="customOption">
+                                    <div class="h-10 flex flex-row opacity-50 hover:opacity-100 w-full bg-emerald-600 bg-opacity-50 cursor-pointer">
+                                        <div class="flex h-10 justify-center w-10 mt-2 pr-2 pl-2">
+                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" :color="'${ option.tenant_color }'" :icon="'${ option.tenant_icon }'" />
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div x-text="option.tenant_name" class="text-md"></div>
+                                            <div x-text="option.tenant_icon" class="text-xs -mt-1"></div>
+                                        </div>
+                                    </div>
+                                </x-slot>
+                            </x-simple-select>
+                            <x-input-error for="tenant_id" class="mt-2" />
                         </div>
+                        @endif
+
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="Tenant" value="{{ __(' Tenant') }}" />
-                            <x-input id="Tenant" type="text" class="block w-full mt-1" wire:model="" autocomplete="tenant" />
-                            <x-input-error for="Tenant" class="mt-2" />
+                            <x-label value="{{ __(' Last Name') }}" />
+                            <x-input id="LastName" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="contact.lastname" autocomplete="lastname" />
+                            <x-input-error for="LastName" class="mt-2" />
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="Name" value="{{ __(' Name') }}" />
-                            <x-input id="Name" type="text" class="block w-full mt-1" wire:model="contact.contact_name" autocomplete="name" />
-                            <x-input-error for="Name" class="mt-2" />
+                            <x-label value="{{ __(' Contact Type') }}" />
+                            <x-simple-select
+                                wire:model="contact.contact_type_id"
+                                name="contact_type_id"
+                                id="contact_type_id"
+                                :options="$contacttypes"
+                                value-field='id'
+                                text-field='contact_type_name'
+                                placeholder="Select Contact Type"
+                                search-input-placeholder="Search Contact Type"
+                                :searchable="true"
+                                class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                            >
+                                <x-slot name="customOption">
+                                    <div class="h-10 flex flex-row opacity-50 hover:opacity-100 w-full bg-purple-600 bg-opacity-50 cursor-pointer">
+                                        <div class="flex h-10 justify-center w-10 mt-2 pr-2 pl-2">
+                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" color="${option.contact_type_color}" icon="option.contact_type_icon" />
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div x-text="option.contact_type_name" class="text-md"></div>
+                                            <div x-text="option.contact_type_icon" class="text-xs -mt-1"></div>
+                                        </div>
+                                    </div>
+                                </x-slot>
+                            </x-simple-select>
+                            <x-input-error for="contact_type_id" class="mt-2" />
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="Address" value="{{ __(' Address') }}" />
-                            <x-input id="Address" type="text" class="block w-full mt-1" wire:model="" autocomplete="" />
+                            <x-label value="{{ __(' First Name') }}" />
+                            <x-input id="FirstName" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="contact.firstname" autocomplete="firstname" />
+                            <x-input-error for="FirstName" class="mt-2" />
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3">
+                        <div class="w-6/12 max-w-full px-3 flex-0">
+                        </div>
+                        <div class="w-6/12 max-w-full px-3 flex-0">
+                            <x-label value="{{ __(' Address') }}" />
+                            <x-input id="Address" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="contact->address->tostring()" />
                             <x-input-error for="Address" class="mt-2" />
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-wrap justify-end pt-6">
+                <div class="flex flex-wrap justify-end pt-6 space-x-3">
+                    <x-theme.button wire="cancel">{{__('messages.cancel')}}</x-theme.button>
                     <x-theme.button wire="updateContact">{{__('messages.savecontact')}}</x-theme.button>
                 </div>
             </x-panel>

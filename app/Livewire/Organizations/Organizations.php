@@ -32,6 +32,20 @@ class Organizations extends Component
         'organization.tenant_id' => 'required',
     ];
 
+    #[On('edit_organization')]
+    public function edit($rowId): void
+    {
+        $this->number=$rowId;
+        $this->switchmode('edit');
+    }
+
+    #[On('view_organization')]
+    public function view($rowId): void
+    {
+        $this->number=$rowId;
+        $this->switchmode('view');
+    }
+
     public function openImportModal()
     {
         $this->dispatch('show-dialog-imports');
@@ -44,6 +58,11 @@ class Organizations extends Component
 
     public function cancel() {
         $this->showImportModal = false;
+    }
+
+    public function cancelImportModal()
+    {
+        $this->switchmode('list');
     }
 
     public function switchmode($mode)
@@ -114,20 +133,6 @@ class Organizations extends Component
         {
             return view('errors.403');
         }
-    }
-
-    #[On('edit_organization')]
-    public function edit($rowId): void
-    {
-        $this->number=$rowId;
-        $this->switchmode('edit');
-    }
-
-    #[On('view_organization')]
-    public function view($rowId): void
-    {
-        $this->number=$rowId;
-        $this->switchmode('view');
     }
 
     #[On('organization-type-selector-changed')]
@@ -215,18 +220,12 @@ class Organizations extends Component
             "log_date"      => now()
         ]);
 
+        //also make link between address and organization
+
         $this->switchmode('list');
         session()->flash('success', 'Organization successfully updated.');
         $this->dispatch('alert_remove');
     }
 
-    public function cancelImportModal()
-    {
-        $this->switchmode('list');
-    }
 
-    public function testMap()
-    {
-        $this->dispatch('reloadmap', [ 'lat' => $this->address->lat, 'lng' => $this->address->lng ]);
-    }
 }

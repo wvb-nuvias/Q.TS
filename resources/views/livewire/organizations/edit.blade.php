@@ -50,7 +50,7 @@
                     <!-- if you are endcustomer, auto select this, if reseller only show where has subscription for-->
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="organization_type_id" value="{{ __(' Organization Type') }}" />
+                            <x-label value="{{ __(' Organization Type') }}" />
                             <x-simple-select
                                 wire:model="organization.organization_type_id"
                                 name="organization_type_id"

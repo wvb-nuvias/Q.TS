@@ -15,7 +15,7 @@
                     <div class="flex flex-wrap -mx-3">
                         @if (in_array("VIEW_TENANT", $rights))
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="tenant_id" value="{{ __(' Tenant') }}" />
+                            <x-label value="{{ __(' Tenant') }}" />
                             <x-simple-select
                                 wire:model="organization.tenant_id"
                                 name="tenant_id"
@@ -26,6 +26,7 @@
                                 placeholder="Select Tenant"
                                 search-input-placeholder="Search Tenant"
                                 :searchable="true"
+                                disabled
                                 class="form-select disabled border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                             >
                                 <x-slot name="customOption">
@@ -44,15 +45,15 @@
                         </div>
                         @endif
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="Name" value="{{ __(' Name') }}" />
-                            <x-input id="Name" type="text" class="disabled h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="organization.name" autocomplete="hostname" placeholder="Enter Name" />
+                            <x-label value="{{ __(' Name') }}" />
+                            <x-input disabled id="Name" type="text" class="disabled h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="organization.name" autocomplete="hostname" placeholder="Enter Name" />
                             <x-input-error for="Name" class="mt-2" />
                         </div>
                     </div>
                     <!-- if you are endcustomer, auto select this, if reseller only show where has subscription for-->
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-label for="organization_type_id" value="{{ __(' Organization Type') }}" />
+                            <x-label value="{{ __(' Organization Type') }}" />
                             <x-simple-select
                                 wire:model="organization.organization_type_id"
                                 name="organization_type_id"
@@ -63,6 +64,7 @@
                                 placeholder="Select Organization Type"
                                 search-input-placeholder="Search Organization Type"
                                 :searchable="true"
+                                disabled
                                 class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                             >
                                 <x-slot name="customOption">
@@ -80,13 +82,10 @@
                             <x-input-error for="organization_type_id" class="mt-2" />
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0 flex flex-row">
-                            <div class="w-10/12">
-                                <x-label for="address" value="{{ __(' Address') }}" />
-                                <x-input id="address" type="text" class="disabled h-10 text-sm mt-1 block w-full placeholder-gray-500 dark:text-gray-400" value="{{$organization->address->tostring()}}" placeholder="Enter Address" />
+                            <div class="w-full">
+                                <x-label value="{{ __(' Address') }}" />
+                                <x-input disabled id="address" type="text" class="disabled h-10 text-sm mt-1 block w-full placeholder-gray-500 dark:text-gray-400" value="{{$organization->address->tostring()}}" placeholder="Enter Address" />
                                 <x-input-error for="address" class="mt-2" />
-                            </div>
-                            <div class="w-2/12 flex flex-wrap justify-end pl-3">
-                                <x-theme.button wire="openAddressSelectorModal" extracss="h-10 self-end">Change</x-theme.button>
                             </div>
                         </div>
                     </div>
