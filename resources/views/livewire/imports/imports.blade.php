@@ -36,22 +36,22 @@
         <div class="flex space-x-3">
         @if($mode=='phase1')
         <x-theme.button wire="switchmode('phase2')">Next</x-theme.button>
-        <x-theme.button wire="cancel()">Cancel</x-theme.button>
+        <x-theme.button wire="cancelImportModal()">Cancel</x-theme.button>
         @elseif($mode=='phase2')
         <x-theme.button wire="switchmode('phase1')">Previous</x-theme.button>
         <x-theme.button wire="switchmode('phase3')">Next</x-theme.button>
-        <x-theme.button wire="cancel()">Cancel</x-theme.button>
+        <x-theme.button wire="cancelImportModal()">Cancel</x-theme.button>
         @elseif($mode=='phase3')
         <x-theme.button wire="switchmode('phase2')">Previous</x-theme.button>
         <x-theme.button wire="switchmode('phase4')">Next</x-theme.button>
         <x-theme.button wire="test()">Test</x-theme.button>
         <x-theme.button wire="save()">Save</x-theme.button>
-        <x-theme.button wire="cancel()">Cancel</x-theme.button>
+        <x-theme.button wire="cancelImportModal()">Cancel</x-theme.button>
 
         @elseif($mode=='phase4')
         <x-theme.button wire="switchmode('phase3')">Previous</x-theme.button>
         <x-theme.button wire="save()">Save</x-theme.button>
-        <x-theme.button wire="cancel()">Cancel</x-theme.button>
+        <x-theme.button wire="cancelImportModal()">Cancel</x-theme.button>
         @endif
         </div>
     </x-slot>

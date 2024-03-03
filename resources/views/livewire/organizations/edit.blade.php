@@ -103,7 +103,7 @@
 
                 </div>
                 <div class="flex flex-wrap justify-end pt-6 space-x-3">
-                    <x-theme.button wire="cancelImportModal">{{__('messages.cancel')}}</x-theme.button>
+                    <x-theme.button wire="cancel">{{__('messages.cancel')}}</x-theme.button>
                     <x-theme.button wire="saveOrganization">{{__('messages.saveorganization')}}</x-theme.button>
                 </div>
             </x-panel>

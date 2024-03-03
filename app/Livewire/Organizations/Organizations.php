@@ -57,12 +57,12 @@ class Organizations extends Component
     }
 
     public function cancel() {
-        $this->showImportModal = false;
+        $this->switchmode('list');
     }
 
     public function cancelImportModal()
     {
-        $this->switchmode('list');
+        $this->showImportModal = false;
     }
 
     public function switchmode($mode)
