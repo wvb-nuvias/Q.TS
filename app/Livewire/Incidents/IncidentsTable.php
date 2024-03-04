@@ -144,7 +144,7 @@ final class IncidentsTable extends PowerGridComponent
         ->sortable()
         ->searchable();
 
-        $columns[]=Column::make('Customer', 'name', 'organizations.name')
+        $columns[]=Column::make('Organization', 'name', 'organizations.name')
                 ->sortable()
                 ->searchable();
 

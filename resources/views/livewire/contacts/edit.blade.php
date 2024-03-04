@@ -1,12 +1,10 @@
 <div>
-    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header5.jpg" icon="building-user" iconcolor="purple" title="{{__('messages.contacts')}}" subtitle="{{__('messages.viewcontact')}}" :user="$user">
+    <x-layouts.tspage themecolor1="{{$user->setting('themecolor1')}}" themecolor2="{{$user->setting('themecolor2')}}" themeheader="img/header/header5.jpg" icon="building-user" iconcolor="purple" title="{{__('messages.contacts')}}" subtitle="{{__('messages.editcontact')}}" :user="$user">
         <x-slot name="header">
-            @if ($user->hasright('VIEW_CONTACT'))
-            <x-theme.iconbutton mode="edit" icon="building-user" color="purple" wire="switchmode('edit')" title="Edit Contact" />
-            @endif
+
         </x-slot>
         <x-slot name="content">
-            <x-panel title="View Contact" extracss="mt-6">
+            <x-panel title="Edit Contact" extracss="mt-6">
                 <x-panel.subtitle extracss="-mt-4">
                     {{__('messages.completeform')}}
                 </x-panel.subtitle>
@@ -24,7 +22,6 @@
                                 text-field='tenant_name'
                                 placeholder="Select Tenant"
                                 search-input-placeholder="Search Tenant"
-                                disabled
                                 :searchable="true"
                                 class="form-select border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                             >
@@ -46,7 +43,7 @@
 
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label value="{{ __(' Last Name') }}" />
-                            <x-input disabled id="LastName" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="lastname" autocomplete="lastname" />
+                            <x-input id="LastName" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="lastname" autocomplete="lastname" />
                             <x-input-error for="LastName" class="mt-2" />
                         </div>
                     </div>
@@ -60,7 +57,6 @@
                                 :options="$organizations"
                                 value-field='id'
                                 text-field='name'
-                                disabled
                                 placeholder="Select Organization"
                                 search-input-placeholder="Search Organization"
                                 :searchable="true"
@@ -82,7 +78,7 @@
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label value="{{ __(' First Name') }}" />
-                            <x-input disabled id="FirstName" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="firstname" autocomplete="firstname" />
+                            <x-input id="FirstName" type="text" class="h-10 text-sm block w-full mt-1 placeholder-gray-500 dark:text-gray-400" wire:model="firstname" autocomplete="firstname" />
                             <x-input-error for="FirstName" class="mt-2" />
                         </div>
                     </div>
@@ -95,7 +91,6 @@
                                 id="contact_type_id"
                                 :options="$contacttypes"
                                 value-field='id'
-                                disabled
                                 text-field='contact_type_name'
                                 placeholder="Select Contact Type"
                                 search-input-placeholder="Search Contact Type"
@@ -117,7 +112,7 @@
                             <x-input-error for="contact_type_id" class="mt-2" />
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0 flex flex-row">
-                            <div class="w-full">
+                            <div class="w-10/12">
                                 <x-label value="{{ __(' Address') }}" />
                                 <x-simple-select
                                     wire:model="address_id"
@@ -125,7 +120,6 @@
                                     id="contact_address_id"
                                     :options="$addresses"
                                     value-field='id'
-                                    disabled
                                     text-field='full'
                                     placeholder="Select Address"
                                     search-input-placeholder="Search Address"
@@ -149,6 +143,9 @@
                                 </x-simple-select>
                                 <x-input-error for="contact_address_id" class="mt-2" />
                             </div>
+                            <div class="w-2/12 flex flex-wrap justify-end pl-3">
+                                <x-theme.button wire="openAddressSelectorModal" extracss="h-10 self-end">Change</x-theme.button>
+                            </div>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3">
@@ -162,7 +159,6 @@
                                         id="job_id"
                                         :options="$jobs"
                                         value-field='id'
-                                        disabled
                                         text-field='name'
                                         placeholder="Select Job"
                                         search-input-placeholder="Search Job"
@@ -180,7 +176,6 @@
                                         id="language_code"
                                         :options="$languages"
                                         value-field='language_code'
-                                        disabled
                                         text-field='language_name'
                                         placeholder="Select Language"
                                         search-input-placeholder="Search Language"
@@ -199,6 +194,7 @@
                 </div>
                 <div class="flex flex-wrap justify-end pt-6 space-x-3">
                     <x-theme.button wire="cancel">{{__('messages.cancel')}}</x-theme.button>
+                    <x-theme.button wire="updateContact">{{__('messages.updatecontact')}}</x-theme.button>
                 </div>
             </x-panel>
         </x-slot>

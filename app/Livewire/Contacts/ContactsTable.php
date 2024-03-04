@@ -105,7 +105,7 @@ final class ContactsTable extends PowerGridComponent
 
         $columns[]=Column::make('Info', 'info');
 
-        $columns[]=Column::make('Organization', 'organizations.name')
+        $columns[]=Column::make('Organization', 'name', 'organizations.name')
             ->sortable()
             ->searchable();
 

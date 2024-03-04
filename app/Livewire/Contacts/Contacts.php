@@ -158,18 +158,45 @@ class Contacts extends Component
             {
                 $this->contact=new Contact;
                 $this->address=new Address;
+
+                $this->address_id=null;
+                $this->tenant_id=$this->user->tenant_id;
+                $this->organization_id=null;
+                $this->contact_type_id=null;
+                $this->job_id=null;
+                $this->lastname=null;
+                $this->firstname=null;
+                $this->language=null;
+
                 return view('livewire.contacts.add');
             }
             if ($this->mode=="edit")
             {
                 $this->contact=Contact::where('id', $this->contact_id)->first();
+                $this->address=$this->contact->address;
+                $this->address_id=$this->contact->address_id;
+                $this->tenant_id=$this->contact->tenant_id;
+                $this->organization_id=$this->contact->organization_id;
+                $this->contact_type_id=$this->contact->contact_type_id;
+                $this->job_id=$this->contact->job_id;
+                $this->lastname=$this->contact->lastname;
+                $this->firstname=$this->contact->firstname;
+                $this->language=$this->contact->language;
+
                 return view('livewire.contacts.edit');
             }
             if ($this->mode=="view")
             {
                 $this->contact=Contact::where('id', $this->contact_id)->first();
-
-                //dd($this->contact);
+                $this->address=$this->contact->address;
+                $this->address_id=$this->contact->address_id;
+                $this->tenant_id=$this->contact->tenant_id;
+                $this->organization_id=$this->contact->organization_id;
+                $this->contact_type_id=$this->contact->contact_type_id;
+                $this->job_id=$this->contact->job_id;
+                $this->lastname=$this->contact->lastname;
+                $this->firstname=$this->contact->firstname;
+                $this->language=$this->contact->language;
 
                 return view('livewire.contacts.view');
             }
