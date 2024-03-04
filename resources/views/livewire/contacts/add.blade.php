@@ -188,7 +188,7 @@
                             </div>
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
-                            <x-map :address="$address"/>
+
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                     {
                         enablemap(lat,lng);
                     }
-                }, 200);
+                }, 500);
             }
         </script>
         @endscript

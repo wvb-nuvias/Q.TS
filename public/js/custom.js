@@ -8,5 +8,5 @@ $wire.on('refresh_map',()=> {
 
     alert('ok');
 
-    enablemap(lat,lng);
+    //enablemap(lat,lng);
 });

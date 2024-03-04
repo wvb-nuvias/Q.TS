@@ -32,7 +32,7 @@ class Contacts extends Component
     public $address,$tenants=null,$tenant_id;
     public $organizations;
     public $organization_id,$addresses;
-    public $jobs,$languages;
+    public $jobs,$languages,$refresh=false;
 
     protected $rules = [
         'organization.tenant_id' => 'required',
@@ -86,7 +86,8 @@ class Contacts extends Component
     #[On('select')]
     public function select(): void
     {
-        $this->dispatch('refresh_map');
+        //$this->refresh=!$this->refresh;
+
     }
 
     public function mount() {

@@ -11,7 +11,7 @@ use App\Models\OrganizationType;
 use Livewire\Attributes\On;
 use App\Models\UserSetting;
 use App\Models\Tenant;
-
+use Illuminate\Support\Facades\DB;
 
 class Organizations extends Component
 {
@@ -24,12 +24,13 @@ class Organizations extends Component
     public $organization=null;
     public $organizationtypes=null;
     public $organizationtype,$tenant,$organization_id,$tenant_id,$tenant_icon,$tenant_color,$tenant_name,$name,$number,$address_id,$organization_type_id,$managedby,$source;
-    public $address,$tenants=null;
+    public $address,$tenants=null,$addresses;
 
     protected $rules = [
         'organization.name' => 'required',
         'organization.organization_type_id' => 'required',
         'organization.tenant_id' => 'required',
+        'address_id' => 'required',
     ];
 
     #[On('edit_organization')]
@@ -73,6 +74,11 @@ class Organizations extends Component
     public function mount() {
         $this->user = auth()->user();
         $this->rights = $this->user->rights();
+
+        $this->addresses=Address::select('*',DB::raw("CONCAT(street,' ',number,', ',postal,' ',city,', ',country) AS full"))
+            ->where('tenant_id',$this->user->tenant_id)
+            ->get()
+            ->toArray();
 
         $sel=$this->user->setting("organizationtypes");
         if ($sel)

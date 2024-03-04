@@ -53,24 +53,14 @@
         <script defer>
             function enablemap(lat,lng) {
                 var elementExists = document.getElementById("location-map");
-
-                //alert('ok');  //conclusion it is called to quickly, try waiting for x seconds?
-
-                //alert(elementExists);
-
                 if (elementExists)
                 {
-                    //alert('ok');
-
                     var L = window.L;
-
                     var map = L.map('location-map');
-
                     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                             maxZoom: 20,
                             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                         }).addTo(map);
-
                     map.setView([lat,lng],18);
                 }
             }
