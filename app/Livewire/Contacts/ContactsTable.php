@@ -19,6 +19,7 @@ use Livewire\Attributes\On;
 use App\Livewire\Actions;
 use App\Models\User;
 use App\Models\Log;
+use Illuminate\Support\Facades\DB;
 
 final class ContactsTable extends PowerGridComponent
 {
@@ -51,7 +52,8 @@ final class ContactsTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        $contacts= Contact::where('contacts.tenant_id',$this->user->tenant_id)
+        $contacts= Contact::select('*',DB::raw("contacts.id AS contact_id"))
+            ->where('contacts.tenant_id',$this->user->tenant_id)
             ->whereIn('contacts.contact_type_id',$this->selectedtypes)
             ->join('contact_types', function ($contact_types) {
                 $contact_types->on('contact_type_id', '=', 'contact_types.id');
@@ -75,7 +77,7 @@ final class ContactsTable extends PowerGridComponent
     public function fields(): PowerGridFields
     {
         return PowerGrid::fields()
-            ->add('id')
+            ->add('contact_id')
             ->add('tenant_id')
             ->add('customer_id')
             ->add('contact_type_id')
@@ -122,44 +124,6 @@ final class ContactsTable extends PowerGridComponent
         $columns[]=Column::action('Action');
 
         return $columns;
-
-        /*
-        return [
-            Column::make('Id', 'id'),
-            Column::make('Tenant id', 'tenant_id')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Customer id', 'customer_id')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Contact type id', 'contact_type_id')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Job id', 'job_id')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Lastname', 'lastname')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Firstname', 'firstname')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Created at', 'created_at_formatted', 'created_at')
-                ->sortable(),
-
-            Column::make('Created at', 'created_at')
-                ->sortable()
-                ->searchable(),
-
-            Column::action('Action')
-        ];
-        */
     }
 
     public function filters(): array
@@ -168,18 +132,10 @@ final class ContactsTable extends PowerGridComponent
         ];
     }
 
-    /*
-    #[\Livewire\Attributes\On('edit_contact')]
-    public function edit_contact($rowId): void
-    {
-        $this->js('alert('.$rowId.')');
-    }
-    */
-
     public function actions(\App\Models\Contact $row): array
     {
-        $actions= Actions::action_buttons($row->id,'contact','CON',$row,$this->user);
-        //dd($actions);
+        //dd($row);
+        $actions= Actions::action_buttons($row->contact_id,'contact','CONTACT',$row,$this->user);
         return $actions;
     }
 

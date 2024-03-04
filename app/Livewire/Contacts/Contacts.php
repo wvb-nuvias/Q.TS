@@ -168,6 +168,9 @@ class Contacts extends Component
             if ($this->mode=="view")
             {
                 $this->contact=Contact::where('id', $this->contact_id)->first();
+
+                //dd($this->contact);
+
                 return view('livewire.contacts.view');
             }
         }

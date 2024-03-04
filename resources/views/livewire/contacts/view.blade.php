@@ -203,11 +203,11 @@
     </x-layouts.tspage>
     <livewire:components.address-modal :user="$user" />
     <livewire:imports.imports destination="Contact" />
-    @if ($address->lat!=null)
+    @if ($contact->address->lat!=null)
         @script
         <script>
-                lat={{$address->lat}};
-                lng={{$address->lng}};
+                lat={{$contact->address->lat}};
+                lng={{$contact->address->lng}};
 
                 setTimeout(function() {
                     if (lat)
