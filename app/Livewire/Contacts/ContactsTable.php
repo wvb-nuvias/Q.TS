@@ -53,11 +53,14 @@ final class ContactsTable extends PowerGridComponent
     {
         $contacts= Contact::where('contacts.tenant_id',$this->user->tenant_id)
             ->whereIn('contacts.contact_type_id',$this->selectedtypes)
-            ->join('contact_types', function ($organization_types) {
-                $organization_types->on('contact_type_id', '=', 'contact_types.id');
+            ->join('contact_types', function ($contact_types) {
+                $contact_types->on('contact_type_id', '=', 'contact_types.id');
             })
             ->join('tenants', function ($tenants) {
                 $tenants->on('contacts.tenant_id', '=', 'tenants.id');
+            })
+            ->join('organizations', function ($organization) {
+                $organization->on('contacts.organization_id', '=', 'organizations.id');
             })
             ;
 
@@ -79,8 +82,14 @@ final class ContactsTable extends PowerGridComponent
             ->add('job_id')
             ->add('lastname')
             ->add('firstname')
+            ->add('organizations.name')
             ->add('contact_source')
-            ->add('created_at');
+            ->add('created_at')
+            ->add('info', function ($model) {
+                $tmp="<i class=\"p-1 opacity-80 hover:opacity-100 text-".$model->contact_type_color."-600 fa fa-".$model->contact_type_icon."\" title=\"Type : ".$model->contact_type_name."\"></i>";
+
+                return $tmp;
+            });
     }
 
     public function columns(): array
@@ -94,7 +103,7 @@ final class ContactsTable extends PowerGridComponent
 
         $columns[]=Column::make('Info', 'info');
 
-        $columns[]=Column::make('Number', 'number')
+        $columns[]=Column::make('Organization', 'organizations.name')
             ->sortable()
             ->searchable();
 
@@ -159,11 +168,13 @@ final class ContactsTable extends PowerGridComponent
         ];
     }
 
+    /*
     #[\Livewire\Attributes\On('edit_contact')]
     public function edit_contact($rowId): void
     {
         $this->js('alert('.$rowId.')');
     }
+    */
 
     public function actions(\App\Models\Contact $row): array
     {

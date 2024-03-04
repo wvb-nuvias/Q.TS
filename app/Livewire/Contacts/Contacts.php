@@ -27,35 +27,38 @@ class Contacts extends Component
     public $isnew=true;
     public $contacttypes=null;
     public $contact_type=null;
+    public $contact_type_id;
+    public $contact_id;
     public $contact;
     public $address_id;
     public $address,$tenants=null,$tenant_id;
     public $organizations;
     public $organization_id,$addresses;
     public $jobs,$languages,$refresh=false;
+    public $job_id,$language,$lastname,$firstname;
 
     protected $rules = [
-        'organization.tenant_id' => 'required',
-        'contact.customer_id' => 'required',
-        'contact.contact_type_id' => 'required',
-        'contact.job_id' => 'required',
-        'contact.lastname' => 'required',
-        'contact.firstname' => 'required',
-        'contact.language' => 'required',
+        'tenant_id' => 'required',
+        'organization_id' => 'required',
+        'contact_type_id' => 'required',
+        'job_id' => 'required',
+        'lastname' => 'required',
+        'firstname' => 'required',
+        'language' => 'required',
         'address_id' => 'required',
     ];
 
     #[On('edit_contact')]
     public function edit($rowId): void
     {
-        $this->organization_id=$rowId;
+        $this->contact_id=$rowId;
         $this->switchmode('edit');
     }
 
     #[On('view_contact')]
     public function view($rowId): void
     {
-        $this->organization_id=$rowId;
+        $this->contact_id=$rowId;
         $this->switchmode('view');
     }
 
@@ -160,13 +163,11 @@ class Contacts extends Component
             if ($this->mode=="edit")
             {
                 $this->contact=Contact::where('id', $this->contact_id)->first();
-                $this->address=$this->contact->address;
                 return view('livewire.contacts.edit');
             }
             if ($this->mode=="view")
             {
                 $this->contact=Contact::where('id', $this->contact_id)->first();
-                $this->address=$this->contact->address;
                 return view('livewire.contacts.view');
             }
         }
@@ -238,13 +239,13 @@ class Contacts extends Component
         $newcon=Contact::create([
             "tenant_id" => $this->tenant_id,
             "organization_id" => $this->organization_id,
-            "contact_type_id" => $this->contact->contact_type_id,
-            "job_id" => $this->contact->job_id,
-            "lastname" => $this->contact->lastname,
-            "firstname" => $this->contact->firstname,
-            "language" => $this->contact->language,
+            "contact_type_id" => $this->contact_type_id,
+            "job_id" => $this->job_id,
+            "lastname" => $this->lastname,
+            "firstname" => $this->firstname,
+            "language" => $this->language,
             "contact_source" => "system",
-            "address_id" => $this->address->address_id
+            "address_id" => $this->address_id
         ]);
 
         Log::create([

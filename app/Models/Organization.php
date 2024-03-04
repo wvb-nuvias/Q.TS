@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $id
  * @property int|null $tenant_id
  * @property int|null $number
+ * @property int|null $address_id
  * @property int|null $organization_type_id
  * @property string|null $name
  * @property int|null $managed_by
