@@ -16,6 +16,10 @@ return new class extends Migration
             $table->integer('tenant_id')->nullable();
             $table->integer('incident_nr')->nullable();
             $table->integer('created_by')->nullable();
+            $table->dateTime('created_on')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->dateTime('updated_on')->nullable();
+            $table->dateTime('assigned_to')->nullable();
             $table->integer('customer_id')->nullable();
             $table->integer('incident_type_id')->nullable();
             $table->integer('incident_status_id')->nullable();

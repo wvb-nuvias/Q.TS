@@ -14,7 +14,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property int $id
  * @property int|null $tenant_id
  * @property int|null $incident_nr
+ * @property \Carbon\Carbon|null $created_on
  * @property int|null $created_by
+ * @property \Carbon\Carbon|null $updated_on
+ * @property int|null $updated_by
+ * @property int|null $assigned_to
  * @property int|null $customer_id
  * @property int|null $incident_type_id
  * @property int|null $incident_status_id
@@ -36,13 +40,19 @@ class Incident extends Model
     protected $fillable = [
         'tenant_id',
         'incident_nr',
+        'created_on',
         'created_by',
+        'updated_on',
+        'updated_by',
+        'assigned_to',
         'customer_id',
         'incident_type_id',
         'incident_status_id',
+        'incident_severity_id',
         'brand_id',
         'product_id',
         'subscription_id',
+        'contacts',
         'title',
         'description',
         'time_spent',

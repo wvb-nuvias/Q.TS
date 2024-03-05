@@ -35,6 +35,7 @@
         @endif
     </table>
 
+
     {{-- infinite pagination handler --}}
     @if ($this->canLoadMore && $lazy)
         <div class="justify-center items-center" wire:loading.class="flex" wire:target="loadMore">

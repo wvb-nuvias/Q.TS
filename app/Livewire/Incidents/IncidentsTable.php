@@ -15,6 +15,7 @@ use PowerComponents\LivewirePowerGrid\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
+use PowerComponents\LivewirePowerGrid\Responsive;
 use Livewire\Attributes\On;
 use App\Livewire\Actions;
 use App\Models\User;
@@ -56,6 +57,8 @@ final class IncidentsTable extends PowerGridComponent
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(mode: 'full'),
+            Responsive::make()
+                ->fixedColumns('info','title', Responsive::ACTIONS_COLUMN_NAME),
         ];
     }
 
@@ -103,6 +106,10 @@ final class IncidentsTable extends PowerGridComponent
             ->add('tenant_name')
             ->add('incident_nr')
             ->add('created_by')
+            ->add('created_on')
+            ->add('updated_by')
+            ->add('updated_on')
+            ->add('assigned_to')
             ->add('customer_id')
             ->add('organizations.name')               //customer name
             ->add('incident_type_id')

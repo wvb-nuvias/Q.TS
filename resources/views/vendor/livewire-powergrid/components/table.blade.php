@@ -64,6 +64,7 @@
                             <tr
                                 x-show="detailState"
                                 style="{{ data_get($theme, 'table.trBodyStyle') }}"
+
                                 {{ $trAttributesBag }}
                             >
                                 @include('livewire-powergrid::components.table.detail')
@@ -73,6 +74,7 @@
                         <tr
                             wire:key="tbody-{{ $rowId }}"
                             style="{{ data_get($theme, 'table.trBodyStyle') }}"
+
                             {{ $trAttributesBag }}
                         >
                             @include('livewire-powergrid::components.row', [
