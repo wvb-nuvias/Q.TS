@@ -7,7 +7,7 @@
     <x-panel.subtitle extracss="-mt-4">
         {{ $subtitle }}
     </x-panel.subtitle>
-    <div style="position:absolute; right:25px; top:20px">
+    <div style="position:absolute; right:25px; top:28px">
         @livewire('logs.log-type-selector', ["selectedtypes" => $selectedtypes])
     </div>
     <div class="pt-6 text-sm">

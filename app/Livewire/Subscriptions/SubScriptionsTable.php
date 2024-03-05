@@ -15,10 +15,12 @@ use PowerComponents\LivewirePowerGrid\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
+use PowerComponents\LivewirePowerGrid\Responsive;
 use Livewire\Attributes\On;
 use App\Livewire\Actions;
 use App\Models\User;
 use App\Models\Log;
+use Illuminate\Support\Facades\DB;
 
 final class SubScriptionsTable extends PowerGridComponent
 {
@@ -41,6 +43,8 @@ final class SubScriptionsTable extends PowerGridComponent
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),
+            Responsive::make()
+                ->fixedColumns('subscription_name','Action', Responsive::ACTIONS_COLUMN_NAME),
         ];
     }
 
@@ -59,7 +63,8 @@ final class SubScriptionsTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        $subscriptions= Subscription::where('subscriptions.tenant_id',$this->user->tenant_id);
+        $subscriptions= Subscription::where('subscriptions.tenant_id',$this->user->tenant_id)
+            ->select('*', DB::raw("subscriptions.name AS subscription_name, organizations.name AS organization_name"));
 
         if ($subscriptions)
         {
@@ -109,10 +114,11 @@ final class SubScriptionsTable extends PowerGridComponent
             ->add('tenant_id')
             ->add('tenant_name')
             ->add('subscription_type_id')
+            ->add('subscription_name')
+            ->add('organization_name')
             ->add('code')
             ->add('product_id')
             ->add('product_name')
-            ->add('name')
             ->add('description')
             ->add('cost')
             ->add('date_start')
@@ -147,11 +153,11 @@ final class SubScriptionsTable extends PowerGridComponent
         ->sortable()
         ->searchable();
 
-        $columns[]=Column::make('Customer', 'name', 'organizations.name')
-                ->sortable()
-                ->searchable();
+        $columns[]=Column::make('Organization', 'organization_name')
+            ->sortable()
+            ->searchable();
 
-        $columns[]=Column::make('Name', 'name')
+        $columns[]=Column::make('Name', 'subscription_name')
         ->sortable()
         ->searchable();
 

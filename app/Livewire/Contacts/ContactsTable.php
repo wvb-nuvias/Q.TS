@@ -15,6 +15,7 @@ use PowerComponents\LivewirePowerGrid\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
+use PowerComponents\LivewirePowerGrid\Responsive;
 use Livewire\Attributes\On;
 use App\Livewire\Actions;
 use App\Models\User;
@@ -47,6 +48,8 @@ final class ContactsTable extends PowerGridComponent
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),
+            Responsive::make()
+                ->fixedColumns('firstname','lastname', Responsive::ACTIONS_COLUMN_NAME),
         ];
     }
 

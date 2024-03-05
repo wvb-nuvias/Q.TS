@@ -39,6 +39,9 @@
                             </x-simple-select>
                             <x-input-error for="tenant_id" class="mt-2" />
                         </div>
+                        @else
+                        <div class="w-6/12 max-w-full px-3 flex-0">
+                        </div>
                         @endif
 
                         <div class="w-6/12 max-w-full px-3 flex-0">
