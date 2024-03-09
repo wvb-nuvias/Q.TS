@@ -35,7 +35,7 @@ class Contacts extends Component
     public $organizations;
     public $organization_id,$addresses;
     public $jobs,$languages,$refresh=false;
-    public $job_id,$language,$lastname,$firstname;
+    public $job_id,$language,$lastname,$firstname,$contact_number;
 
     protected $rules = [
         'tenant_id' => 'required',

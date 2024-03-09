@@ -83,6 +83,7 @@ final class ContactsTable extends PowerGridComponent
             ->add('contact_id')
             ->add('tenant_id')
             ->add('customer_id')
+            ->add('contact_number')
             ->add('contact_type_id')
             ->add('job_id')
             ->add('lastname')
@@ -107,6 +108,10 @@ final class ContactsTable extends PowerGridComponent
         }
 
         $columns[]=Column::make('Info', 'info');
+
+        $columns[]=Column::make('Number', 'number', 'contact_number')
+            ->sortable()
+            ->searchable();
 
         $columns[]=Column::make('Organization', 'name', 'organizations.name')
             ->sortable()

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('tenant_id')->nullable();
             $table->integer('organization_id')->nullable();
+            $table->integer('contact_number')->nullable();
             $table->integer('contact_type_id')->nullable();
             $table->integer('job_id')->nullable();
             $table->string('lastname',100)->nullable();

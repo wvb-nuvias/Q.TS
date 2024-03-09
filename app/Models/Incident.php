@@ -114,4 +114,5 @@ class Incident extends Model
     {
         return $this->HasOne(Subscription::class);
     }
+
 }
