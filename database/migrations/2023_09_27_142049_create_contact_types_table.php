@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('contact_type_name',100)->nullable();
             $table->string('contact_type_icon',150)->nullable();
             $table->string('contact_type_color',150)->nullable();
+            $table->integer('contact_type_number')->nullable();
             $table->timestamps();
         });
 
         DB::table('contact_types')->insert([
-            ['tenant_id' => 1, 'contact_type_name' => 'Normal', 'contact_type_icon' => 'user-tag', 'contact_type_color' => 'green'],
-            ['tenant_id' => 1, 'contact_type_name' => 'Person', 'contact_type_icon' => 'user-large', 'contact_type_color' => 'blue'],
+            ['tenant_id' => 1, 'contact_type_name' => 'Normal', 'contact_type_icon' => 'user-tag', 'contact_type_color' => 'green', 'contact_type_number' => 1],
+            ['tenant_id' => 1, 'contact_type_name' => 'Person', 'contact_type_icon' => 'user-large', 'contact_type_color' => 'blue', 'contact_type_number' => 100000],
         ]);
     }
 

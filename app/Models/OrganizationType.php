@@ -25,7 +25,7 @@ class OrganizationType extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'hidden', 'organization_type_name', 'organization_type_number'];
+    protected $fillable = ['tenant_id', 'hidden', 'organization_type_name', 'organization_type_icon', 'organization_type_color', 'organization_type_number'];
 
     /**
      * Get the organizations that have this organizationtype.
