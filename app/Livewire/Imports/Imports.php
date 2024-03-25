@@ -38,6 +38,11 @@ class Imports extends Component
         $this->showImportModal = false;
     }
 
+    public function cancelImportModal()
+    {
+        $this->cancel();
+    }
+
     public function switchsource($source)
     {
         $this->source=$source;

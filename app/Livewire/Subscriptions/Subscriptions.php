@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Log;
 use App\Models\Subscription;
+use App\Models\Tenant;
 use App\Models\User;
 use App\Models\UserSetting;
 
@@ -18,15 +19,27 @@ class Subscriptions extends Component
     public $mode="list";
     public $isnew=true;
     public $subscription=null;
+    public $showImportModal;
+    public $tenants, $tenant_id;
 
     public function switchmode($mode)
     {
         $this->mode=$mode;
     }
 
+    #[On('cancel_import')]
+    public function cancelImportModal()
+    {
+        $this->showImportModal = false;
+    }
+
     public function mount() {
         $this->user = auth()->user();
         $this->rights = $this->user->rights();
+
+        $this->tenant_id=$this->user->tenant_id;
+
+        $this->tenants=Tenant::select('id', 'tenant_name', 'tenant_icon', 'tenant_color')->get()->toArray();
 
         $sel=$this->user->setting("selectedbrand");
         if ($sel)

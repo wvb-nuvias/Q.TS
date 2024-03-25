@@ -76,6 +76,7 @@ class Contacts extends Component
         $this->switchmode('list');
     }
 
+    #[On('cancel_import')]
     public function cancelImportModal()
     {
         $this->showImportModal = false;
