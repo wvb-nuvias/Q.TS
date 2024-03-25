@@ -31,6 +31,8 @@ class Organizations extends Component
         'organization.organization_type_id' => 'required',
         'organization.tenant_id' => 'required',
         'address_id' => 'required',
+        'number' => 'required'
+        //afas_number not required
     ];
 
     #[On('edit_organization')]
@@ -177,6 +179,7 @@ class Organizations extends Component
             "ordinal" => 1,                 // find way out to check if it is second address for same org
             "street" => $address["street"],
             "number" => $address["number"],
+            "afas_number" => $address["afas_number"],
             "apartment" => $address["apartment"],
             "postal" => $address["postal"],
             "city" => $address["city"],
@@ -199,17 +202,20 @@ class Organizations extends Component
         $this->cancel();
     }
 
-    public function saveOrganization()
+    #[On('changeOrganizationType')]
+    public function changeOrganizationType()
     {
         $result=OrganizationType::where('id',$this->organization_type_id)
-            ->select('organization_type_number')
             ->first();
+        $this->number=$result->getnextnumber();
+    }
 
-        $orgtypenr=$result->organization_type_number+1;
-
+    public function saveOrganization()
+    {
         $neworg=Organization::create([
             "tenant_id" => $this->tenant_id,
-            "number" => $orgtypenr,
+            "number" => $this->number,
+            "afas_number" => $this->afas_number,
             "address_id" => $this->address->address_id,
             "organization_type_id" => $this->organization_type_id,
             "name" => $this->organization->name,
@@ -226,6 +232,11 @@ class Organizations extends Component
             "message"       => 'New organization has been created.',
             "log_date"      => now()
         ]);
+
+        $orgtype=OrganizationType::where('id',$this->organization_type_id)
+            ->first();
+        $orgtype->organization_type_number=$this->number;
+        $orgtype->save();
 
         //also make link between address and organization
 

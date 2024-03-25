@@ -53,12 +53,12 @@
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="number" value="{{ __('Number') }}" />
-                            <x-input id="number" type="text" class="block w-full h-10 mt-1 text-sm placeholder-gray-500" wire:model="organization.number" autocomplete="number" placeholder="Enter Number" />
+                            <x-input id="number" type="text" class="block w-full h-10 mt-1 text-sm placeholder-gray-500" wire:model="number" autocomplete="number" placeholder="Enter Number" />
                             <x-input-error for="number" class="mt-2" />
                         </div>
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="afas_number" value="{{ __('Afas Number') }}" />
-                            <x-input id="afas_number" type="text" class="block w-full h-10 mt-1 text-sm placeholder-gray-500" wire:model="organization.afas_number" autocomplete="afas_number" placeholder="Enter Afas Number" />
+                            <x-input id="afas_number" type="text" class="block w-full h-10 mt-1 text-sm placeholder-gray-500" wire:model="afas_number" autocomplete="afas_number" placeholder="Enter Afas Number" />
                             <x-input-error for="afas_number" class="mt-2" />
                         </div>
                     </div>
@@ -67,6 +67,7 @@
                         <div class="w-6/12 max-w-full px-3 flex-0">
                             <x-label for="organization_type_id" value="{{ __(' Organization Type') }}" />
                             <x-simple-select
+                                on-select="changeOrganizationType"
                                 wire:model="organization_type_id"
                                 name="organization_type_id"
                                 id="organization_type_id"

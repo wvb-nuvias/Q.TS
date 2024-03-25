@@ -34,4 +34,8 @@ class OrganizationType extends Model
     {
         return $this->belongsTo(Organization::class);
     }
+
+    public function getnextnumber() {
+        return $this->organization_type_number + 1;
+    }
 }
