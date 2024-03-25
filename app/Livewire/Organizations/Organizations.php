@@ -24,7 +24,7 @@ class Organizations extends Component
     public $organization=null;
     public $organizationtypes=null;
     public $organizationtype,$tenant,$organization_id,$tenant_id,$tenant_icon,$tenant_color,$tenant_name,$name,$number,$address_id,$organization_type_id,$managedby,$source;
-    public $address,$tenants=null,$addresses;
+    public $address,$tenants=null,$addresses,$afas_number;
 
     protected $rules = [
         'organization.name' => 'required',
