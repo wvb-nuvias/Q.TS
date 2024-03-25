@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property int|null $contact_afas_number
  * @property int|null $contact_type_id
  * @property int|null $job_id
+ * @property string|null $department
  * @property string|null $lastname
  * @property string|null $firstname
  * @property string|null $language
@@ -39,6 +40,7 @@ class Contact extends Model
         'contact_afas_number',
         'contact_type_id',
         'job_id',
+        'department',
         'lastname',
         'firstname',
         'language',

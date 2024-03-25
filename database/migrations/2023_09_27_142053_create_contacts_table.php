@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('contact_afas_number')->nullable();
             $table->integer('contact_type_id')->nullable();
             $table->integer('job_id')->nullable();
+            $table->string('department',100)->nullable();
             $table->string('lastname',100)->nullable();
             $table->string('firstname',100)->nullable();
             $table->string('language',4)->nullable();
