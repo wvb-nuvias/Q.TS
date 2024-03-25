@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $id
  * @property int|null $tenant_id
  * @property int|null $number
+ * @property int|null $afas_number
  * @property int|null $address_id
  * @property int|null $organization_type_id
  * @property string|null $name
@@ -28,7 +29,7 @@ class Organization extends Model
     use HasFactory;
 
     /** @var array */
-    protected $fillable = ['tenant_id', 'number', 'address_id', 'organization_type_id', 'name', 'managed_by', 'organization_source'];
+    protected $fillable = ['tenant_id', 'number', 'afas_number', 'address_id', 'organization_type_id', 'name', 'managed_by', 'organization_source'];
 
     /**
      * Get the addresses for the contact.
