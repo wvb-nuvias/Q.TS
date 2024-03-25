@@ -65,7 +65,7 @@ final class ContactsTable extends PowerGridComponent
                 $tenants->on('contacts.tenant_id', '=', 'tenants.id');
             })
             ->join('organizations', function ($organization) {
-                $organization->on('contacts.organization_id', '=', 'organizations.id');
+                $organization->on('contacts.customer_id', '=', 'organizations.id');
             })
             ;
 

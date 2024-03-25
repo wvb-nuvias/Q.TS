@@ -113,7 +113,7 @@ class Contacts extends Component
         }
 
         $this->jobs=Job::where('tenant_id',$this->user->tenant_id)
-            ->select('id','name', 'source')
+            ->select('id','job_name', 'job_source')
             ->get()
             ->toArray();
 
