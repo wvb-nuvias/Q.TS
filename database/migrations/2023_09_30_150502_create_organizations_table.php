@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->integer('tenant_id')->nullable();
             $table->integer('number')->nullable();
+            $table->integer('afas_number')->nullable();
             $table->integer('address_id')->nullable();
             $table->integer('organization_type_id')->nullable();
             $table->string('name',100)->nullable();
