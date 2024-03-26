@@ -53,6 +53,20 @@
                             <x-input-error for="Name" class="mt-2" />
                         </div>
                     </div>
+
+                    <div class="flex flex-wrap -mx-3">
+                        <div class="w-6/12 max-w-full px-3 flex-0">
+                            <x-label for="number" value="{{ __('Number') }}" />
+                            <x-input id="number" type="text" class="block w-full h-10 mt-1 text-sm placeholder-gray-500" wire:model="number" autocomplete="number" placeholder="Enter Number" />
+                            <x-input-error for="number" class="mt-2" />
+                        </div>
+                        <div class="w-6/12 max-w-full px-3 flex-0">
+                            <x-label for="afas_number" value="{{ __('Afas Number') }}" />
+                            <x-input id="afas_number" type="text" class="block w-full h-10 mt-1 text-sm placeholder-gray-500" wire:model="afas_number" autocomplete="afas_number" placeholder="Enter Afas Number" />
+                            <x-input-error for="afas_number" class="mt-2" />
+                        </div>
+                    </div>
+
                     <!-- if you are endcustomer, auto select this, if reseller only show where has subscription for-->
                     <div class="flex flex-wrap -mx-3">
                         <div class="w-6/12 max-w-full px-3 flex-0">
