@@ -29,7 +29,7 @@
                                 <x-slot name="customOption">
                                     <div class="flex flex-row w-full h-10 bg-opacity-50 opacity-50 cursor-pointer hover:opacity-100 bg-emerald-600">
                                         <div class="flex justify-center w-10 h-10 pl-2 pr-2 mt-2">
-                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" :color="'${ option.tenant_color }'" :icon="'${ option.tenant_icon }'" />
+                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" x-bind:icon="option.tenant_icon" color="" />
                                         </div>
                                         <div class="flex flex-col">
                                             <div x-text="option.tenant_name" class="text-md"></div>
