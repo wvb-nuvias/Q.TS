@@ -27,10 +27,10 @@
                                 class="border-gray-300 rounded-md shadow-sm form-select dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600"
                             >
                                 <x-slot name="customOption">
-                                    <div class="flex flex-row w-full h-10 bg-opacity-50 opacity-50 cursor-pointer hover:opacity-100 bg-emerald-600">
+                                    <div class="flex flex-row w-full h-10 bg-opacity-50 opacity-50 cursor-pointer hover:opacity-100">
                                         <div class="flex justify-center w-10 h-10 pl-2 pr-2 mt-2">
-                                            <div class="pt-2 border shadow-sm rounded-xl flex items-center justify-center bg-gradient-to-tl from-${option.tenant_color}-800 to-${option.tenant_color}-600" style="height:25px;width:25px">
-                                                <i class="fa fa-${option.tenant_icon} dark:text-white text-md"></i>
+                                            <div class="flex items-center justify-center pt-2 border shadow-sm rounded-xl bg-gradient-to-tl" style="height:25px;width:25px" :class="'from-'+option.tenant_color+'-800 to-'+option.tenant_color+'-600'">
+                                                <i class="fa dark:text-white text-md" :class="'fa-' + option.tenant_icon"></i>
                                             </div>
                                         </div>
                                         <div class="flex flex-col">
