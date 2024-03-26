@@ -243,16 +243,14 @@ class Organizations extends Component
         $this->switchmode('list');
         session()->flash('success', 'Organization successfully created.');
         $this->dispatch('alert_remove');
-    }
+    } 
 
     public function updateOrganization()
     {
         $org = Organization::where('id',$this->organization_id)->first();
 
-        $org->number = $this->number;
         $org->afas_number = $this->afas_number;
         $org->address_id = $this->address->address_id;
-        $org->organization_type_id = $this->organization_type_id;
         $org->name = $this->organization->name;
         $org->managedby = $this->user->organization->id;
         $org->organization_source = "system";

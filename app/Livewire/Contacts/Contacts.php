@@ -321,9 +321,7 @@ class Contacts extends Component
     {
         $selcon=Contact::where('id',$this->contact_id)->first();
 
-        $selcon->organization_id = $this->organization_id;
-        $selcon->contact_type_id = $this->contact_type_id;
-        $selcon->contact_number = $this->contact_number;
+        $selcon->contact_afas_number = $this->contact_afas_number;
         $selcon->job_id = $this->job_id;
         $selcon->lastname = $this->lastname;
         $selcon->firstname = $this->firstname;
