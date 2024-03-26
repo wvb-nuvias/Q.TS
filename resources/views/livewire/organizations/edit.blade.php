@@ -83,9 +83,11 @@
                                 class="border-gray-300 rounded-md shadow-sm form-select dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600"
                             >
                                 <x-slot name="customOption">
-                                    <div class="flex flex-row w-full h-10 bg-purple-600 bg-opacity-50 opacity-50 cursor-pointer hover:opacity-100">
+                                    <div class="flex flex-row w-full h-10 bg-opacity-50 opacity-50 cursor-pointer hover:opacity-100">
                                         <div class="flex justify-center w-10 h-10 pl-2 pr-2 mt-2">
-                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" color="${option.tenant_color}" icon="option.tenant_icon" />
+                                            <div class="flex items-center justify-center pt-2 border shadow-sm rounded-xl bg-gradient-to-tl" style="height:25px;width:25px" :class="'from-'+option.organization_type_color+'-800 to-'+option.organization_type_color+'-600'">
+                                                <i class="fa dark:text-white text-md" :class="'fa-' + option.organization_type_icon"></i>
+                                            </div>
                                         </div>
                                         <div class="flex flex-col">
                                             <div x-text="option.organization_type_name" class="text-md"></div>
