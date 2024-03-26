@@ -243,7 +243,7 @@ class Organizations extends Component
         $this->switchmode('list');
         session()->flash('success', 'Organization successfully created.');
         $this->dispatch('alert_remove');
-    } 
+    }
 
     public function updateOrganization()
     {
