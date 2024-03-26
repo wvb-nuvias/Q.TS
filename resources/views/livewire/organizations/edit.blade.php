@@ -29,7 +29,9 @@
                                 <x-slot name="customOption">
                                     <div class="flex flex-row w-full h-10 bg-opacity-50 opacity-50 cursor-pointer hover:opacity-100 bg-emerald-600">
                                         <div class="flex justify-center w-10 h-10 pl-2 pr-2 mt-2">
-                                            <x-theme.icon extracss="p-2" textheight="text-md" height="25" width="25" x-bind:icon="option.tenant_icon" color="" />
+                                            <div class="pt-2 border shadow-sm rounded-xl flex items-center justify-center bg-gradient-to-tl from-${option.tenant_color}-800 to-${option.tenant_color}-600" style="height:25px;width:25px">
+                                                <i class="fa fa-${option.tenant_icon} dark:text-white text-md"></i>
+                                            </div>
                                         </div>
                                         <div class="flex flex-col">
                                             <div x-text="option.tenant_name" class="text-md"></div>
