@@ -32,7 +32,7 @@ class Organizations extends Component
         'organization.tenant_id' => 'required',
         'address_id' => 'required',
         'number' => 'required'
-        //afas_number not required
+        //TODO: afas_number not required?
     ];
 
     #[On('edit_organization')]
@@ -176,7 +176,7 @@ class Organizations extends Component
         $this->address=Address::create([
             "tenant_id" => $this->tenant_id,
             "address_type_id" => $address["address_type_id"],
-            "ordinal" => 1,                 // find way out to check if it is second address for same org
+            "ordinal" => 1,                 //TODO: find way out to check if it is second address for same org
             "street" => $address["street"],
             "number" => $address["number"],
             "afas_number" => $address["afas_number"],
@@ -238,12 +238,41 @@ class Organizations extends Component
         $orgtype->organization_type_number=$this->number;
         $orgtype->save();
 
-        //also make link between address and organization
+        //TODO: also make link between address and organization
+
+        $this->switchmode('list');
+        session()->flash('success', 'Organization successfully created.');
+        $this->dispatch('alert_remove');
+    }
+
+    public function updateOrganization()
+    {
+        $org = Organization::where('id',$this->organization_id)->first();
+
+        $org->number = $this->number;
+        $org->afas_number = $this->afas_number;
+        $org->address_id = $this->address->address_id;
+        $org->organization_type_id = $this->organization_type_id;
+        $org->name = $this->organization->name;
+        $org->managedby = $this->user->organization->id;
+        $org->organization_source = "system";
+
+        $org->save();
+
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "Organizations",
+            "log_type"      => 2,
+            "message"       => 'Organization has been updated.',
+            "log_date"      => now()
+        ]);
+
+        //TODO: also make link between address and organization
 
         $this->switchmode('list');
         session()->flash('success', 'Organization successfully updated.');
         $this->dispatch('alert_remove');
     }
-
-
 }

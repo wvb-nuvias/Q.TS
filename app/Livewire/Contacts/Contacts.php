@@ -28,6 +28,8 @@ class Contacts extends Component
     public $contacttypes=null;
     public $contact_type=null;
     public $contact_type_id;
+    public $contact_type_number;
+    public $contact_afas_number;
     public $contact_id;
     public $contact;
     public $address_id;
@@ -41,6 +43,7 @@ class Contacts extends Component
         'tenant_id' => 'required',
         'organization_id' => 'required',
         'contact_type_id' => 'required',
+        'contact_number' => 'required',
         'job_id' => 'required',
         'lastname' => 'required',
         'firstname' => 'required',
@@ -169,6 +172,10 @@ class Contacts extends Component
                 $this->firstname=null;
                 $this->language=null;
 
+                //TODO add contact_type_number to $this->contact_number
+                $this->contact_number=null;
+                $this->contact_afas_number=null;
+
                 return view('livewire.contacts.add');
             }
             if ($this->mode=="edit")
@@ -183,6 +190,8 @@ class Contacts extends Component
                 $this->lastname=$this->contact->lastname;
                 $this->firstname=$this->contact->firstname;
                 $this->language=$this->contact->language;
+                $this->contact_number=$this->contact_number;
+                $this->contact_afas_number=$this->contact_afas_number;
 
                 return view('livewire.contacts.edit');
             }
@@ -198,6 +207,8 @@ class Contacts extends Component
                 $this->lastname=$this->contact->lastname;
                 $this->firstname=$this->contact->firstname;
                 $this->language=$this->contact->language;
+                $this->contact_number=$this->contact_number;
+                $this->contact_afas_number=$this->contact_afas_number;
 
                 return view('livewire.contacts.view');
             }
@@ -206,6 +217,14 @@ class Contacts extends Component
         {
             return view('errors.403');
         }
+    }
+
+    #[On('changeContactType')]
+    public function changeContactType()
+    {
+        $result=ContactType::where('id',$this->contact_type_id)
+            ->first();
+        $this->contact_number=$result->getnextnumber();
     }
 
     #[On('contact-type-selector-changed')]
@@ -271,12 +290,14 @@ class Contacts extends Component
             "tenant_id" => $this->tenant_id,
             "organization_id" => $this->organization_id,
             "contact_type_id" => $this->contact_type_id,
+            "contact_number" => $this->contact_number,
+            "contact_afas_number" => $this->contact_afas_number,
             "job_id" => $this->job_id,
             "lastname" => $this->lastname,
             "firstname" => $this->firstname,
             "language" => $this->language,
-            "contact_source" => "system",
-            "address_id" => $this->address_id
+            "address_id" => $this->address_id,
+            "contact_source" => "system"
         ]);
 
         Log::create([
@@ -289,13 +310,44 @@ class Contacts extends Component
             "log_date"      => now()
         ]);
 
-        //also make link between address and contact
+        //TODO: also make link between address and contact
+
+        $this->switchmode('list');
+        session()->flash('success', 'Contact successfully created.');
+        $this->dispatch('alert_remove');
+    }
+
+    public function updateContact()
+    {
+        $selcon=Contact::where('id',$this->contact_id)->first();
+
+        $selcon->organization_id = $this->organization_id;
+        $selcon->contact_type_id = $this->contact_type_id;
+        $selcon->contact_number = $this->contact_number;
+        $selcon->job_id = $this->job_id;
+        $selcon->lastname = $this->lastname;
+        $selcon->firstname = $this->firstname;
+        $selcon->language = $this->language;
+        $selcon->address_id = $this->address_id;
+        $selcon->contact_source = "system";
+
+        $selcon->save();
+
+        //TODO: also make link between address and contact, remove the
+
+        Log::create([
+            "tenant_id"     => $this->user->tenant_id,
+            "log_user_id"   => $this->user->id,
+            "category"      => "System",
+            "source"        => "Contacts",
+            "log_type"      => 2,
+            "message"       => 'Contact has been updated.',
+            "log_date"      => now()
+        ]);
 
         $this->switchmode('list');
         session()->flash('success', 'Contact successfully updated.');
         $this->dispatch('alert_remove');
     }
-
-
 }
 

@@ -24,4 +24,8 @@ class ContactType extends Model
 
     /** @var array */
     protected $fillable = ['tenant_id', 'contact_type_name','contact_type_icon','contact_type_color','contact_type_number'];
+
+    public function getnextnumber() {
+        return $this->contact_type_number + 1;
+    }
 }
